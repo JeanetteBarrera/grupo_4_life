@@ -23,6 +23,16 @@ El sitio será una plataforma de venta de Indumentaria Femenina, Maculina y prod
 El mismo esta dirigido a un publico joven de entre 16 y 45 años
 
 ## Sitios que tomamos de refercia:
+- [Zara](https://www.zara.com/ar/)
+<!--razon de elección-->
+- [Rouge](https://www.perfumeriasrouge.com/)
+<!--razon de elección e ideas -->
+- [47 Street](https://www.47street.com.ar/)
+<!--razon de elección-->
+- [Revolve](https://www.revolve.com/)
+<!--razon de elección-->
+- [Forever21](https://www.forever21.com/)
+<!--razon de elección-->
 
 ## Wireframes
 
