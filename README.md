@@ -1,5 +1,5 @@
 # PROYECTO INTEGRADOR : GRUPO 4
-<!--nombre del proyecto, se podria poner el logo-->
+![logotipo](/images/logo.png)
 
 ## ***SPRINT I : Fecha de entrega 22/01***
 
@@ -18,21 +18,21 @@
 
 ## Tematica del sitio y a que publico esta dirigido
 
-El sitio será una plataforma de venta de Indumentaria Femenina, Maculina y productos de Autocuidado
+El sitio será una plataforma de venta de Indumentaria Femenina, Masculina y productos de Autocuidado
 
 El mismo esta dirigido a un publico joven de entre 16 y 45 años
 
-## Sitios que tomamos de refercia:
+## Sitios que tomamos de referencia:
 - [Zara](https://www.zara.com/ar/)
-<!--razon de elección-->
+De este sitio sacamos la idea de su diseño de Front End y su experiencia de usuario.
 - [Rouge](https://www.perfumeriasrouge.com/)
-<!--razon de elección e ideas -->
+De este sitio sacamos la idea de ingreso de usuario.
 - [47 Street](https://www.47street.com.ar/)
-<!--razon de elección-->
+De este sitio su experiencia de usuario y carrito de compras.
 - [Revolve](https://www.revolve.com/)
-<!--razon de elección-->
+De este sitio sacamos la idea de su detalle de producto.
 - [Forever21](https://www.forever21.com/)
-<!--razon de elección-->
+De este sitio sacamos la idea del footer.
 
 ## Wireframes
 
