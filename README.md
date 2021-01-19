@@ -5,36 +5,24 @@
 
 ## Integrantes
 
--  **Belen Chiotta**
+**Belen Chiotta**
+
 - 20años
 <!--breve descripción-->
-- Estudiante de Licenciatura de Organización de Industrias, Desarrolladora de Programación Web Full Stack y Cantante
-
--  **Jeanette Garcia Barrera**
+- Cantante, estudiante de Licenciatura de Organización de Industrias y Programación Web Full Stack 
+ 
+**Jeanette Garcia Barrera**
 - 23 años
 <!--breve descripción-->
--Estudiante de Ingenieria en Sistemas de la Información, Desarrolladora de Progrmacion Web Full Stack y amante del Baile.
+- Estudiante de Programación Web Full Stack y Ingenieria en Sistemas de la Información, además amante de la musica y el deporte.
 
 ## Tematica del sitio y a que publico esta dirigido
 
-<<
 El sitio será una plataforma de venta de Indumentaria Femenina, Maculina y productos de Autocuidado
 
-El e-commerce esta dirigido a un publico joven de entre 16 y 45 años
+El mismo esta dirigido a un publico joven de entre 16 y 45 años
 
 ## Sitios que tomamos de refercia:
-
-- pagina web
-<!--razon de elección e ideas -->
-- pagina web
-<!--razon de elección-->
-- pagina web
-<!--razon de elección-->
-- pagina web
-<!--razon de elección-->
-- pagina web
-<!--razon de elección-->
-
 
 ## Wireframes
 
