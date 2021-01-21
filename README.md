@@ -35,8 +35,8 @@ De este sitio sacamos la idea de su detalle de producto.
 De este sitio sacamos la idea del footer.
 
 ## Wireframes
-- [Home](./wireframe/Desktop-Home)
-- [Administrador](./wireframe/Desktop-Administrador)
-- [Carrito de Compras](./wireframe/Desktop-CarritodeCompras)
-- [Usuarios](./wireframe/Desktop-Usuario)
-- [Detalle de Producto](./wireframe/Desktop-DetalledeProducto-1)
+- [Home](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop-Home.pdf)
+- [Administrador](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop-Administrador.pdf)
+- [Carrito de Compras](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop-CarritodeCompras.pdf)
+- [Usuarios](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop%20-Usuarios.pdf)
+- [Detalle de Producto](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop%20-DetalledeProducto-1.pdf)
