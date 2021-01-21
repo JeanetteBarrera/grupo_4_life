@@ -35,7 +35,8 @@ De este sitio sacamos la idea de su detalle de producto.
 De este sitio sacamos la idea del footer.
 
 ## Wireframes
-
-
-
-
+- [Home](./wireframe/Desktop-Home)
+- [Administrador](./wireframe/Desktop-Administrador)
+- [Carrito de Compras](./wireframe/Desktop-CarritodeCompras)
+- [Usuarios](./wireframe/Desktop-Usuario)
+- [Detalle de Producto](./wireframe/Desktop-DetalledeProducto-1)
