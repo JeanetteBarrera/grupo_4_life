@@ -18,21 +18,27 @@
 
 ## Tematica del sitio y a que publico esta dirigido
 
-El sitio será una plataforma de venta de Indumentaria Femenina, Masculina y productos de Autocuidado
+El sitio será una plataforma de venta de Indumentaria Femenina, Masculina y productos de Autocuidado, esta dirigido a un publico joven de entre 16 y 45 años.
 
-El mismo esta dirigido a un publico joven de entre 16 y 45 años
+### Sobre LIFE
+
+LIFE es una marca que intenta quitar los tipicos estereotipos de vestimenta, basandonos en 4 factores diseño, precio, calidad  y disfrute.
+Nos inspiramos en prendas tanto extravagantes como basicas y comodas pero con grandes diseños.
+Nos tomamos muy en serio lo que se refiere a durabilidad y calidad de nuestros productos, de igual manera intentamos seguir una tendencia ecologica.
+
+En nuestra busqueda de conseguir ropa que nos haga sentir comodas y seguras, surgió LIFE.
 
 ## Sitios que tomamos de referencia:
 - [Zara](https://www.zara.com/ar/)
-De este sitio sacamos la idea de su diseño de Front End y su experiencia de usuario.
+    => nos inspiro su diseño de Front End y su (UX)experiencia de usuario.
 - [Rouge](https://www.perfumeriasrouge.com/)
-De este sitio sacamos la idea de ingreso de usuario.
+    => su interesante ingreso de usuario.
 - [47 Street](https://www.47street.com.ar/)
-De este sitio su experiencia de usuario y carrito de compras.
+    => su (UX)experiencia de usuario y carrito de compras.
 - [Revolve](https://www.revolve.com/)
-De este sitio sacamos la idea de su detalle de producto.
+    => de este sitio sacamos la idea del detalle de producto.
 - [Forever21](https://www.forever21.com/)
-De este sitio sacamos la idea del footer.
+    => nos inspiro su diseño, y vistas
 
 ## Wireframes
 - [Home](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop-Home.pdf)
