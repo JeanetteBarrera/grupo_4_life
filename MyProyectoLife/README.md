@@ -41,8 +41,8 @@ De este sitio sacamos la idea del footer.
 - [Usuarios](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop%20-Usuarios.pdf)
 - [Detalle de Producto](https://github.com/JeanetteBarrera/grupo_4_life/blob/master/wireframe/Desktop%20-DetalledeProducto-1.pdf)
 
-##  Sprint II (25/01)
+##  ***Sprint II (25/01)***
 
-###  [ Tablero De Trello ] (https://trello.com/b/G3EMaQnb/grupo-4-proyecto-life)
+- [ Tablero De Trello ] (https://trello.com/b/G3EMaQnb/grupo-4-proyecto-life)
 
 ###  Retrospectiva: 
