@@ -60,3 +60,17 @@ body {
     text-transform: uppercase;
     margin-top: 10px;
 }
+.section-4 {
+    background-color: #262626;
+}
+.section-4 .iconosF{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.section-4 .pie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: gray;
+}
