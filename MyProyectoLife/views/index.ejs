@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <title>HOME - Life</title>
+  <!-- Tailwind CSS Stylessheet -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesone Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+  <!-- Fullpage.js-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.css">
+  <!-- Owm Stylesheet-->
+  <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+  <header>
+    <nav class="nav flex justify-between flex-wrap items-center p-4">
+        <div class="block lg:hidden">
+            <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+              <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+        </div>
+        <div class="block w-20 h-10 bg-black lg:order-first lg:mr-5">
+          <a class="logo" href="#"><img src="" alt=""></a>
+        </div>
+        <div class="block lg:flex lg:items-center lg:order-2 ">
+          <div class="text-sm lg:flex-grow">
+            <a class="px-1" href=""><i class="fas fa-search lg:text-2xl"></i></a>
+            <a class="px-1" href=""><i class="far fa-user lg:text-2xl"></i></a>
+            <a class="px-1" href=""><i class="fas fa-shopping-cart lg:text-2xl"></i></a>
+          </div>
+        </div>
+        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden">
+          <div class="text-sm lg:flex-grow">
+            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">lo nuevo</a>
+            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">mujer</a>
+            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">hombre</a>
+            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">sale</a>
+            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">sobre life</a>
+          </div>
+        </div>
+    </nav>
+  </header>
+  <!--el ID lo identifica fullpage.js como una instancia -->
+  <main id="fullpage"> 
+    <!-- la clase section lo identifica fullpage.js como una seccion de la instancia(cant section = cant pag)-->
+      <section class="section text-center section-1">
+        <div class="container-titulo">
+          <p><a href="">MIRA LO NUEVO</a></p>
+        </div>
+      </section>
+
+      <section class="section text-center section-2 bg-white">
+        <p><a class="text-white text-2xl" href="">OFERTAS</a></p>
+      </section>
+
+      <section class="section bg-red-200 section-3">
+        <h2 class="text-center mb-10 md:mb-20"><a class="text-white md:text-2xl" href="">ALGUNAS CATEGORIAS</a></h2>
+        <div class="flex flex-row flex-wrap justify-around ">
+          <div class="categoria"><a class="block" href="">remeras</a></div>
+          <div class="categoria"><a class="block" href="">tops</a></div>
+          <div class="categoria"><a class="block" href="">buzos</a></div>
+          <div class="categoria"><a class="block" href="">pantalones</a></div>
+          <div class="categoria"><a class="block" href="">jeans</a></div>
+          <div class="categoria"><a class="block" href="">vestidos</a></div>
+        </div>
+      </section>
+
+      <footer class="section text-center section-4">
+        <p><a class="text-white" href="">CONTACTANOS</a></p>
+      </footer>
+
+  </main>
+  
+
+  <!-- Agregamos libreria fullpage.js por CDN  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js"></script>
+  <!-- Agregamos -->
+  <script src="javascripts/index.js"></script>
+</body>
 </html>
