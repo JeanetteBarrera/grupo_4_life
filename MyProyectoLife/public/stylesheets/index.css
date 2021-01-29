@@ -15,9 +15,9 @@ body {
     flex-wrap: wrap;
     align-items: center;
 }
-.icon i{
+/*.icon i{
     padding: 0.5rem;
-}
+}*/
 .section-1 {
     background-image: url("../images/scblog4.jpg");
     background-repeat: no-repeat;
@@ -71,6 +71,7 @@ body {
 .section-4 .pie{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     color: gray;
 }
