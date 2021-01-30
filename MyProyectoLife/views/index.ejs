@@ -17,33 +17,58 @@
   <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
-  <header>
-    <nav class="nav flex justify-between flex-wrap items-center p-4">
+  <header class="fixed z-50 w-full ">
+    <div class="relative">
+      <nav class="flex w-full nav">
+
         <div class="block lg:hidden">
-            <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-              <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
+          <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
         </div>
-        <div class="block w-20 h-10 bg-black lg:order-first lg:mr-5">
-          <a class="logo" href="#"><img src="" alt=""></a>
+
+        <div class="block lg:order-first lg:mr-5">
+          <a class=" " href="#"><img src="images/Group.svg" alt=""></a>
         </div>
-        <div class="block lg:flex lg:items-center lg:order-2 ">
+
+        <div class="block lg:flex lg:items-center lg:order-2 iconos-nav">
           <div class="text-sm lg:flex-grow">
-            <a class="px-0.5" href=""><i class="fas fa-search text-lg md:text-2xl"></i></a>
-            <a class="px-0.5" href=""><i class="far fa-user text-lg md:text-2xl"></i></a>
-            <a class="px-0.5" href=""><i class="fas fa-shopping-cart text-lg md:text-2xl"></i></a>
+            <a class="px-0.5" href=""><i class="fas fa-search md:text-2xl"></i></a>
+            <a class="px-0.5" href=""><i class="far fa-user md:text-2xl"></i></a>
+            <a class="px-0.5" href=""><i class="fas fa-shopping-cart md:text-2xl"></i></a>
           </div>
         </div>
-        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden">
+        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
           <div class="text-sm lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">lo nuevo</a>
-            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">mujer</a>
-            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">hombre</a>
-            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">sale</a>
-            <a href="#responsive-header" class="block mt-4 uppercase font-semibold lg:inline-block lg:mt-0 text-teal-200 hover:text-white mx-6">sobre life</a>
+            <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">lo nuevo</a>
+            <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">mujer</a>
+            <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">hombre</a>
+            <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">sale</a>
+            <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">sobre life</a>
           </div>
         </div>
-    </nav>
+      </nav>
+
+      <div id='search' class="absolute w-full h-10 bg-white border-2 border-double hidden ">
+        <form action="" class="">
+						<input class="w-full" type="text" placeholder=" Buscar">
+						<!--<button><i class="fas fa-search"></i></button>-->
+					</form>
+      </div>
+
+      <div id="usuarios" class="absolute right-0 bg-white w-4/12 border-solid border-2 hidden">
+        <div class="flex flex-col w-full">
+          <a class="py-2 text-sm text-center" href="">INGRESAR</a>
+          <a class="py-2 text-sm text-center" href="">¿SOS NUEVA? REGISTRATE</a>
+        </div>
+      </div>
+
+      <div id="carrito">
+
+      </div>
+
+    </div>
+
   </header>
   <!--el ID lo identifica fullpage.js como una instancia -->
   <main id="fullpage"> 
@@ -86,7 +111,6 @@
         </div>
       </footer>
   </main>
-  
   <!-- Agregamos libreria fullpage.js por CDN  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js"></script>
   <!-- Agregamos -->

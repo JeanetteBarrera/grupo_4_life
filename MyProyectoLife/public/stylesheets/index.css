@@ -3,21 +3,23 @@ body {
 }
 /*   Clases de fullpage
      Menu de navegacion fullpage*/
-
 .nav {
-    position : fixed; /*posicionamos el menu arriba de los elementos*/
-    z-index: 50;
-    width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 1rem;
-    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    padding: 1rem;
 }
-/*.icon i{
-    padding: 0.5rem;
-}*/
+.iconos-nav a {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.nav .menu-extendido a {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    margin: 0 1.5rem 0 1.5rem;
+    font-weight: 600;
+}
 .section-1 {
     background-image: url("../images/scblog4.jpg");
     background-repeat: no-repeat;
