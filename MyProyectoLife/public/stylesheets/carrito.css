@@ -1,3 +1,40 @@
-body {
-    background-color: aquamarine;
+body{
+    background-color: white;
+    font-family: 'Yusei Magic', sans-serif ;
+    text-transform:capitalize;
+}
+.carrito{
+    text-align: center;
+    margin-top: 80px;
+}
+.carrito .contenedor1{
+    height: 50%;
+    bottom: 15px;
+}
+.carrito .produc{
+    text-align: left;
+    margin: 0 0 0 15px;
+}
+.carrito .caja{
+    border: solid 1px #232323;
+    height: 115px;
+    margin: 10px 0 0 0;
+}
+.carrito .caja2{
+    color: white;
+    background-color: black;
+    border-radius: 200px;
+    margin: 10px 5px 0 5px;
+}
+.carrito .resumen{
+    text-align: left;
+    margin-left: 20px;
+}
+.carrito .precio{
+    text-align: left;
+    margin-left: 20px;
+}
+.carrito .sub{
+    text-align: left;
+    margin-left: 20px;
 }
