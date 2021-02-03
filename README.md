@@ -1,5 +1,5 @@
 # PROYECTO INTEGRADOR : GRUPO 4
-![logotipo](/images/logo.png)
+![logotipo](MyProyectoLife/public/images/logo.png)
 
 ## ***SPRINT I : Fecha de entrega 22/01***
 
@@ -8,13 +8,25 @@
 **Belen Chiotta**
 
 - 20años
-<!--breve descripción-->
-- Cantante, estudiante de Licenciatura de Organización de Industrias y Programación Web Full Stack 
+
+- Cantante, Estudiante de Licenciatura de Organización de Industrias y Programación Web Full Stack 
  
 **Jeanette Garcia Barrera**
 - 23 años
-<!--breve descripción-->
+
 - Estudiante de Programación Web Full Stack y Ingenieria en Sistemas de la Información, además amante de la musica y el deporte.
+
+**Daniela Carabajal**
+
+- 29 años
+
+- Artista plastica, Estudiante de Educacion y Neurociencia. Estudiante de Programacion Web en Digital House.
+
+**Gonzalo Fernandez Maidana**
+
+- 31 años
+
+- Bombero Voluntario, Ciclista, Estudiante de Seguridad e Higiene. Estudiante de Desarrollo Web en Digital House.
 
 ## Tematica del sitio y a que publico esta dirigido
 
@@ -45,4 +57,4 @@ De este sitio sacamos la idea del footer.
 
 - [ Tablero De Trello ] (https://trello.com/b/G3EMaQnb/grupo-4-proyecto-life)
 
-###  Retrospectiva: 
+- [ Restrospectiva ] (https://app.mural.co/t/grupo49700/m/grupo49700/1611672395105/4ec15324da0f4213d51c6999fc3be83b493e25ce)
