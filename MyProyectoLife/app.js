@@ -12,9 +12,7 @@ var carritoRouter = require('./routes/carritoRouter');
 var loginRouter = require("./routes/loginRouter");
 var usersRouter = require('./routes/users');
 
-
 var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
