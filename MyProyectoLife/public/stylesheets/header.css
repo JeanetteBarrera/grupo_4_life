@@ -1,0 +1,42 @@
+/*===== Menu de navegacion fullpage ===*/
+.header .nav {
+    top: 0;
+    background-color: white;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    border: solid 1px black;
+}
+.header .nav-icons a {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.header .nav .menu-extendido div{
+    background-color: rgba(255, 255, 255, .5);
+}
+.header .nav .menu-extendido a {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    margin: 0 1.5rem 0 1.5rem;
+    font-weight: 600;
+    line-height: 40px;
+}
+.header .input-search {
+    background-color: rgba(255, 255, 255, .8);
+    width: 100%;
+    line-height: 40px;
+    padding-left: 10px;
+    border: solid 2px gray;
+}
+.header .nav-usuarios {
+    background-color: rgba(255, 255, 255, .9);
+    border: solid 1px gray;
+    position: absolute;
+    right: 0;
+}
+.header .nav-usuarios a {
+    text-align: center;
+    font-weight: 700;
+    padding: 10px;
+}

@@ -1,0 +1,9 @@
+/*Agregamos colores y fuentes que utilizaremos en general*/
+:root {
+    --colorCeleste : #5B91A9 ; /*creo que era ese*/
+    --colorGrisOscuro: #262626;
+    --colorVioleta:  #a945c7;
+}
+body {
+    font-family: 'Yusei Magic', sans-serif
+}

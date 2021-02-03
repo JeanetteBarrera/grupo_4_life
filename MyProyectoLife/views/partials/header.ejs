@@ -1,0 +1,50 @@
+<!-- Header -->
+<header class="fixed z-50 top-0 w-full header">
+    <div class="relative">
+      <nav class="flex w-full nav">
+  
+        <div class="block lg:hidden">
+          <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
+        </div>
+  
+        <div class="block lg:order-first lg:mr-5">
+          <a class=" " href="#"><img src="images/Group.svg" alt=""></a>
+        </div>
+  
+        <div class="block lg:flex lg:items-center lg:order-2 nav-icons">
+          <div class="text-sm lg:flex-grow">
+            <a href=""><i class="fas fa-search md:text-2xl"></i></a>
+            <a href=""><i class="far fa-user md:text-2xl"></i></a>
+            <a href=""><i class="fas fa-shopping-cart md:text-2xl"></i></a>
+          </div>
+        </div>
+        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
+          <div class="text-sm lg:flex-grow">
+            <a href="#" class="block lg:inline-block lg:mt-0">lo nuevo</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">mujer</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">hombre</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">sale</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">sobre life</a>
+          </div>
+        </div>
+      </nav>
+  
+      <div id='search' class="absolute w-full hidden">
+        <form action="">
+            <input class="input-search" type="text" placeholder="Buscar">
+        </form>
+      </div>
+  
+      <div id="usuarios" class="w-32 md:w-44 nav-usuarios hidden">
+        <div class="flex flex-col">
+          <a class="text-xs md:text-lg" href="">INGRESAR</a>
+          <a class="text-xs md:text-lg" href="">¿SOS NUEVA? REGISTRATE</a>
+        </div>
+      </div>
+  
+      <div id="carrito">
+      </div>
+    </div>
+  </header>

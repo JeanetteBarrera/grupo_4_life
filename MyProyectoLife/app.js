@@ -9,6 +9,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/indexRouter');
 var productoRouter = require('./routes/productoRouter');
 var carritoRouter = require('./routes/carritoRouter');
+var loginRouter = require("./routes/loginRouter");
 var usersRouter = require('./routes/users');
 
 
@@ -31,6 +32,7 @@ app.use('/', indexRouter);
 app.use('/producto', productoRouter);
 app.use('/carrito', carritoRouter);
 app.use('/users', usersRouter);
+app.use("/login", loginRouter);
 
 
 // catch 404 and forward to error handler

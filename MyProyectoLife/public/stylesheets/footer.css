@@ -1,0 +1,23 @@
+.footer {
+    background-color: #262626;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    color: white;
+    padding: 10px 20px;
+}
+.footer .iconosF{
+    width: 300px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+.footer .pie{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: gray;
+}
