@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %> 
+<body>
+  <!-- Header -->
+  <%- include("./partials/header") %>
+  
+  <!-- Main -->
+  <main class= "registro">
+    <div class= "w-10/12 mx-auto md:w-8/12">  
+    <form action="" method="POST" class="formulario">
+      <h1>ingresar</h1>
+      <div class="datos">
+        <h4>Nombre</h4>
+        <input class="w-9/12" type="text" name="nombre" required="" placeholder="  Nombre">
+    </div>
+    <div class="datos">
+        <h4>Apellido</h4>
+        <input class="w-9/12" type="text" name="nombre" required="" placeholder="  Apellido">
+    </div>
+      <div class="datos">
+        <h4>Email</h4>
+          <input class="w-9/12" type="email" name="email" required="" placeholder="  E-mail">
+      </div>
+      <div class="datos">
+        <h4>Contraseña</h4> 
+          <input class="w-9/12" type="password" name="password" required="" placeholder="  Contraseña">
+      </div>
+      <div class="datos">
+        <h4>Confirmar contraseña</h4>  
+        <input class="w-9/12" type="password" name="password" required="" placeholder="  confirmar contraseña">
+      </div>
+        
+      <button type="submit">Registrate</button>
+    </form>
+  </div>
+  </main>
+  <!-- Footer -->
+  <%- include("./partials/footer") %>
+</body>
+</html>

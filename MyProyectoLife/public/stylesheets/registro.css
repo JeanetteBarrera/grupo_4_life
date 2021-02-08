@@ -1,0 +1,36 @@
+.registro {
+    margin-top: 100px;
+}
+
+.registro .formulario{
+    border: solid 1px black;
+    border-radius: 5%;
+    text-align: center;
+    background-color: #FFDCBA;
+}
+
+.registro .formulario h1{
+    text-transform: uppercase;
+    line-height: 40px;
+    font-weight: 700;
+}
+.registro .formulario .datos {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.registro .formulario .datos input{
+    line-height: 35px;
+    border: solid 1px black;
+    border-radius: 8%;
+    
+}
+.registro .formulario button{
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-radius: 7px;
+    padding:5px;
+    margin-top: 10px;
+}
+

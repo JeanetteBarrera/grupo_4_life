@@ -6,8 +6,25 @@
   <%- include("./partials/header") %>
   
   <!-- Main -->
-  <main>
-      
+  <main class= "login">
+    <div class= "w-10/12 mx-auto md:w-8/12">  
+    <form action="" method="POST" class="formulario">
+      <h1>ingresar</h1>
+      <div class="datos">
+          
+          <input class="w-9/12" type="email" name="email" required="" placeholder="  E-mail">
+      </div>
+      <div class="datos">
+          
+          <input class="w-9/12" type="password" name="password" required="" placeholder="  Contraseña">
+      </div>
+      <div>
+        <a href="#">¿olvidaste tu contraseña?</a>
+      </div>
+        
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
   </main>
   <!-- Footer -->
   <%- include("./partials/footer") %>
