@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %> 
+<body>
+  <!-- Header -->
+  <%- include("./partials/header") %>
+  
+  <!-- Main -->
+    <main class="producto mx-2 md:mx-10 lg:mx-24">
+        <div class="grid grid-cols-5 grid-rows-3 gap-4">
+            <!--contenedor de imagen-->
+            <div class="col-span-5 row-span-3 md:col-span-3">
+                <figure class="col-span-5 row-span-3">
+                    <img src="/images/babucha.jpg" alt="">
+                </figure>
+            </div>
+            <!--contenedor de detalles del producto-->
+            
+            <div class="col-span-5 md:col-span-2 row-span-1 detalles">
+                <div class="titulo text-lg md:text-xl lg:text-2xl">
+                    <h1 class="w-3/5 md:w-full text-left">babucha cargo reloaded</h1>
+                    <span>$1.200</span>
+                    <span class="text-red-500">$1.050</span>
+                </div>
+                <form action="">
+                    <div class="colores mb-4">
+                        <h3>color</h3>
+                        <div class="colors">
+                            <ul>
+                                <li>
+                                    <label>
+                                    <input type="radio" name="color" value="black">
+                                    <span class="swatch" style="background-color:#000000"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                    <input type="radio" name="color" value="blue">
+                                    <span class="swatch" style="background-color:#736848"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                    <input type="radio" name="color" value="green">
+                                    <span class="swatch" style="background-color:#b0b0b0;"></span>
+                                    </label>
+                                </li>
+                            </ul> 
+                        </div> 
+                    </div>
+                    <div class="talles">
+                        <h3>talle</h3>
+                        <div class="space-x-5 opciones">
+                            <label>
+                                <input type="radio" name="size" value="s" disabled>s
+                            </label>
+                            <label>
+                                <input type="radio" name="size" value="m" checked>m
+                            </label>
+                            <label>
+                                <input type="radio" name="size" value="l">l
+                            </label>
+                            <label>
+                                <input type="radio" name="size" value="xl">xl
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="boton-comprar" type="submit">comprar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!--contenedor de descripcion-->
+            <div class="col-span-5 md:col-start-4 row-star-2 descripcion">
+                <h3>descripcion</h3>
+                <p>Babucha cargo de frisa liviana. Cintura elastizada con tanca y elastico al tono de la base con posibilidad de ajuste. Detalle de doble bolsillo con tapa en cada lateral de pierna. Puño con elastico. Grifa institucional en cintura izquierda.</p>
+            </div>
+        </div>
+    </main>
+  <!-- Footer -->
+    <%- include("./partials/footer") %>
+</body>
+</html>

@@ -2,5 +2,7 @@
 @import "footer.css";
 @import "home.css";
 @import "general.css";
+@import "detalleProducto.css";
+@import "carrito.css";
 @import "login.css";
-@import "carrito.css"
+@import "registro.css";
