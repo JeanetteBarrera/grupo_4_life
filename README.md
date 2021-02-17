@@ -57,4 +57,4 @@ De este sitio sacamos la idea del footer.
 
 - [ Tablero De Trello ] (https://trello.com/b/G3EMaQnb/grupo-4-proyecto-life)
 
-- [ Restrospectiva ] (https://app.mural.co/t/grupo49700/m/grupo49700/1611672395105/4ec15324da0f4213d51c6999fc3be83b493e25ce)
+- [ Restrospectiva ] : [ retro.md ] 
