@@ -6,6 +6,10 @@ module.exports = {
     cart : (req, res) => {
         res.render("carrito");
     },
+    
+    lista: (req, res) => {
+        res.render("listaProducts");
+    },
 
     /*renderiza vista de detalle producto*/
     detalle : (req, res) => {
