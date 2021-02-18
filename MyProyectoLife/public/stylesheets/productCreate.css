@@ -1,4 +1,4 @@
-.header .nav {
+.create.nav {
     top: 0;
     background-color: #5B91A9 ;
     justify-content: space-between;
@@ -7,15 +7,15 @@
     padding: 1rem;
     border: solid 1px black;
 }
-.header .nav-icons a {
+.create.nav-icons a {
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
-.iconos-nav a {
+.iconos-nav .admin a {
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
-.nav .menu-extendido a {
+.nav-admin .menu-extendido a {
     margin-top: 1rem;
     text-transform: uppercase;
     margin: 0 1.5rem 0 1.5rem;

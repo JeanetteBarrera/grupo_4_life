@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("./partials/head") %> 
-      <!-- Header -->
-<header class="fixed z-50 top-0 w-full header">
-    <div class="relative">
-      <nav class="flex w-full nav">
-        <div class="block lg:hidden">
-            <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-              <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
-          </div>
-          
-        <div class="block lg:order-first lg:mr-5">
-            <a class=" " href="#"><img src="images/Group.svg" alt=""></a>
-          </div>
-          <div class="block lg:flex lg:items-center lg:order-3 iconos-nav">
-            <div class="text-sm lg:flex-grow">
-              
-              <a class="px-0.5" href=""><i class="far fa-user md:text-2xl"></i></a>
-            
-            </div>
-          </div>
-          <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
-            <div class="text-sm lg:flex-grow">
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">VENTA</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">ARTICULOS/ STOCK</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">CARGA DE ARTICULOS</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">CLIENTES</a>
-            
-            </div>
-          </div>
-        
-        <div class="relative text-center md:text-left md:ml-12">
-         <h3 class="text-2xl md:text-3xl lg:text-3xl">ADMINISTRADOR</h3>
-        </div>
-      </nav>
-    </div>
-</header>
-<body>
+  <%- include('./partials/head')  %> 
+      <body>   
+        <!-- Header -->
+          <%- include('./partials/header') %> 
+
     <!-- Form-->
         <div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mb-24">
             <div class="row justify-content-center mt-5">
@@ -50,7 +17,10 @@
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Categoria">
                     Categoria
                   </label>
-                  <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
+                  <select class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="">
+                    <option>Hombres</option>
+                    <option>Mujeres</option>
+                 </select>
                   <div>
                   </div>
                 </div>
@@ -58,7 +28,16 @@
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="subcategoria">
                     Subcategoria
                   </label>
-                  <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
+                  <select class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="">
+                    <option>pantalones</option>
+                    <option>jeans</option>
+                    <option>remeras</option>
+                    <option>buzos</option>
+                    <option>camperas</option>
+                    <option>vestidos</option>
+                    <option>polleras</option>
+                    <option>bermudas</option>
+                 </select>
                 </div>
               </div>
               <div class="-mx-3 md:flex mb-6">
@@ -88,17 +67,17 @@
              
               <div class="-mx-3 md:flex mb-2">
                 <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Codigo">
-                    Codigo
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Descuento">
+                    Descuento
                   </label>
-                  <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
+                    <select class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="">
+                      <option>si</option>
+                      <option>no</option>
+                   </select>
                 </div>
-                <div class="md:w-1/2 px-3">
-                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Marca">
-                    Marca
-                  </label>
-                  <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
-                </div>
+                
+              </div>
+              
                 <div class="md:w-1/2 px-3">
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="color">
                     Color
