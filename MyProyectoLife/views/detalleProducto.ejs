@@ -15,7 +15,6 @@
                 </figure>
             </div>
             <!--contenedor de detalles del producto-->
-            
             <div class="col-span-5 md:col-span-2 row-span-1 detalles">
                 <div class="titulo text-lg md:text-xl lg:text-2xl">
                     <h1 class="w-3/5 md:w-full text-left">babucha cargo reloaded</h1>
@@ -27,42 +26,26 @@
                         <h3>color</h3>
                         <div class="colors">
                             <ul>
+                                <% products.colors.forEach(product => { %>
                                 <li>
                                     <label>
                                     <input type="radio" name="color" value="black">
-                                    <span class="swatch" style="background-color:#000000"></span>
+                                    <span class="swatch" style = <%product%>></span>
                                     </label>
                                 </li>
-                                <li>
-                                    <label>
-                                    <input type="radio" name="color" value="blue">
-                                    <span class="swatch" style="background-color:#736848"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                    <input type="radio" name="color" value="green">
-                                    <span class="swatch" style="background-color:#b0b0b0;"></span>
-                                    </label>
-                                </li>
+                                
+                                <% }) %>
                             </ul> 
                         </div> 
                     </div>
                     <div class="talles">
                         <h3>talle</h3>
                         <div class="space-x-5 opciones">
+                            <% products.variante1.size.forEach(product => { %>
                             <label>
-                                <input type="radio" name="size" value="s" disabled>s
+                                <input type="radio" name="size" value= "<% product.size %>"> <% product.size %>
                             </label>
-                            <label>
-                                <input type="radio" name="size" value="m" checked>m
-                            </label>
-                            <label>
-                                <input type="radio" name="size" value="l">l
-                            </label>
-                            <label>
-                                <input type="radio" name="size" value="xl">xl
-                            </label>
+                            <% }) %>
                         </div>
                     </div>
                     <div>
