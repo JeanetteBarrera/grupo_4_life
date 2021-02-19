@@ -7,8 +7,9 @@ var productsController = require("../controllers/productsController");
 
 router.get("/cart", productsController.cart);
 
-router.get("/product",productsController.lista);
 /* rutas para productos*/
+
+router.get("/product",productsController.lista);
 router.get("/product/:id", productsController.detalle);
 
 
