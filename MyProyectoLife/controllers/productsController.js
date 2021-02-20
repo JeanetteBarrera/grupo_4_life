@@ -1,4 +1,9 @@
-const products =require('../data/products');
+
+/*const products =require('../data/products');*/
+
+const path= require("path");
+const {getProducts, setProducts} = require(path.join('..','data','products'));
+const products = getProducts();
 
 module.exports = {
 
@@ -14,24 +19,20 @@ module.exports = {
     },
     
     lista: (req, res) => {
-        res.render("listaProducts");
-    },
-
-    /*renderiza vista de detalle producto*/
-    detalle : (req, res) => {
-        res.render("detalleProducto",{
-             
+        res.render("listaProducts",{
+            product:products
         });
     },
-    /*renderiza vista de create producto*/
-    create: (req, res) => {
-        res.render("productCreate");
+
+
+    /*renderiza vista de detalle producto*/  
+    detalle : (req, res) => {
+        const datos = products.find(dato => dato.id === +req.params.id)
+        console.log(datos);
+        res.render("detalleProducto",{
+            product:datos
+        });
     },
-    edite: (req, res) => {
-        res.render("productEdit");
-    },
-    list: (req, res) => {
-        res.render("productList");
-    },
+    
 }
     

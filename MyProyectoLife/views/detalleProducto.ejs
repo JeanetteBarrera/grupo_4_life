@@ -11,26 +11,26 @@
             <!--contenedor de imagen-->
             <div class="col-span-5 row-span-3 md:col-span-3">
                 <figure class="col-span-5 row-span-3">
-                    <img src="/images/babucha.jpg" alt="">
+                    <img src="/images/img/<%=product.variante1.img %>" alt="">
                 </figure>
             </div>
             <!--contenedor de detalles del producto-->
             <div class="col-span-5 md:col-span-2 row-span-1 detalles">
                 <div class="titulo text-lg md:text-xl lg:text-2xl">
-                    <h1 class="w-3/5 md:w-full text-left">babucha cargo reloaded</h1>
-                    <span>$1.200</span>
-                    <span class="text-red-500">$1.050</span>
+                    <h1 class="w-3/5 md:w-full text-left"><%= product.name %> </h1>
+                    <span>$<%= product.price%></span>
+                   <!--- <span class="text-red-500"> = product.price </span>-->
                 </div>
                 <form action="">
                     <div class="colores mb-4">
                         <h3>color</h3>
                         <div class="colors">
                             <ul>
-                                <% products.colors.forEach(product => { %>
+                                <% product.colors.forEach(color => { %>
                                 <li>
                                     <label>
                                     <input type="radio" name="color" value="black">
-                                    <span class="swatch" style = <%product%>></span>
+                                    <span class="swatch" style = <%=color%>></span>
                                     </label>
                                 </li>
                                 
@@ -41,9 +41,9 @@
                     <div class="talles">
                         <h3>talle</h3>
                         <div class="space-x-5 opciones">
-                            <% products.variante1.size.forEach(product => { %>
+                            <% product.variante1.sizes.forEach(talle => { %>
                             <label>
-                                <input type="radio" name="size" value= "<% product.size %>"> <% product.size %>
+                                <input type="radio" name="size" value= "<%=talle.size %>"> <%= talle.size %>
                             </label>
                             <% }) %>
                         </div>
@@ -57,7 +57,7 @@
             <!--contenedor de descripcion-->
             <div class="col-span-5 md:col-start-4 row-star-2 descripcion">
                 <h3>descripcion</h3>
-                <p>Babucha cargo de frisa liviana. Cintura elastizada con tanca y elastico al tono de la base con posibilidad de ajuste. Detalle de doble bolsillo con tapa en cada lateral de pierna. Puño con elastico. Grifa institucional en cintura izquierda.</p>
+                <p><%= product.description %> .</p>
             </div>
         </div>
     </main>

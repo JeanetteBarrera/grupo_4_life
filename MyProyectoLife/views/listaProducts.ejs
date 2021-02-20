@@ -9,15 +9,17 @@
     <div class="grid grid-cols-4 gap-4">
         <h1 class="col-span-4 text-center font-bold text-lg sm:text-2xl mb-4">OFERTAS</h1>
 
+         <% product.forEach(element => { %>
+          
         <!--esto es lo que se debe iterar, lo demas es solo de prueba-->
         <div class="col-span-2 md:col-span-1">
             <a href="#">
                 <figure>
-                    <img src="/images/img/281074477_0411.jpg " alt="">
+                    <img src="/images/img/<%=element.variante1.img %>  " alt="">
                 </figure>
                 <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1">canguro jack</h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$1500</span>
+                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1"><%=element.name%> </h1>
+                    <span class="text-sm sm:text-lg text-gray-600"><%= element.price %> </span>
                 </div>
             </a>
             <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
@@ -26,68 +28,7 @@
             </form>-->
         </div>
         <!--termina aca-->
-
-        <div class="col-span-2 md:col-span-1">
-            <a href="#">
-                <figure>
-                    <img src="/images/img/281074477_0411.jpg " alt="">
-                </figure>
-                <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1">canguro jack</h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$1500</span>
-                </div>
-            </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
-            <!--<form action="">
-                <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
-            </form>-->
-        </div>
-        <div class="col-span-2 md:col-span-1">
-            <a href="#">
-                <figure>
-                    <img src="/images/img/281074477_0411.jpg " alt="">
-                </figure>
-                <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1">canguro jack</h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$1500</span>
-                </div>
-            </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
-            <!--<form action="">
-                <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
-            </form>-->
-        </div>
-        <div class="col-span-2 md:col-span-1">
-            <a href="#">
-                <figure>
-                    <img src="/images/img/281074477_0411.jpg " alt="">
-                </figure>
-                <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1">canguro jack</h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$1500</span>
-                </div>
-            </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
-            <!--<form action="">
-                <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
-            </form>-->
-        </div>
-        <div class="col-span-2 md:col-span-1">
-            <a href="#">
-                <figure>
-                    <img src="/images/img/281074477_0411.jpg " alt="">
-                </figure>
-                <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1">canguro jack</h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$1500</span>
-                </div>
-            </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
-            <!--<form action="">
-                <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
-            </form>-->
-        </div>
-        
+        <% }) %>
     </main>
 <!-- Footer -->
 <%- include("./partials/footer") %>

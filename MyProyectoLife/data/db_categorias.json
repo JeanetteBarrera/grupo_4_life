@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "category": "mujer",
+        "subcategories": [
+            "remeras",
+            "tops",
+            "buzos",
+            "pantalones",
+            "jeans",
+            "vestidos",
+            "camperas"
+        ]
+    },
+    {
+        "id": 2,
+        "category": "hombre",
+        "subcategories": [
+            "remeras",
+            "buzos",
+            "pantalones",
+            "jeans",
+            "camperas"
+        ]
+    }
+]

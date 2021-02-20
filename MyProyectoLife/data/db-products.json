@@ -1,514 +1,837 @@
 [
-    {
-      "id" : 1,
-      "name" : "pantalon skills",
-      "category" : "mujer",
-      "subcategory": "pantalones",
-      "colors": ["background-color:#5B6857","background-color:#000000"],
-      "variante1" : 
-          {
-              "color": "background-color:#5B6857",
-              "img": "28121474694926.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description": "Pantalón tipo babucha con cintura elastizada, bolsillos con tapa y cierres diente de perro.",
-      "price": 2500,
-      "discount": 10
-     },
-     {
-      "id" : 2,
-      "name" : "babucha cargo reloaded",
-      "category" : "mujer",
-      "subcategory": "pantalones",
-      "colors":["background-color:#000000"],
-      "variante1" :  
-          {
-              "color": "background-color:#000000",
-              "img": "281204694_0211-6717784.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description": "Babucha cargo de frisa liviana. Cintura elastizada con tanca y elastico al tono de la base con posibilidad de ajuste. Detalle de doble bolsillo con tapa en cada lateral de pierna. Puño con elastico. Grifa institucional en cintura izquierda.",
-      "price": 1500,
-      "discount": 10
-     },
-     {
-      "id" : 3,
-      "name" : "cargo lima",
-      "category" : "mujer",
-      "subcategory": "pantalones",
-      "colors" : ["background-color:#5B6857","background-color:#000000"],
-      "variante1":
-          {
-              "color": "background-color:#5B6857",
-              "img": "281194402_140292831.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          }, 
-      "description": "Pantalon cargo de gabarina 100% algodón. Posee un detalle de cadena colgando desde el lateral. Múltiples bolsillos y tanca con elástico en bajo para justar el efecto babucha o recto. Súper canchero y cómodo para todo uso.",
-      "price": 2500,
-      "discount": 10
-     },
-     {
-      "id" : 4,
-      "name" : "pantalon laos",
-      "category" : "mujer",
-      "subcategory": "pantalones",
-      "colors" : ["background-color:#A74F24"],
-      "variante1":
-          {
-              "color":"background-color:#A74F24",
-              "img": "291205262_780337637.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description": "Pantalon tipo palazzo de morley ancho. Cintura elastizada. Calce relajado. Grifa institucional en cintura izquierda.",
-      "price": 2000,
-      "discount": null
-     },
-     {
-      "id":5,
-      "name" : "campera basic",
-      "category" : "mujer",
-      "subcategory": "camperas",
-      "colors" :  ["background-color:#0A2B54","background-color:#000000"],
-      "variante1":
-          {
-              "color": "background-color:#0A2B54",
-              "img": "301085740_480392496.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description": "Campera básica de frisa liviana. Bolsillo canguro. Cierre metalico color crudo. Cordon color crudo con puntera metalica. Largo a la primer cadera.",
-      "price": 1500 ,
-      "discount": null
-     },
-     {
-      "id":6,
-      "name" : "canguro reflect",
-      "category" : "mujer",
-      "subcategory": "buzos",
-      "colors" : ["background-color:#6E727D","background-color:#000000"],
-      "variante1":
-          {
-              "color": "background-color:#6E727D",
-              "img": "281074477_0411.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Canguro básico de frisa liviana. Medio cierre con tira cierre argolla en cuello. Capucha. Detalle de vivo reflex en recortes. Grifa institucional en ruedo izquierdo.",
-      "price":2000 ,
-      "discount": null
-     
-     },
-     {
-      "id":7,
-      "name" : "canguro sidney",
-      "category" : "mujer",
-      "subcategory": "buzos",
-      "colors" :  ["background-color:#6E727D"],
-      "variante1":
-          {
-              "color": "background-color:#6E727D",
-              "img": "canguro-sidney-gris-mel136591.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
+  {
+    "id": 1,
+    "name": "pantalon skills",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#5B6857",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#5B6857",
+      "img": "28121474694926.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
         },
-      "description":"Canguro oversize de rustico esmerilado. Detalle de recortes en mangas con combinacion de colores. Estampa centrada en frente. Bolsillos en laterales.",
-      "price":2200 ,
-      "discount": null
-     
-     },
-     {
-      "id":8,
-      "name" : "canguro everyday light",
-      "category" : "mujer",
-      "subcategory": "buzos",
-      "colors" : [ "background-color:#7D6C52",  "background-color:#000000"],
-      "variante1":
-          {
-              "color": "background-color:#7D6C52",
-              "img": "291075077_1701173991.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Canguro basico de rustico liviano. Bolsillo canguro. Cordon color crudo con puntera metalica. Largo a la primer cadera. Grifa institucional en ruedo izquiedo.",
-      "price":2200 ,
-      "discount": null
-     },
-     {
-      "id":9,
-      "name" : "buzo crunch",
-      "category" : "mujer",
-      "subcategory": "buzos",
-      "colors" :  ["background-color:#CB9672","background-color:#DFC8E7"],
-      "variante1":
-          {
-              "color": "background-color:#CB9672",
-              "img": "291075300239341-0db41.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Buzo de rustico esmerilado. Escote en V. Ruedo en cintura con elastico generando ajuste. Puños aplicados. Bordado en manga izquierda. Grifa institucional en ruedo izquierdo.",
-      "price":2500 ,
-      "discount": null
-     
-     },
-     {
-      "id":10,
-      "name" : "jean deep tripp",
-      "category" : "mujer",
-      "subcategory": "jeans",
-      "colors" :  ["background-color:#1C3E65"],
-      "variante1":
-          {
-              "color": "background-color:#1C3E65",
-              "img": "291225330_102693134.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Jean 5 bolsillos calce deep (tiro medio), skinny, con pespuntes azul marino y avíos metálicos personalizados negros.",
-      "price":2400 ,
-      "discount": null
-     
-     },
-     {
-      "id":11,
-      "name" : "jean boy relax elliot",
-      "category" : "mujer",
-      "subcategory": "jeans",
-      "colors" :  ["background-color:#1C63A0"],
-      "variante1":
-          {
-              "color": "background-color:#1C63A0",
-              "img": "281224692_122693797.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Jean 5 bolsillos calce boy relax (tiro relajado-pierna recta amplia), en lona rígida 100% algodón color azul oscuro gastado con una rotura en una rodilla. Avíos metálicos personalizados baño níquel.",
-      "price":2400 ,
-      "discount": null
-     
-     },
-     {
-      "id":12,
-      "name" : "jean relax keen",
-      "category" : "mujer",
-      "subcategory": "jeans",
-      "colors" :  [ "background-color:#87BBE0"],
-      "variante1":
-          {
-              "color": "background-color:#87BBE0",
-              "img": "301225776_112693210.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Jean 5 bolsillos calce relax (tiro relajado), tonalidad celeste gastado conroturas en rodillas y brocas. Avíos metálicos personalizados baño níquel.",
-      "price":2800 ,
-      "discount": null
-     
-     },
-     {
-      "id":13,
-      "name" : "jean high rise slash",
-      "category" : "mujer",
-      "subcategory": "jeans",
-      "colors" : ["background-color:#426389"],
-      "variante1":
-          {
-              "color": "background-color:#426389",
-              "img": "281224846_1011-953fd663f61.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Jean 5 bolsillos calce high rise (tiro alto), skinny, en lona adherente con spandex, lavado medio con ruedos gastados. Avíos metálicos personalizados níquel mate",
-      "price":2900 ,
-      "discount": null
-     
-     },
-     {
-      "id":14,
-      "name" : "jean high relax digging",
-      "category" : "mujer",
-      "subcategory": "jeans",
-      "colors" :  ["background-color:#426389"],
-      "variante1":
-          {
-              "color": "background-color:#426389",
-              "img": "271223720_1026353621.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Jean 5 bolsillos, calce high relax (tiro alto, y piernas rectas relajadas), en lona con spandex color azul medio con pequeñas roturas. Avíos metálicos personalizados baño níquel.",
-      "price":2900 ,
-      "discount": null
-     },
-     {
-      "id":15,
-      "name" : "remera tiger",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000","background-color:#474E5C"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "complot_01020107_negro_1_p.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"remera de jersey de 100% algodon estampada.(LA MODELO USA TALLE M)",
-      "price":600 ,
-      "discount": null
-     },
-     {
-      "id":16,
-      "name" : "remera mercury",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000","background-color:#ffffff"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "complot_01020104_negro_2.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"remera de jersey de 100% algodon estampada.",
-      "price":600 ,
-      "discount": null
-     },
-     {
-      "id":17,
-      "name" : "remera blair",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000","background-color:#ffffff"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "complot_01020100_negro_1_p_2.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"remera de jersey de 100% algodon estampada.",
-      "price":700 ,
-      "discount": null
-     },
-     {
-      "id":18,
-      "name" : "remera peace",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "complot_01012402_negro_2.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"remera de jersey de 100% algodon estampada con lavado batik.",
-      "price":700 ,
-      "discount": null
-     },
-     {
-      "id":19,
-      "name" : "remera jurassic",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000", "background-color:#D0D267","background-color:#BBBCBF"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "complot_01012769_negro_2_e_1.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"remera crop de rayon manga corta,cuello redondo.",
-      "price":700 ,
-      "discount": null
-     },
-     {
-      "id":20,
-      "name" : "remera mickey lion",
-      "category" : "mujer",
-      "subcategory": "remeras",
-      "colors" :  ["background-color:#000000","background-color:#C6B393"],
-      "variante1":
-          {
-              "color": "background-color:#000000",
-              "img": "281014597251741-a327610546d.jpg",
-              "sizes" :[
-                  {"size":"s", "stock": 10},
-                  {"size":"m", "stock": 10},
-                  {"size":"l", "stock": 10},
-                  {"size":"xl", "stock": 10}
-              ]
-          },
-      "description":"Remera manga corta de jersey con cuello redondo aplicado. Detalle de dobladillo en ruedo de manga. Largo a la cadera. Molderia cuadrada. Estampa con centrada en frente.",
-      "price":700 ,
-      "discount": null
-     },
-     {
-        "id":21,
-        "name" : "babucha bob",
-        "category" : "mujer",
-        "subcategory": "pantalones",
-        "colors" :  ["background-color:#B46839", "background-color:#000000"],
-        "variante1": 
-            {
-                "color": "background-color:#B46839",
-                "img": "281214475244361-b1245b0.jpg",
-                "sizes" :[
-                    {"size":"s", "stock": 10},
-                    {"size":"m", "stock": 10},
-                    {"size":"l", "stock": 10},
-                    {"size":"xl", "stock": 10}
-                ]
-            },
-        "description":"Babucha de cuero ecológico tiro medio. Modelo relajado, con 2 bolsillos delanteros metálicos al tono. Cintura y puños con elástico interno fruncido en tela base. Avios personalizados al tono. Modelo super cómodo y canchero",
-        "price":1200,
-        "discount": null
-       },
-       {
-        "id":22,
-        "name" : "cargo callie",
-        "category" : "mujer",
-        "subcategory": "pantalones",
-        "colors" :  ["background-color:#000000", "background-color:#725B39","background-color:#AF835E"],
-        "variante1":
-            {
-                "color": "background-color:#000000",
-                "img": "28119440424501_portada1.jpg",
-                "sizes" :[
-                    {"size":"s", "stock": 10},
-                    {"size":"m", "stock": 10},
-                    {"size":"l", "stock": 10},
-                    {"size":"xl", "stock": 10}
-                ]
-            },
-        "description":"Pantalón cargo de gabardina algodón con spandex. Multiples bolsillos y cierre metálico en la bota manga. Super canchero y cómodo para todo uso.",
-        "price":1250,
-        "discount": null
-       },
-       {
-        "id":23,
-        "name" : "vestido waves",
-        "category" : "mujer",
-        "subcategory": "vestidos",
-        "colors" :  ["background-color:#DAA16C","background-color:#000000","background-color:#ffffff"],
-        "variante1":
-            {
-                "color": "background-color:#DAA16C",
-                "img": "291125338466331-0b7651556.jpg",
-                "sizes" :[
-                    {"size":"s", "stock": 10},
-                    {"size":"m", "stock": 10},
-                    {"size":"l", "stock": 10},
-                    {"size":"xl", "stock": 10}
-                ]
-            },
-        "description":"Vestido tipo remera con frunces en laterales. Cuello redondo. Manga corta. Detalle de tira ajustable en los laterales dando la posibilidad de usarlo a diferentes largos. Grifa institucional en ruedo izquierdo.",
-        "price":2200,
-        "discount": null
-       },
-       {
-        "id":24,
-        "name" : "vestido romantic liberty",
-        "category" : "mujer",
-        "subcategory": "vestidos",
-        "colors" :  [ "background-color:#7A6B64","background-color:#CCDBCE"],
-        "variante1":
-            {
-                "color": "background-color:#7A6B64",
-                "img": "291125673460861-9dd572a8.jpg",
-                "sizes" :[
-                    {"size":"s", "stock": 10},
-                    {"size":"m", "stock": 10},
-                    {"size":"l", "stock": 10},
-                    {"size":"xl", "stock": 10}
-                ]
-            },
-        "description":"Vestido largo de voile rayón liberty. Escote camisero, mangas cortas. Falda con maxi volados y frunces..",
-        "price":2500,
-        "discount": null
-       }
-      
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Pantalón tipo babucha con cintura elastizada, bolsillos con tapa y cierres diente de perro.",
+    "price": 2500,
+    "discount": 10
+  },
+  {
+    "id": 2,
+    "name": "babucha cargo reloaded",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "281204694_0211-6717784.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Babucha cargo de frisa liviana. Cintura elastizada con tanca y elastico al tono de la base con posibilidad de ajuste. Detalle de doble bolsillo con tapa en cada lateral de pierna. Puño con elastico. Grifa institucional en cintura izquierda.",
+    "price": 1500,
+    "discount": 10
+  },
+  {
+    "id": 3,
+    "name": "cargo lima",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#5B6857",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#5B6857",
+      "img": "281194402_140292831.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Pantalon cargo de gabarina 100% algodón. Posee un detalle de cadena colgando desde el lateral. Múltiples bolsillos y tanca con elástico en bajo para justar el efecto babucha o recto. Súper canchero y cómodo para todo uso.",
+    "price": 2500,
+    "discount": 10
+  },
+  {
+    "id": 4,
+    "name": "pantalon laos",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#A74F24"
+    ],
+    "variante1": {
+      "color": "background-color:#A74F24",
+      "img": "291205262_780337637.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Pantalon tipo palazzo de morley ancho. Cintura elastizada. Calce relajado. Grifa institucional en cintura izquierda.",
+    "price": 2000,
+    "discount": null
+  },
+  {
+    "id": 5,
+    "name": "campera basic",
+    "category": "mujer",
+    "subcategory": "camperas",
+    "colors": [
+      "background-color:#0A2B54",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#0A2B54",
+      "img": "301085740_480392496.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Campera básica de frisa liviana. Bolsillo canguro. Cierre metalico color crudo. Cordon color crudo con puntera metalica. Largo a la primer cadera.",
+    "price": 1500,
+    "discount": null
+  },
+  {
+    "id": 6,
+    "name": "canguro reflect",
+    "category": "mujer",
+    "subcategory": "buzos",
+    "colors": [
+      "background-color:#6E727D",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#6E727D",
+      "img": "281074477_0411.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Canguro básico de frisa liviana. Medio cierre con tira cierre argolla en cuello. Capucha. Detalle de vivo reflex en recortes. Grifa institucional en ruedo izquierdo.",
+    "price": 2000,
+    "discount": null
+  },
+  {
+    "id": 7,
+    "name": "canguro sidney",
+    "category": "mujer",
+    "subcategory": "buzos",
+    "colors": [
+      "background-color:#6E727D"
+    ],
+    "variante1": {
+      "color": "background-color:#6E727D",
+      "img": "canguro-sidney-gris-mel136591.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Canguro oversize de rustico esmerilado. Detalle de recortes en mangas con combinacion de colores. Estampa centrada en frente. Bolsillos en laterales.",
+    "price": 2200,
+    "discount": null
+  },
+  {
+    "id": 8,
+    "name": "canguro everyday light",
+    "category": "mujer",
+    "subcategory": "buzos",
+    "colors": [
+      "background-color:#7D6C52",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#7D6C52",
+      "img": "291075077_1701173991.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Canguro basico de rustico liviano. Bolsillo canguro. Cordon color crudo con puntera metalica. Largo a la primer cadera. Grifa institucional en ruedo izquiedo.",
+    "price": 2200,
+    "discount": null
+  },
+  {
+    "id": 9,
+    "name": "buzo crunch",
+    "category": "mujer",
+    "subcategory": "buzos",
+    "colors": [
+      "background-color:#CB9672",
+      "background-color:#DFC8E7"
+    ],
+    "variante1": {
+      "color": "background-color:#CB9672",
+      "img": "291075300239341-0db41.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Buzo de rustico esmerilado. Escote en V. Ruedo en cintura con elastico generando ajuste. Puños aplicados. Bordado en manga izquierda. Grifa institucional en ruedo izquierdo.",
+    "price": 2500,
+    "discount": null
+  },
+  {
+    "id": 10,
+    "name": "jean deep tripp",
+    "category": "mujer",
+    "subcategory": "jeans",
+    "colors": [
+      "background-color:#1C3E65"
+    ],
+    "variante1": {
+      "color": "background-color:#1C3E65",
+      "img": "291225330_102693134.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Jean 5 bolsillos calce deep (tiro medio), skinny, con pespuntes azul marino y avíos metálicos personalizados negros.",
+    "price": 2400,
+    "discount": null
+  },
+  {
+    "id": 11,
+    "name": "jean boy relax elliot",
+    "category": "mujer",
+    "subcategory": "jeans",
+    "colors": [
+      "background-color:#1C63A0"
+    ],
+    "variante1": {
+      "color": "background-color:#1C63A0",
+      "img": "281224692_122693797.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Jean 5 bolsillos calce boy relax (tiro relajado-pierna recta amplia), en lona rígida 100% algodón color azul oscuro gastado con una rotura en una rodilla. Avíos metálicos personalizados baño níquel.",
+    "price": 2400,
+    "discount": null
+  },
+  {
+    "id": 12,
+    "name": "jean relax keen",
+    "category": "mujer",
+    "subcategory": "jeans",
+    "colors": [
+      "background-color:#87BBE0"
+    ],
+    "variante1": {
+      "color": "background-color:#87BBE0",
+      "img": "301225776_112693210.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Jean 5 bolsillos calce relax (tiro relajado), tonalidad celeste gastado conroturas en rodillas y brocas. Avíos metálicos personalizados baño níquel.",
+    "price": 2800,
+    "discount": null
+  },
+  {
+    "id": 13,
+    "name": "jean high rise slash",
+    "category": "mujer",
+    "subcategory": "jeans",
+    "colors": [
+      "background-color:#426389"
+    ],
+    "variante1": {
+      "color": "background-color:#426389",
+      "img": "281224846_1011-953fd663f61.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Jean 5 bolsillos calce high rise (tiro alto), skinny, en lona adherente con spandex, lavado medio con ruedos gastados. Avíos metálicos personalizados níquel mate",
+    "price": 2900,
+    "discount": null
+  },
+  {
+    "id": 14,
+    "name": "jean high relax digging",
+    "category": "mujer",
+    "subcategory": "jeans",
+    "colors": [
+      "background-color:#426389"
+    ],
+    "variante1": {
+      "color": "background-color:#426389",
+      "img": "271223720_1026353621.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Jean 5 bolsillos, calce high relax (tiro alto, y piernas rectas relajadas), en lona con spandex color azul medio con pequeñas roturas. Avíos metálicos personalizados baño níquel.",
+    "price": 2900,
+    "discount": null
+  },
+  {
+    "id": 15,
+    "name": "remera tiger",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#474E5C"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "complot_01020107_negro_1_p.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "remera de jersey de 100% algodon estampada.(LA MODELO USA TALLE M)",
+    "price": 600,
+    "discount": null
+  },
+  {
+    "id": 16,
+    "name": "remera mercury",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#ffffff"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "complot_01020104_negro_2.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "remera de jersey de 100% algodon estampada.",
+    "price": 600,
+    "discount": null
+  },
+  {
+    "id": 17,
+    "name": "remera blair",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#ffffff"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "complot_01020100_negro_1_p_2.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "remera de jersey de 100% algodon estampada.",
+    "price": 700,
+    "discount": null
+  },
+  {
+    "id": 18,
+    "name": "remera peace",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "complot_01012402_negro_2.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "remera de jersey de 100% algodon estampada con lavado batik.",
+    "price": 700,
+    "discount": null
+  },
+  {
+    "id": 19,
+    "name": "remera jurassic",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#D0D267",
+      "background-color:#BBBCBF"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "complot_01012769_negro_2_e_1.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "remera crop de rayon manga corta,cuello redondo.",
+    "price": 700,
+    "discount": null
+  },
+  {
+    "id": 20,
+    "name": "remera mickey lion",
+    "category": "mujer",
+    "subcategory": "remeras",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#C6B393"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "281014597251741-a327610546d.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Remera manga corta de jersey con cuello redondo aplicado. Detalle de dobladillo en ruedo de manga. Largo a la cadera. Molderia cuadrada. Estampa con centrada en frente.",
+    "price": 700,
+    "discount": null
+  },
+  {
+    "id": 21,
+    "name": "babucha bob",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#B46839",
+      "background-color:#000000"
+    ],
+    "variante1": {
+      "color": "background-color:#B46839",
+      "img": "281214475244361-b1245b0.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Babucha de cuero ecológico tiro medio. Modelo relajado, con 2 bolsillos delanteros metálicos al tono. Cintura y puños con elástico interno fruncido en tela base. Avios personalizados al tono. Modelo super cómodo y canchero",
+    "price": 1200,
+    "discount": null
+  },
+  {
+    "id": 22,
+    "name": "cargo callie",
+    "category": "mujer",
+    "subcategory": "pantalones",
+    "colors": [
+      "background-color:#000000",
+      "background-color:#725B39",
+      "background-color:#AF835E"
+    ],
+    "variante1": {
+      "color": "background-color:#000000",
+      "img": "28119440424501_portada1.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Pantalón cargo de gabardina algodón con spandex. Multiples bolsillos y cierre metálico en la bota manga. Super canchero y cómodo para todo uso.",
+    "price": 1250,
+    "discount": null
+  },
+  {
+    "id": 23,
+    "name": "vestido waves",
+    "category": "mujer",
+    "subcategory": "vestidos",
+    "colors": [
+      "background-color:#DAA16C",
+      "background-color:#000000",
+      "background-color:#ffffff"
+    ],
+    "variante1": {
+      "color": "background-color:#DAA16C",
+      "img": "291125338466331-0b7651556.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Vestido tipo remera con frunces en laterales. Cuello redondo. Manga corta. Detalle de tira ajustable en los laterales dando la posibilidad de usarlo a diferentes largos. Grifa institucional en ruedo izquierdo.",
+    "price": 2200,
+    "discount": null
+  },
+  {
+    "id": 24,
+    "name": "vestido romantic liberty",
+    "category": "mujer",
+    "subcategory": "vestidos",
+    "colors": [
+      "background-color:#7A6B64",
+      "background-color:#CCDBCE"
+    ],
+    "variante1": {
+      "color": "background-color:#7A6B64",
+      "img": "291125673460861-9dd572a8.jpg",
+      "sizes": [
+        {
+          "size": "s",
+          "stock": 10
+        },
+        {
+          "size": "m",
+          "stock": 10
+        },
+        {
+          "size": "l",
+          "stock": 10
+        },
+        {
+          "size": "xl",
+          "stock": 10
+        }
+      ]
+    },
+    "description": "Vestido largo de voile rayón liberty. Escote camisero, mangas cortas. Falda con maxi volados y frunces..",
+    "price": 2500,
+    "discount": null
+  }
+ 
 ]

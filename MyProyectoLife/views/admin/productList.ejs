@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %> 
+<body>
+  <!-- Header -->
+  <%- include("./partials/header") %>
+  <!-- Main -->
+  <main class="my-24 mx-2 sm:mx-4 md:mx-14">
+    <div class=" grid grid-cols-4 gap-4 text-center border border-current py-2 font-bold">
+      <h4 class="text-sm sm:text-lg">Name</h4>
+      <h4 class="text-sm sm:text-lg">Category</h4>
+      <h4 class="text-sm sm:text-lg">Subcategory</h4>
+    </div>
+
+    <!--lo que se itera-->
+    <% products.forEach(product => { %>
+     
+  
+    <div class=" grid grid-cols-4 gap-4 text-center mt-4 bg-gray-200 my-2 capitalize">
+      <p class="text-sm sm:text-lg"><%= product.name %></p>
+      <p class="text-sm sm:text-lg"><%= product.category %></p>
+      <p class="text-sm sm:text-lg"><%= product.subcategory %></p>
+      <div class="text-sm sm:text-lg">
+        <div class="bg-green-500 text-white my-1">
+          <a href="/admin/product/edit/<%= product.id %>" class="block">Editar</a>
+        </div>
+        <form action="/admin/product/delete/<%= product.id %>?_method=DELETE" method="POST" class="bg-red-500 block text-white my-1">
+          <button class="" type="submit">Eliminar</button>
+        </form>
+      </div>
+    </div>
+    <!--aca terminas-->
+    <% }) %>
+    
+  </main>
+<!-- Footer -->
+</body>
+</html>
