@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override');
+var session = require('express-session');
+
+/*MIDDLEWARES*/
+var localCheck = require('./middlewares/localCheck');
+var cookieCheck = require('./middlewares/cookieCheck')
 
 
 /*====  REQUERIMOS LOS ROUTERS ====*/
@@ -30,6 +35,8 @@ app.use('/', generalRouter);
 app.use('/account', usersRouter);
 app.use("/products", productsRouter);
 app.use("/admin", adminRouter);
+app.use(localCheck);
+app.use(cookieCheck);
 
 
 // catch 404 and forward to error handler
