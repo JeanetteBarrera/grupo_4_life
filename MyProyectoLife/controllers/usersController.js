@@ -18,7 +18,7 @@ module.exports = {
         
         if(errores.isEmpty()) { //en caso de no haber ningun error
         
-            const {} = req.body; //requiero los datos del formulario de create
+            const {name, surname, email, password } = req.body; //requiero los datos ingresados en el formulario de registro ya validados
 
             let lastID = 0;
             users_db.forEach(user => {
@@ -27,8 +27,25 @@ module.exports = {
                 }
             });
 
+            let newUser = {
+                id : +lastID +1,
+                name : name,
+                surname : surname,
+                email : email,
+                password : bcrypt.hashSync(password, 12),
+                category : "user",
+                avatar : "default.png"
+            };
+            users_db.push(newUser);
+
+            setUsers(users_db);
+            return res.redirect('login');
+
         }else {
-            return res.render('registro')
+            return res.render('registro', {
+                errores: errores.errors
+            })
+
         }
 
     },
@@ -42,25 +59,36 @@ module.exports = {
     },
     /* chequeo de ingreso de login */
     processLogin : (req, res) => {
-        const {username, pass, recordar} = req.body;
-        let result = db_users.find(user => user.email === email);
+        let errores = validationResult(req);
+        if(!errores.isEmpty()){
+            return res.render('login', {
+                errores : errores.errors 
+            })
+        }else{
+        const {name, password, recordar, email} = req.body;
+        let result = users_db.find(user => user.email === email);
         if(result){
-            if(bcrypt.compareSync(pass.trim(),result.pass)){ /* Encriptar y ingreso de usuario */
+            if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
                 req.session.user = {
                     id : result.id,
-                    username : result.username
+                    name : result.name
                 }
                 if(recordar != 'undefined'){        /* Recordar contraseña */
                     res.cookie('user', req.session.user, {
                         maxAge : 1000 * 60
                     })
                 }
-                return res.redirect('/profile')
+                return res.redirect('profile')
             }
         }
-        res.render('account/login',{  /* En el caso de error se renderisa a vista de login y mustra error */
-            error : "Credenciales invalidas"
+        return res.render('login', {  /* En el caso de error se renderisa a vista de login y mustra error */
+            error : [
+            {
+                msg : "credenciales inválidas"
+            }
+        ]
         })
+        }
     },
     /* Eliminar usuario */
     logout : (req,res) => {

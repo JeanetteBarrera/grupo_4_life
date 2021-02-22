@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const { create, processCreate, login, processLogin, logout, profile} = require("../controllers/usersController")
+const { login, create, processCreate, processLogin, logout, profile} = require("../controllers/usersController")
 
 /* middlewares */
-/*const userCheck = require('../middlewares/UserCheck');*/
+const registerValidator = require('../validations/registerValidator');
+const uploadAvatars = require('../middlewares/multerAvatars');
+const userCheck = require('../middlewares/userCheck')
 
 /* validaciones */
 const loginValidation = require('../validations/loginValidation');
@@ -12,7 +14,7 @@ const loginValidation = require('../validations/loginValidation');
 
 /* registro de usuario*/
 router.get('/create', create);
-router.post('/create', processCreate);
+router.post('/create',registerValidator, processCreate);
 
 
 /* login de usuario*/
@@ -23,7 +25,7 @@ router.post('/login', loginValidation , processLogin);
 router.get('/logout',logout); 
 
 /* ingresar un usuario */
-router.get('/profile', /*userCheck*/ profile);
+router.get('/profile', userCheck, profile);
 
 
 module.exports = router;
