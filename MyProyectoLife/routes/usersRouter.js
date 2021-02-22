@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-const { login, create, processCreate} = require("../controllers/usersController")
+const { create, processCreate, login, processLogin, logout, profile} = require("../controllers/usersController")
+
 /* middlewares */
+/*const userCheck = require('../middlewares/UserCheck');*/
 
-
+/* validaciones */
+const loginValidation = require('../validations/loginValidation');
 
 
 /* registro de usuario*/
@@ -13,7 +16,14 @@ router.post('/create', processCreate);
 
 
 /* login de usuario*/
-router.get('/login', login); 
+router.get('/login', login);
+router.post('/login', loginValidation , processLogin);
+
+/* eliminar un usuario */ 
+router.get('/logout',logout); 
+
+/* ingresar un usuario */
+router.get('/profile', /*userCheck*/ profile);
 
 
 module.exports = router;
