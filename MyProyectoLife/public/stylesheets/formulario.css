@@ -1,0 +1,25 @@
+.formulario {
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+}
+.formulario .titulo {
+    text-transform: uppercase;
+    font-weight: 700;
+    color:white;
+}
+.formulario input {
+    border: 1px solid transparent;
+    /*line-height: 2rem;*/
+    padding-left: 7px;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+.formulario .button {
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    border-radius: 0.375rem;
+    padding: 5px; 
+    color: white;
+    font-weight: 700;
+    background-color: var(--colorVioleta);
+}

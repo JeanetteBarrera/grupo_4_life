@@ -6,34 +6,37 @@
   <%- include("./partials/header") %>
   
   <!-- Main -->
-  <main class= "registro">
-    <div class= "w-10/12 mx-auto md:w-8/12">  
-    <form action="" method="POST" class="formulario">
-      <h1>ingresar</h1>
-      <div class="datos">
-        <h4>Nombre</h4>
-        <input class="w-9/12" type="text" name="nombre" required="" placeholder="  Nombre">
+  <main class= "mt-32">
+    <div class="formulario w-4/5 sm:w-6/12 md:w-5/12 mx-auto shadow-md grid grid-cols-1  bg-gray-200 ">
+      <form action="" class="p-3 md:p-8">
+        <div class="text-center my-3 ">
+          <h1 class="titulo text-2xl md:text-4xl">Registrate</h1>
+        </div>
+        <div class="my-3 md:my-6">
+          <!--<label for="" class="block py-1 text-sm font-semibold">Nombre</label>-->
+          <input type="text" name="name" placeholder="Nombre" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" required>
+        </div>
+        <div class="my-3 md:my-6">
+          <!--<label for="" class="block py-1 text-sm font-semibold">Apellido</label>-->
+          <input type="text" placeholder="Apellido" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" required>
+        </div>
+        <div class="my-3 md:my-6">
+          <!--<label for="" class="block py-1 text-sm font-semibold">Email</label>-->
+          <input type="email" name="email" placeholder="E-mail" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" required>
+        </div>
+        <div class="my-3 md:my-6">
+          <!--<label for="" class="block py-1 text-sm font-semibold">Contraseña</label>-->
+          <input type="password" name="password" id="" placeholder="Contraseña" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" required>
+        </div>
+        <div class="my-3 md:my-6">
+          <!--<label for="" class="block py-1 text-sm font-semibold">Confirmar contraseña</label>-->
+          <input type="password" name="password" placeholder="Confirmar Contraseña" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" required>
+        </div>
+        <div class="my-5 flex justify-center">
+          <button type="submit" class="button w-6/12 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">Registrarme</button>
+        </div>
+      </form>
     </div>
-    <div class="datos">
-        <h4>Apellido</h4>
-        <input class="w-9/12" type="text" name="nombre" required="" placeholder="  Apellido">
-    </div>
-      <div class="datos">
-        <h4>Email</h4>
-          <input class="w-9/12" type="email" name="email" required="" placeholder="  E-mail">
-      </div>
-      <div class="datos">
-        <h4>Contraseña</h4> 
-          <input class="w-9/12" type="password" name="password" required="" placeholder="  Contraseña">
-      </div>
-      <div class="datos">
-        <h4>Confirmar contraseña</h4>  
-        <input class="w-9/12" type="password" name="password" required="" placeholder="  confirmar contraseña">
-      </div>
-        
-      <button type="submit">Registrate</button>
-    </form>
-  </div>
   </main>
   <!-- Footer -->
   <%- include("./partials/footer") %>
