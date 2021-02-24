@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const products_db = path.join('data','db-products.json');
 
-/*module.exports =JSON.parse(fs.readFileSync(__dirname + '/db-products.json','utf-8'));*/
 
 module.exports = {
     getProducts : () =>{
