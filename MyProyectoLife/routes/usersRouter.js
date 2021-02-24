@@ -1,10 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var usersController = require("../controllers/usersController")
-/* GET users listing. */
-router.get('/login', usersController.login); /*vista de ingreso*/
+const { login, create, processCreate} = require("../controllers/usersController")
+/* middlewares */
 
-router.get("/create", usersController.create); /*vista de registro*/
+
+
+
+/* registro de usuario*/
+router.get('/create', create);
+router.post('/create', processCreate);
+
+
+/* login de usuario*/
+router.get('/login', login); 
+
 
 module.exports = router;
