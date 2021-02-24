@@ -20,13 +20,15 @@ module.exports = {
         
             const {} = req.body; //requiero los datos del formulario de create
 
-            let lasID = 0;
+            let lastID = 0;
             users_db.forEach(user => {
                 if(user.id > lastID) {
                     lastID = user.id
                 }
             });
 
+        }else {
+            return res.render('registro')
         }
 
     },
