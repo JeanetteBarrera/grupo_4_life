@@ -18,7 +18,7 @@ module.exports = {
         
         if(errores.isEmpty()) { //en caso de no haber ningun error
         
-            const {} = req.body; //requiero los datos del formulario de create
+            const {name, surname, email, password } = req.body; //requiero los datos ingresados en el formulario de registro ya validados
 
             let lastID = 0;
             users_db.forEach(user => {
@@ -27,8 +27,25 @@ module.exports = {
                 }
             });
 
+            let newUser = {
+                id : +lastID +1,
+                name : name,
+                surname : surname,
+                email : email,
+                password : bcrypt.hashSync(password, 12),
+                category : "user",
+                avatar : "default.png"
+            };
+            users_db.push(newUser);
+
+            setUsers(users_db);
+            return res.redirect('login');
+
         }else {
-            return res.render('registro')
+            return res.render('registro', {
+                errores: errores.errors
+            })
+
         }
 
     },
