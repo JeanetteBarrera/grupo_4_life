@@ -3,7 +3,7 @@ var router = express.Router();
 var adminController = require("../controllers/adminController");
 
 /* MIDDLEWARES */
-const upload = require('../middlewares/config_multer');
+const upload = require('../middlewares/multerImagenes');
 
 
 /* VALIDACIONES */
