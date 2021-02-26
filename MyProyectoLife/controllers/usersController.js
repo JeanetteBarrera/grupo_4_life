@@ -1,27 +1,44 @@
-const fs = require('fs');
-const path = require('path')
+const path= require("path");
 const bcrypt = require('bcrypt');
-const users_db = JSON.parse(fs.readFileSync('./data/users.json','utf-8'));
+const {getUsers, setUsers} = require(path.join('..','data','users'));
+const users_db = getUsers();
 
 const {validationResult} = require('express-validator');
 
-
-
-
 module.exports = {
 
-    /*controlador encargado de la logica y renderizar todas las vistas relacionadas con usuarios*/
-    
+    create : (req, res) => { /*vista de registrarse para nuevos usuarios*/
+        res.render("registro", {
+            title : "Registrate - LIFE"
+        })
+    },
+    processCreate : (req, res) => { 
+        
+        let errores = validationResult(req);
+        
+        if(errores.isEmpty()) { //en caso de no haber ningun error
+        
+            const {} = req.body; //requiero los datos del formulario de create
 
+            let lastID = 0;
+            users_db.forEach(user => {
+                if(user.id > lastID) {
+                    lastID = user.id
+                }
+            });
+
+        }else {
+            return res.render('registro')
+        }
+
+    },
+    
+    /*controlador encargado de la logica y renderizar todas las vistas relacionadas con usuarios*/
     login : (req, res) => { /*vista de login*/
         res.render( "login", {
             title : "Ingresar - LIFE"
         })
     },
 
-    create : (req, res) => { /*vista de registrarse para nuevos usuarios*/
-        res.render("registro", {
-            title : "Registrate - LIFE"
-        })
-    }
+
 }
