@@ -110,4 +110,17 @@ module.exports = {
         res.render('profile')
         console.log(user)
     },
+
+    profileEdit : (req, res) => {
+
+    },
+    profileUpdate : (req, res) => {
+
+    },
+    profileUpdate : (req, res) => {
+
+    },
+    profileDelete : (req, res) => {
+        
+    }
 }
