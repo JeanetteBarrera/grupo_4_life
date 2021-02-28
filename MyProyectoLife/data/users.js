@@ -10,3 +10,4 @@ module.exports = {
         fs.writeFileSync(users_db,JSON.stringify(data,null,2),'utf-8');
     }
 }
+

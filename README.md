@@ -59,4 +59,4 @@ De este sitio sacamos la idea del footer.
 
 - Restrospectiva : [ retro.md ] (https://github.com/JeanetteBarrera/grupo_4_life/blob/master/retro.md)
 
-- Daily :  [ dailys.md ] (https://github.com/JeanetteBarrera/grupo_4_life/blob/master/dailys.md)
+- Daily :  [ dailys.md ] (MyProyectoLife/dailys.md)
