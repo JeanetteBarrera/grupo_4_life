@@ -4,8 +4,24 @@
 <body>
   <!-- Header -->
   <%- include("./partials/header") %>
-  <h2>Perfil de Usuario</h2>
-  
+
+  <!-- Main -->
+  <main class="mt-24">
+    <div class="grid grid-cols-1 w-3/4 mx-auto text-center">
+      <h2 class="uppercase font-bold py-4 text-xl text-indigo-500 underline">Bienvenida <%= user.name %></h2>
+      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full">
+    </div>
+    <div class="grid grid-cols-2 text-center">
+      <h3 class="font-bold py-4 text-xl">Mis datos</h3>
+      <div>
+        <p>Nombre : </p><span><%= user.name %></span>
+      </div>
+      <p>Apellido : <%= user.surname %></p>
+      <p>E-mail : <%= user.email %></p> 
+    </div>
+
+  </main>
+
   <!-- Footer -->
   <%- include("./partials/footer") %>
 </body>

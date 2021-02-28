@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use(session({secret: 'THE LIFE Secret JA!!!'}));
+app.use(session({secret: 'Secret in commint!!!'}));
 app.use(localCheck);
 app.use(cookieCheck);
 

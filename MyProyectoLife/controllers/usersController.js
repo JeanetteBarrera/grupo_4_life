@@ -73,7 +73,10 @@ module.exports = {
             if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
                 req.session.user = {
                     id : result.id,
-                    name : result.name
+                    name : result.name,
+                    surname : result.surname,
+                    email : result.email,
+                    avatar : result.avatar
                 }
                 if(recordar != 'undefined'){        /* Recordar contraseña */
                     res.cookie('user', req.session.user, {
@@ -105,5 +108,6 @@ module.exports = {
     /* Vista de perfil de usuario */
     profile : (req,res) => {
         res.render('profile')
+        console.log(user)
     },
 }
