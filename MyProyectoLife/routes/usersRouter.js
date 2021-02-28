@@ -28,4 +28,9 @@ router.get('/logout',logout);
 router.get('/profile', userCheck, profile);
 
 
+/* editar y eliminar usuario */
+router.get('/profile/edit/:id',userCheck,profileEdit);
+
+router.delete('/profile/delete/:id',profileDelete);
+
 module.exports = router;
