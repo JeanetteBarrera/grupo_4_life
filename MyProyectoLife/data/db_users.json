@@ -205,5 +205,14 @@
     "password": "$2b$12$nuo.yZ5/xG1LYuaU7.CRDeUzWigBMWisW76V7oeeXeNkq8JfCtSWG",
     "category": "user",
     "avatar": "default.png"
+  },
+  {
+    "id": 24,
+    "name": "rocio",
+    "surname": "chiotta",
+    "email": "rociobelen@gmail.com",
+    "password": "$2b$12$28/ASKVEWUmCj0O2xb2RR.BePJZUYhz438JCEdGZBROPt8qorca7a",
+    "category": "user",
+    "avatar": "default.png"
   }
 ]

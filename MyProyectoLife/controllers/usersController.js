@@ -51,11 +51,57 @@ module.exports = {
     },
     
     /*controlador encargado de la logica y renderizar todas las vistas relacionadas con usuarios*/
-    login : (req, res) => { /*vista de login*/
+    /*vista de login*/
+    login : (req, res) => { 
         res.render( "login", {
             title : "Ingresar - LIFE"
         })
     },
-
-
+    /* chequeo de ingreso de login */
+    processLogin : (req, res) => {
+        let errores = validationResult(req);
+        if(!errores.isEmpty()){
+            return res.render('login', {
+                errores : errores.errors 
+            })
+        }else{
+        const {name, password, recordar, email} = req.body;
+        let result = users_db.find(user => user.email === email);
+        if(result){
+            if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
+                req.session.user = {
+                    id : result.id,
+                    name : result.name
+                }
+                if(recordar != 'undefined'){        /* Recordar contraseña */
+                    res.cookie('user', req.session.user, {
+                        maxAge : 1000 * 60
+                    })
+                }
+                return res.redirect('profile')
+            }
+        }
+        return res.render('login', {  /* En el caso de error se renderisa a vista de login y mustra error */
+            error : [
+            {
+                msg : "credenciales inválidas"
+            }
+        ]
+        })
+        }
+    },
+    /* Eliminar usuario */
+    logout : (req,res) => {
+        req.session.destroy();
+        if(req.cookies.user){
+            res.cookie('user','',{
+                maxAge: -1
+            })
+        }
+        res.redirect('/');
+    },
+    /* Vista de perfil de usuario */
+    profile : (req,res) => {
+        res.render('profile')
+    },
 }
