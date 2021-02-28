@@ -64,7 +64,7 @@
 }
 /*=== Section3 ==*/
 .home .s3 {
-    background-image: url("../images/fondo-categorias.jpg");
+    background-image: url("../images/fondo-categorias-hombres.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -111,6 +111,11 @@
     border: solid 1px white;
     text-transform: uppercase;
     margin-top: 10px;
+}
+.home .s3 .mujer{
+    background-image: url("../images/fondo-categorias-mujer.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 /*=== Section4 ===*/
 .home .s4 {
