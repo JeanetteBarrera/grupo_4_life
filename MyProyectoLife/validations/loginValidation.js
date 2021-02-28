@@ -1,9 +1,11 @@
-const {check} = require('express-validator');
+const {check} = require('express-validator'); // Requiero CHECK de express validator
 
 module.exports = [
-    check('email')
-    .isEmail().withMessage('El email ingresado es incorrecto'),
-    
-    check('pass')
-    .notEmpty().withMessage('Debe de ingresar una contraseña valida')
+    check('email') // Chequeo email
+    .isEmail() // Chequeo que sea valido
+    .withMessage('Se requiere un email valido'),
+
+    check('password') // Cheque password
+    .notEmpty() // Chequeo que no hayan campos vacios
+    .withMessage('La constraseña es requerida'),
 ]

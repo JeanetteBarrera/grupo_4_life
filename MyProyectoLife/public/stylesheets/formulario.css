@@ -23,3 +23,8 @@
     font-weight: 700;
     background-color: var(--colorVioleta);
 }
+.formulario .errores {
+    color: var(--colorVioleta);
+    text-transform: initial;
+    font-size: 13px;
+}
