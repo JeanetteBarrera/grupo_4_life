@@ -214,5 +214,14 @@
     "password": "$2b$12$28/ASKVEWUmCj0O2xb2RR.BePJZUYhz438JCEdGZBROPt8qorca7a",
     "category": "user",
     "avatar": "default.png"
+  },
+  {
+    "id": 25,
+    "name": "Benu",
+    "surname": "Garcia",
+    "email": "benula@gmail.com",
+    "password": "$2b$12$9nIje45zb/XHMahydahtx.u9bWQfkp8VTSaHPB7hmFLvZwhMjpKO.",
+    "category": "user",
+    "avatar": "default.png"
   }
 ]

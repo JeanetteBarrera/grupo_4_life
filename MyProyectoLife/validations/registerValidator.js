@@ -8,11 +8,11 @@ const users_db = getUsers();
 /*body, funcion que nos permite una validacion personalizada*/
 
 module.exports = [
-    check('name').isLength({min:2}).withMessage('Se debe ingresar un nombre'),
+    check('name').isLength({min:2}).withMessage('Ingrese un nombre'),
     
-    check('surname').isLength({min:2}).withMessage('Se debe ingresar un apellido'),
+    check('surname').isLength({min:2}).withMessage('Ingrese un apellido'),
     
-    check("email").isEmail().withMessage('Se debe ingresar un email valido'),
+    check("email").isEmail().withMessage('Ingrese una direccion de correo electronico'),
         
         body('email').custom(value => {
             let result = users_db.find(user => user.email === value)
@@ -22,7 +22,7 @@ module.exports = [
             }else {
                 return true
             }
-        }).withMessage('El e-mail ingresado ya esta registrado'),
+        }).withMessage('El correo electronico ingresado ya esta registrado'),
 
     check('password').isLength({min:8}).withMessage('Se debe ingresar un minimo de 8 caracteres'),
     

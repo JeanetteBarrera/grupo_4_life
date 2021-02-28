@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { login, create, processCreate, processLogin, logout, profile, profileEdit, profileDelete, profileUpdate} = require("../controllers/usersController")
+const { login, create, processCreate, processLogin, logout, profile , profileEdit, profileUpdate, profileDelete } = require("../controllers/usersController")
 
 /* middlewares */
 const registerValidator = require('../validations/registerValidator');
@@ -27,10 +27,9 @@ router.get('/logout',logout);
 /* ingresar un usuario */
 router.get('/profile', userCheck, profile);
 
-
 /* editar y eliminar usuario */
-router.get('/profile/edit/:id',userCheck,profileEdit);
-router.put('/profile/update/:id',profileUpdate);
+router.get('/profile/edit/:id',userCheck, profileEdit);
+router.put('/profile/update/:id', profileUpdate);
 
 router.delete('/profile/delete/:id',profileDelete);
 

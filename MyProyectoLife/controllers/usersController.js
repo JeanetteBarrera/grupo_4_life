@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const {getUsers, setUsers} = require(path.join('..','data','users'));
 const users_db = getUsers();
 
-const {validationResult} = require('express-validator');
+const {check, validationResult, body} = require('express-validator');
 
 module.exports = {
 
@@ -43,7 +43,8 @@ module.exports = {
 
         }else {
             return res.render('registro', {
-                errores: errores.errors
+                errores : errores.mapped(),
+                old : req.body
             })
 
         }
@@ -60,6 +61,7 @@ module.exports = {
     /* chequeo de ingreso de login */
     processLogin : (req, res) => {
         let errores = validationResult(req);
+
         if(!errores.isEmpty()){
             return res.render('login', {
                 errores : errores.errors 
@@ -71,7 +73,10 @@ module.exports = {
             if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
                 req.session.user = {
                     id : result.id,
-                    name : result.name
+                    name : result.name,
+                    surname : result.surname,
+                    email : result.email,
+                    avatar : result.avatar
                 }
                 if(recordar != 'undefined'){        /* Recordar contraseña */
                     res.cookie('user', req.session.user, {
@@ -82,11 +87,8 @@ module.exports = {
             }
         }
         return res.render('login', {  /* En el caso de error se renderisa a vista de login y mustra error */
-            error : [
-            {
-                msg : "credenciales inválidas"
-            }
-        ]
+            errores : errores.mapped(),
+                old : req.body
         })
         }
     },
@@ -103,5 +105,19 @@ module.exports = {
     /* Vista de perfil de usuario */
     profile : (req,res) => {
         res.render('profile')
+        console.log(user)
     },
+
+    profileEdit : (req, res) => {
+
+    },
+    profileUpdate : (req, res) => {
+
+    },
+    profileUpdate : (req, res) => {
+
+    },
+    profileDelete : (req, res) => {
+        
+    }
 }
