@@ -34,3 +34,4 @@ router.put('/profile/update/:id', profileUpdate);
 router.delete('/profile/delete/:id',profileDelete);
 
 module.exports = router;
+ 

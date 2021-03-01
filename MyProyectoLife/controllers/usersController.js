@@ -87,11 +87,8 @@ module.exports = {
                 return res.redirect('profile')
             }
         }
-        return res.render('login', {  /* En el caso de error se renderisa a vista de login y mustra error */
-            error :
-                {
-                    msg : "credenciales inválidas"
-                }
+        return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
+           error : { msg: "Credenciales Invalidas"} 
         })
         }
     },
