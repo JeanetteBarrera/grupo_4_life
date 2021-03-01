@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var productsController = require("../controllers/productsController");
+var userCheck = require("../middlewares/userCheck")
 
 /* rutas para carrito de compras*/
 
-router.get("/cart", productsController.cart);
+router.get("/cart",userCheck, productsController.cart);
 
 /* rutas para productos*/
 
