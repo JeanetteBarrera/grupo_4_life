@@ -64,7 +64,8 @@ module.exports = {
 
         if(!errores.isEmpty()){
             return res.render('login', {
-                errores : errores.errors 
+                errores : errores.mapped(),
+                old : req.body
             })
         }else{
         const {name, password, recordar, email} = req.body;
@@ -87,8 +88,7 @@ module.exports = {
             }
         }
         return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
-            errores : errores.mapped(),
-                old : req.body
+           error : { msg: "Credenciales Invalidas"} 
         })
         }
     },
