@@ -92,7 +92,7 @@ module.exports = {
         })
         }
     },
-    /* Eliminar usuario */
+    /* Cerrar session */
     logout : (req,res) => {
         req.session.destroy();
         if(req.cookies.user){
@@ -105,19 +105,15 @@ module.exports = {
     /* Vista de perfil de usuario */
     profile : (req,res) => {
         res.render('profile')
-        console.log(user)
     },
 
     profileEdit : (req, res) => {
-
-    },
-    profileUpdate : (req, res) => {
-
+        res.render('profileEdit')
     },
     profileUpdate : (req, res) => {
 
     },
     profileDelete : (req, res) => {
-        
+
     }
 }

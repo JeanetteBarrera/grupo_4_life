@@ -28,7 +28,7 @@ router.get('/logout',logout);
 router.get('/profile', userCheck, profile);
 
 /* editar y eliminar usuario */
-router.get('/profile/edit/:id',userCheck, profileEdit);
+router.get('/profile/edit/:id',profileEdit);
 router.put('/profile/update/:id', profileUpdate);
 
 router.delete('/profile/delete/:id',profileDelete);
