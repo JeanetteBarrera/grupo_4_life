@@ -64,7 +64,8 @@ module.exports = {
 
         if(!errores.isEmpty()){
             return res.render('login', {
-                errores : errores.errors 
+                errores : errores.mapped(),
+                old : req.body
             })
         }else{
         const {name, password, recordar, email} = req.body;
@@ -87,12 +88,11 @@ module.exports = {
             }
         }
         return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
-            errores : errores.mapped(),
-                old : req.body
+           error : { msg: "Credenciales Invalidas"} 
         })
         }
     },
-    /* Eliminar usuario */
+    /* Cerrar session */
     logout : (req,res) => {
         req.session.destroy();
         if(req.cookies.user){
@@ -105,19 +105,15 @@ module.exports = {
     /* Vista de perfil de usuario */
     profile : (req,res) => {
         res.render('profile')
-        console.log(user)
     },
 
     profileEdit : (req, res) => {
-
-    },
-    profileUpdate : (req, res) => {
-
+        res.render('profileEdit')
     },
     profileUpdate : (req, res) => {
 
     },
     profileDelete : (req, res) => {
-        
+
     }
 }
