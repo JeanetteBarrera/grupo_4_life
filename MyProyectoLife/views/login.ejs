@@ -30,6 +30,11 @@
           <button type="submit" class="button w-5/12 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">Ingresar</button>
         </div>
       </form>
+      <% if (typeof error != 'undefined') { %>
+        <div class="text-center text-purple-800">
+            <span class="text-lg"> <%= error.msg %> </span>
+        </div>
+    <% } %>
     </div>
   </main>
   <!-- Footer -->
