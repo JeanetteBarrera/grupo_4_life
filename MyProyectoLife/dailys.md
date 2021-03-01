@@ -55,3 +55,11 @@ integrantes ya que no pudimos entregarlo en fecha)
 . Dani aviso que no podria asistir
 - Se realizo el resumen de las reuniones Daily => Jeanette
 - Se realizo la correccion de la retro anterior => Belen
+
+# Sprint 4 
+
+## Principales Impresiones 
+
+La aplicacion de esta ceremonia nos permitio una mayor organizacion, detectar mas rapido los problemas y dificultades y por consecuencia poder resolverlos con tiempo.
+Tambien poder ir revisando, y planificando las modificaciones y trabajos extras para el mejoramiento de nuestra pagina.
+El registro de las actas, nos ayudaron a facilitar la realizacion de la restrospectiva.
