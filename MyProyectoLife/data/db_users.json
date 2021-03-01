@@ -223,5 +223,14 @@
     "password": "$2b$12$9nIje45zb/XHMahydahtx.u9bWQfkp8VTSaHPB7hmFLvZwhMjpKO.",
     "category": "user",
     "avatar": "default.png"
+  },
+  {
+    "id": 26,
+    "name": "Abi",
+    "surname": "Contreras",
+    "email": "dany.lilian.c@gmail.com",
+    "password": "$2b$12$x/PT0VJ8.r2NxQWV9Kookey6Gqx8wXDMcf9FDg1cOfiO9Cp98fSUm",
+    "category": "user",
+    "avatar": "default.png"
   }
 ]
