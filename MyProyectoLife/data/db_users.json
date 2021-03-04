@@ -223,5 +223,14 @@
     "password": "$2b$12$9nIje45zb/XHMahydahtx.u9bWQfkp8VTSaHPB7hmFLvZwhMjpKO.",
     "category": "user",
     "avatar": "default.png"
+  },
+  {
+    "id": 26,
+    "name": "roberto",
+    "surname": "bolaños",
+    "email": "roberto@gmail.com",
+    "password": "$2b$12$1wMf1coL3DBQZius.wffOO3znDALfkdEN5im3GKlq15ydo4CJVqn2",
+    "category": "user",
+    "avatar": "default.png"
   }
 ]

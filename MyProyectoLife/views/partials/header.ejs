@@ -15,9 +15,9 @@
   
         <div class="block lg:flex lg:items-center lg:order-2 nav-icons">
           <div class="text-sm lg:flex-grow">
-            <a href=""><i class="fas fa-search md:text-2xl"></i></a>
-            <a href=""><i class="far fa-user md:text-2xl"></i></a>
-            <a href=""><i class="fas fa-shopping-cart md:text-2xl"></i></a>
+            <span id="search"><i class="fas fa-search md:text-2xl"></i></span>
+            <span id="user"><i class="far fa-user md:text-2xl"></i></span>
+            <span id="cart" ><i class="fas fa-shopping-cart md:text-2xl"></i></span>
           </div>
         </div>
         <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
@@ -31,20 +31,51 @@
         </div>
       </nav>
   
-      <div id='search' class="absolute w-full hidden">
+      <div id='search-extendido' class="absolute w-full hidden">
         <form action="">
             <input class="input-search" type="text" placeholder="Buscar">
         </form>
       </div>
   
-      <div id="usuarios" class="w-32 md:w-44 nav-usuarios hidden">
+      <div id="user-extendido" class="w-32 md:w-44 nav-usuarios hidden">
         <div class="flex flex-col">
-          <a class="text-xs md:text-lg" href="">INGRESAR</a>
-          <a class="text-xs md:text-lg" href="">¿SOS NUEVA? REGISTRATE</a>
+          <a class="text-xs md:text-lg" href="/account/login">INGRESAR</a>
+          <a class="text-xs md:text-lg" href="/account/create">¿SOS NUEVA? REGISTRATE</a>
         </div>
       </div>
   
-      <div id="carrito">
+      <div id="cart-extendido">
       </div>
     </div>
+    <script>
+      /* evento click para menu version movil*/
+function menuMobile (){
+    document.getElementById("menu-extendido").classList.toggle("hidden");
+}
+document.getElementById("boton").onclick = function() {
+    menuMobile();
+}
+
+function menuSearch (){
+    document.getElementById("search-extendido").classList.toggle("hidden");
+}
+document.getElementById("search").onclick = function() {
+    menuSearch();
+}
+
+function menuUser (){
+    document.getElementById("user-extendido").classList.toggle("hidden");
+}
+document.getElementById("user").onclick = function() {
+    menuUser();
+}
+
+function menuCart (){
+    document.getElementById("cart-extendido").classList.toggle("hidden");
+}
+document.getElementById("cart").onclick = function() {
+    menuCart();
+}
+    </script>
   </header>
+ 

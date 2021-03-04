@@ -832,5 +832,41 @@
     "description": "Vestido largo de voile rayón liberty. Escote camisero, mangas cortas. Falda con maxi volados y frunces..",
     "price": 2500,
     "discount": null
+  },
+  {
+    "id": 25,
+    "name": "remera cascada",
+    "category": "mujer",
+    "subcategory": "vestidos",
+    "colors": [
+      "background-color:#5B6857",
+      "background-color:#000000"
+    ],
+    "variante1": [
+      {
+        "color": "background-color:#5B6857",
+        "sizes": [
+          {
+            "size": "s",
+            "stock": 10
+          },
+          {
+            "size": "m",
+            "stock": 10
+          },
+          {
+            "size": "l",
+            "stock": 10
+          },
+          {
+            "size": "xl",
+            "stock": 10
+          }
+        ]
+      }
+    ],
+    "description": "asfgdgfg",
+    "price": "4000",
+    "discount": "12"
   }
 ]
