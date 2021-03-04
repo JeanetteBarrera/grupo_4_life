@@ -22,8 +22,8 @@
           <input type="password" name="password" id="" placeholder="Contraseña" value="<%= (typeof old != 'undefined' && old.password) ? old.password : ""%>"  class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
           <span class="errores"><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : "" %></span>
         </div>
-        <div class="flex flex-row">
-          <input type="checkbox" name="recordar" id="recordar" class="inline-block"><label for="recordar">recordar</label>
+        <div>
+          <input type="checkbox" name="recordar" id="recordar" class="recordarme"><label for="recordar">recordar</label>
         </div>
         <a href="#" class="text-xs md:text-sm">¿Olvidaste tu contraseña?</a>
         <div class="my-5 flex justify-center">
