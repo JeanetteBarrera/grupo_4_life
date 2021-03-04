@@ -13,7 +13,7 @@
           
         <!--esto es lo que se debe iterar, lo demas es solo de prueba-->
         <div class="col-span-2 md:col-span-1">
-            <a href="#">
+            <a href="/products/product/<%= element.id %>">
                 <figure>
                     <img src="/images/img/<%=element.variante1.img %>  " alt="">
                 </figure>
@@ -22,7 +22,7 @@
                     <span class="text-sm sm:text-lg text-gray-600">$<%= element.price %> </span>
                 </div>
             </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="">VER MAS</a>
+            <a class="block text-center bg-black text-white text-sm py-1" href="/products/product/<%= element.id %>">VER MAS</a>
             <!--<form action="">
                 <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
             </form>-->

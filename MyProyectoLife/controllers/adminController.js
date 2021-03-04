@@ -41,7 +41,7 @@ module.exports = {
             variante1 : [
                 {
                     color : "background-color:#5B6857",
-                    img : req.files[0].filename,
+                    img : (req.files[0])?req.files[0].filename:"default-product-image.png",
                     sizes :[
                         {"size":"s", "stock": 10},
                         {"size":"m", "stock": 10},

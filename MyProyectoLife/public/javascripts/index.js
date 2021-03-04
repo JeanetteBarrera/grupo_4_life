@@ -19,3 +19,32 @@ const seccionesPagina = new fullpage("#fullpage", {
     slidesNavigation: true,
     verticalCentered: true
 })
+
+/* evento click para menu version movil*/
+/*function menuMobile (){
+    document.getElementById("menu-extendido").classList.toggle("hidden");
+}
+document.getElementById("boton").onclick = function() {
+    menuMobile();
+}
+
+function menuSearch (){
+    document.getElementById("search-extendido").classList.toggle("hidden");
+}
+document.getElementById("search").onclick = function() {
+    menuSearch();
+}
+
+function menuUser (){
+    document.getElementById("user-extendido").classList.toggle("hidden");
+}
+document.getElementById("user").onclick = function() {
+    menuUser();
+}
+
+function menuCart (){
+    document.getElementById("cart-extendido").classList.toggle("hidden");
+}
+document.getElementById("cart").onclick = function() {
+    menuCart();
+}*/

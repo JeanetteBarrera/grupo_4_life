@@ -1,0 +1,31 @@
+.perfil h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--colorVioleta)
+}
+.perfil .dato {
+    line-height: 40px;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: solid 1px grey;
+    border-radius: 5px;
+    margin: 1% 0;
+}
+.perfil span {
+    font-size: 13px;
+    color: var(--colorVioleta);
+    text-transform: initial;
+}
+.perfil .boton, .boton-adicional{
+    background-color: var(--colorGrisOscuro);
+    width: 90%;
+    border-radius: 5px;
+    color: white;
+    line-height: 32px;
+    font-weight: 700;
+}
+.perfil .boton-adicional {
+    width: 100%;
+    margin: 10px 0;
+    line-height: 45px;
+}
