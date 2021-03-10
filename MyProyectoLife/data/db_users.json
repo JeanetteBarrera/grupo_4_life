@@ -226,17 +226,19 @@
   },
   {
     "id": 26,
-<<<<<<< HEAD
-    "name": "roberto",
-    "surname": "bolaños",
-    "email": "roberto@gmail.com",
-    "password": "$2b$12$1wMf1coL3DBQZius.wffOO3znDALfkdEN5im3GKlq15ydo4CJVqn2",
-=======
     "name": "Abi",
     "surname": "Contreras",
     "email": "dany.lilian.c@gmail.com",
     "password": "$2b$12$x/PT0VJ8.r2NxQWV9Kookey6Gqx8wXDMcf9FDg1cOfiO9Cp98fSUm",
->>>>>>> 0a17c3e7dac7730c34b5e908622fac4ec9605a92
+    "category": "user",
+    "avatar": "default.png"
+  },
+  {
+    "id": 27,
+    "name": "dani",
+    "surname": "carabajal",
+    "email": "dani@gmail.com",
+    "password": "$2b$12$4BfyR5PtNQbBbHee8q.k7ux11x86PdmmyPWBSC4N7bbr1CZYonFCm",
     "category": "user",
     "avatar": "default.png"
   }
