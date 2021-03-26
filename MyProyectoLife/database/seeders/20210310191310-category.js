@@ -1,18 +1,22 @@
 'use strict';
 
 module.exports = {
-  //Que se ejecuta cuando hacemos la siembra
+
+  //se ejecuta cuando hacemos la carga/siembra 
   up: async (queryInterface, Sequelize) => {
-    let categories = [
-      {category:'mujer'},
-      {category:'hombre'}
-    ]
-      return queryInterface.bulkInsert('categories', categories, {});
     
+    const categories = [
+      {category:'Mujer',createdAt:new Date},
+      {category: 'Hombre',createdAt:new Date}
+    ]
+    //creamos los datos que luego pasamos como segundo parametro para cargarlo
+    await queryInterface.bulkInsert('categories', categories, {});
   },
 
+  //se ejecuta cuando deshacemos la carga/siembra
   down: async (queryInterface, Sequelize) => {
-   
-     return queryInterface.bulkDelete('categories', null, {});
+    
+    await queryInterface.bulkDelete('categories', null, {});
+    
   }
 };
