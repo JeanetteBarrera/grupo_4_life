@@ -8,8 +8,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      addressId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName : "addresses"
+          },
+          key : 'id'
+        }
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName : "users"
+          },
+          key : 'id'
+        }
+      },
+      cartId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName : "carts"
+          },
+          key : 'id'
+        }
+      },
+      total: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

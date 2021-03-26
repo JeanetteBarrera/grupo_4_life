@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'addressId'
       }),
       User.hasOne(models.Cart)
+      User.hasOne(models.Order)
     }
   };
   User.init({

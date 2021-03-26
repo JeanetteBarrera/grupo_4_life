@@ -8,6 +8,18 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      sizeId: {
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'sizes'
+          },
+          key : 'id'
+        }
+      },
+      cantidad:{
+        type: Sequelize.INTEGER
+      },
       userId: {
         type: Sequelize.INTEGER,
         references : {
