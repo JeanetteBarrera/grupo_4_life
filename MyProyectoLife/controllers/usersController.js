@@ -1,26 +1,42 @@
+const db = require('../database/models')
 const path= require("path");
 const bcrypt = require('bcrypt');
 const {getUsers, setUsers} = require(path.join('..','data','users'));
-const users_db = getUsers();
-
+/*const {check,validationResult,body} = require('express-validator');*/
+/*const users_db = getUsers();*/
+const { Op } = require("sequelize");
 const {check, validationResult, body} = require('express-validator');
 
 module.exports = {
-
     create : (req, res) => { /*vista de registrarse para nuevos usuarios*/
         res.render("registro", {
             title : "Registrate - LIFE"
         })
     },
     processCreate : (req, res) => { 
-        
-        let errores = validationResult(req);
+         let errores = validationResult(req);
         
         if(errores.isEmpty()) { //en caso de no haber ningun error
         
             const {name, surname, email, password } = req.body; //requiero los datos ingresados en el formulario de registro ya validados
+            
+            db.User.create({
+                name : name.trim(),
+                surname:surname.trim(),
+                email,
+                password : bcrypt.hashSync(password,12),
+                rol : "user"
+            })
+            .then(()=>res.redirect('/account/login'))
+            .catch(error => res.send(error))
+        }else{
+            return res.render('register',{
+                errores : errores.mapped(),
+                old: req.body
+            })
+        }
 
-            let lastID = 0;
+            /*let lastID = 0;
             users_db.forEach(user => {
                 if(user.id > lastID) {
                     lastID = user.id
@@ -47,7 +63,7 @@ module.exports = {
                 old : req.body
             })
 
-        }
+        } */
 
     },
     
@@ -63,19 +79,28 @@ module.exports = {
         let errores = validationResult(req);
 
         if(!errores.isEmpty()){
-            return res.render('login', {
+
+            /*return res.render('login', {
                 errores : errores.mapped(),
-                old : req.body
+                old : req.body*
             })
-        }else{
+        }else{*/
         const {name, password, recordar, email} = req.body;
-        let result = users_db.find(user => user.email === email);
-        if(result){
-            if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
+        /*let result = users_db.find(user => user.email === email);
+        if(result){*/
+
+            db.User.findOne({
+                where : {
+                    email
+                }
+            })
+            .then(user => {
+            /*if(bcrypt.compareSync(password.trim(),result.password)){ /* Encriptar y ingreso de usuario */
+           if(user && bcrypt.compareSync(password, user.password)){  
                 req.session.user = {
                     id : result.id,
                     name : result.name,
-                    surname : result.surname,
+                    surname : result.name,
                     email : result.email,
                     avatar : result.avatar
                 }
@@ -85,13 +110,24 @@ module.exports = {
                     })
                 }
                 return res.redirect('profile')
-            }
-        }
-        return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
-           error : { msg: "Credenciales Invalidas"} 
-        })
-        }
-    },
+        
+            }else {
+        
+               return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
+                 error : { msg: "Credenciales Invalidas"} 
+                })
+            }   
+        
+
+    })
+}else{
+    return res.render('login',{
+        errores : errores.mapped(),
+        old : req.body
+    })
+}
+},
+
     /* Cerrar session */
     logout : (req,res) => {
         req.session.destroy();
