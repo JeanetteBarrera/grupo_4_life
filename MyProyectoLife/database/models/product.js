@@ -12,13 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Product.belongsTo(models.Subcategory,{
-        /*as:'subcategoria',*/
+        //as:'subcategoria',
         foreingKey : 'subcategoryId'
       })
       Product.hasMany(models.Variant,{
-        as:'variante'
+        as:'variantes'
       })
-      Product.hasMany(models.Stock)
+      Product.hasMany(models.Stock, {
+        as:'stock'
+      })
       Product.hasOne(models.Cart)
     }
   };
@@ -26,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    subcategoryId: DataTypes.INTEGER
+    subcategoryId: DataTypes.INTEGER,
+    //discount: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',

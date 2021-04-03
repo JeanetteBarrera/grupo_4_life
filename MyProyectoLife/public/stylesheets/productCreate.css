@@ -1,3 +1,8 @@
+.admin-header{
+    background-color: #4a5053;
+    padding: 15px 10px;
+
+}
 .create.nav {
     top: 0;
     background-color: #5B91A9 ;
@@ -20,4 +25,46 @@
     text-transform: uppercase;
     margin: 0 1.5rem 0 1.5rem;
     font-weight: 600;
+}
+.admin-form h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+}
+.admin-form label {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+.admin-form input, .admin-form textarea {
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    width: 100%;
+    padding-left: 4px;
+    
+}
+.admin-form .select {
+    background-color: white;
+    padding: 10px 7px;
+    border: 2px solid gray;
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.admin-form .contenedor {
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+.admin-form .boton-enviar {
+    width: 100%;
+    border: solid 2px var(--colorGrisOscuro);
+    border-radius: 5px;
+    background-color: var(--colorGrisOscuro);
+    color:white;
+    font-weight: 700;
+    text-transform: uppercase;
+    
 }
