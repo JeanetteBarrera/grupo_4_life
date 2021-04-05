@@ -11,7 +11,7 @@
           <div class="grid grid-cols-1 gap-2">
               <!--<div class="">-->
                   <select name="category" id="select-primario" class="select">
-                    <option selected disabled>Seleccione una categoria</option>
+                    <option selected >Seleccione una categoria</option>
                     <% categorias.forEach(element => { %>
                       <option value=<%=element.id %>><%= element.category %> </option>
                     <% }) %>
@@ -22,19 +22,24 @@
                     <% subMujer.forEach(element => { %>
                         <option value=<%=element.id %>><%= element.subcategory %> </option>
                       <% }) %>
-                </select>
+                 </select>
+                 <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
 
                   <label for="name" >producto</label>
-                  <input type="text" name="name" autocomplete="off" placeholder="Nombre del producto" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
-                  <label for="">descripcion</label>
-                  <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."></textarea>
-                  
-                  <label for="name">precio</label>
-                  <input type="number" name="price" placeholder="$...." class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
-                  
-                  <label for="name">descuento</label>
-                  <input type="number" name="discount" placeholder="10" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <input type="text" name="name" autocomplete="off" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
 
+                  <label for="">descripcion</label>
+                  <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."><%= (typeof old != 'undefined' && old.description) ? old.description : ""%></textarea>
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
+
+                  <label for="name">precio</label>
+                  <input type="number" name="price" placeholder="$...." value="<%= (typeof old != 'undefined' && old.price) ? old.price : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.price) ? errores.price.msg : "" %></span>
+
+                  <label for="name">descuento</label>
+                  <input type="number" name="discount" placeholder="0" value="<%= (typeof old != 'undefined' && old.discount) ? old.discount : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
               
                   <h3 class="my-1 text-base text-center">Variantes por color</h3>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>

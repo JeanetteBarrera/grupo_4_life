@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const db = require('../database/models');
+const { validationResult } = require("express-validator");
 
 module.exports = {
 
@@ -24,67 +25,85 @@ module.exports = {
                 })
     },
     productStore: (req, res, next) => {
-        console.log(req.body)
-        console.log(req.files)
-        /*console.log(req.files[0])
-        console.log(req.files[1])*/
-        const {subcategory,name,description,price, discount}= req.body;
+
+        const errores= validationResult(req);
+
+        if(!errores.isEmpty()){
+            let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
+            let subHombre = db.Subcategory.findAll({where:{categoryId:2}});
+            let categorias = db.Category.findAll()
+        
+            Promise.all([subMujer, subHombre, categorias])
+                .then(([subMujer,subHombre, categorias]) => {
+                    res.render('admin/productCreate',{
+                    subMujer,
+                    subHombre,
+                    categorias,
+                    errores: errores.mapped(),
+                    old: req.body
+                });
+            });
+
+        }else{
+
+            const {subcategory,name,description,price, discount}= req.body;
        
-        db.Product.create({
-            subcategoryId: subcategory,
-            name: name,
-            description: description,
-            price: price,
-            discount: discount,
+            db.Product.create({
+                subcategoryId: subcategory,
+                name: name,
+                description: description,
+                price: price,
+                discount: discount,
+                status:1
 
-        }).then((resultado)=>{
-            //console.log(req.body.color)
-            for( let i=0; i < req.body.color.length; i++){
-               // console.log(req.files[i].filename)
-                db.Variant.create({
-                    productId:resultado.id,
-                    color: req.body.color[i],
-                    //image: "default-product-image.png"
-                    image: (req.files[i].filename)?req.files[i].filename:"default-product-image.png"
-                })
-                .then((variante)=> {
-                    console.log("aca entro "+i)
-                    //console.log(variante)
-                    let talle = ["stockS","stockM","stockL","stockXL"];
-                    let stock= [];
+            }).then((resultado)=>{
+                //console.log(req.body.color)
+                for( let i=0; i < req.body.color.length; i++){
+                // console.log(req.files[i].filename)
+                    db.Variant.create({
+                        productId:resultado.id,
+                        color: req.body.color[i],
+                        image: (req.files[i].filename)?req.files[i].filename:"default-product-image.png"
+                    })
+                    .then((variante)=> {
+                        console.log("aca entro "+i)
+                        //console.log(variante)
+                        let talle = ["stockS","stockM","stockL","stockXL"];
+                        let stock= [];
 
-                    for(let j=0; j<talle.length; j++){
-                        let stockObject = {
-                            productId: resultado.id,
-                            variantId: variante.id,
-                            sizeId: j+1,
-                            stock: req.body[`${talle[j]}`][i]
+                        for(let j=0; j<talle.length; j++){
+                            let stockObject = {
+                                productId: resultado.id,
+                                variantId: variante.id,
+                                sizeId: j+1,
+                                stock: req.body[`${talle[j]}`][i]
+                            }
+                            
+                            /*console.log(stockObject)
+                            console.log( req.body[`${talle[j]}`][i])*/
+                            stock.push(stockObject);
                         }
-                        
-                        /*console.log(stockObject)
-                        console.log( req.body[`${talle[j]}`][i])*/
-                        stock.push(stockObject);
-                    }
-                    //console.log(stock);
-                    db.Stock.bulkCreate(stock, {
-                        returning: true
+                        //console.log(stock);
+                        db.Stock.bulkCreate(stock, {
+                            returning: true
+                        })
+                        .then((dato)=>{
+                            console.log(dato)
+                        })
+                        .catch((err)=>{
+                            console.log(err);
+                        })
                     })
-                    .then((dato)=>{
-                        console.log(dato)
+                    .catch((error)=>{
+                        console.log(error);
                     })
-                    .catch((err)=>{
-                        console.log(err);
-                    })
-                })
-                .catch((error)=>{
-                    console.log(error);
-                })
-            }
-            res.redirect("/")
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
+                }
+                res.redirect("admin/product/list")
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        }
         
     },
     
@@ -184,13 +203,8 @@ module.exports = {
         })
         
     },*/
-    productDelete: (req, res) => {
-        res.render("/")
-    },
+    
 
-    productList: (req, res) => {
-        res.render("/")
-    },
     /* actualizacion de una variante sola, funcionando
     productUpdate: (req, res)=> {
         const {subcategory,name,description,price, discount}= req.body;
@@ -331,7 +345,8 @@ module.exports = {
                 name: name,
                 description:description,
                 price: price,
-                discount:discount
+                discount:discount,
+                status:1
             },
             {
                 where:{ id: req.params.id}
@@ -377,13 +392,35 @@ module.exports = {
             }).catch(errores=>{
                 console.log(errores)
             })
-                
+            res.redirect("/admin/product/list")
         }).catch(errores => {
             console.log(errores)
         })
     },
     productDelete: (req,res)=>{
+        db.Product.update({
+            status:0
+        },
+        {
+            where:{id: req.params.id}
+        }).then((dato)=> {
+            console.log(dato)
+            res.redirect('/admin/product/list')
+        }).catch(errores=>{
+            console.log(errores)
+        } )
+    },
+    productList: (req, res)=>{
+        db.Product.findAll({
+            include: [
+                {association:"Subcategory",include:[{association:"Category"}]},
+                {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
         
+        }).then(result=>{
+            res.render("admin/ProductList",{
+                producto:result
+            })
+        })
     }
 }
 

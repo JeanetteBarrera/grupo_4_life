@@ -5,32 +5,105 @@
   <!-- Header -->
   <%- include("./partials/header") %>
   <!-- Main -->
-  <main class="my-24 mx-2 sm:mx-4 md:mx-14">
-    <div class=" grid grid-cols-4 gap-4 text-center border border-current py-2 font-bold">
-      <h4 class="text-sm sm:text-lg">Name</h4>
-      <h4 class="text-sm sm:text-lg">Category</h4>
-      <h4 class="text-sm sm:text-lg">Subcategory</h4>
-    </div>
+  <main class="my-24 mx-2 sm:mx-4 md:mx-14 list-table">
+    <h1 class="uppercase text-xl sm:text-2xl md:text-3xl text-center font-bold">informacion y stock</h1>
+    <div class="border my-4">
+      <h2 class="bg-purple-400 uppercase text-white font-bold">IMPORTANTE!</h2>
+      <h2 class="normal-case">Los productos en color gris: se encuentran inhabilitados</h2>
+      <h2 class="normal-case">Los productos en color blanco: se encuentran habilitados</h2>
 
+    </div>
+    <!--contenedor de tabla-->
+    <div class="overflow-x-auto">
+      <table class="text-sm w-full table-product">
+        <!--encabezados-->
+        <thead class="bg-black flex text-white w-full">
+          <tr class="flex w-full">
+            <th class="p-2 w-1/4 ">Cat.</th>
+            <th class="p-2 w-1/4 ">Subcat.</th>
+            <th class="p-2 w-1/4 ">Product</th>
+            <th class="pt-2 w-1/4 sm:w-1/2">Variant</th>
+            <th class="pt-2 w-1/2 ">Stock
+              <table class="border w-full">
+                <tr>
+                  <th class="w-1/4 px-2">s</th>
+                  <th class="w-1/4 px-2">m</th>
+                  <th class="w-1/4 px-2">l</th>
+                  <th class="w-1/4 px-2">xl</th>
+                </tr>
+              </table>
+            </th>
+            <th class="p-2 w-1/4">Action</th>
+          </tr>
+        </thead>
+        <!--termina encabezados-->
+        
+        <!-- contenido de la tabla-fila que se itera-->
+        <tbody class="bg-grey-light flex flex-col items-center justify-between w-full">
+          <% producto.forEach(element => { %>
+            <%if ((element.status)!=1) {%>
+              <tr class="flex w-full mb-4 text-center border bg-gray-400">
+            <% } else { %>
+              <tr class="flex w-full mb-4 text-center border">
+             <% } %>
+
+          <!--<tr class="flex w-full mb-4 text-center border">-->
+            <td class="p-2 sm:p-1 w-1/4 my-6"><%= element.Subcategory.Category.category %></td>
+            <td class="p-2 sm:p-1 w-1/4 my-6"><%= element.Subcategory.subcategory %></td>
+            <td class="p-2 sm:p-1 w-1/4 my-6 mx-2 sm:mx-0"><%= element.name %> </td>
+            <td class="w-1/4 sm:w-1/2">
+              <% element.variantes.forEach(variante => { %>
+              <p class="w-full px-1 py-2 border"><%= variante.color %> </p>
+              <% }) %>
+            </td>
+            <td class="w-1/2 ">
+              <table class="w-full ">
+                <%for (let i=0; i<element.variantes.length; i++) { %>
+                  <tr class="">
+                    <%for (let j= 0; j<element.variantes[i].stock.length; j++) { %>
+                      
+                      <th class="w-1/4 p-2 border"><%= element.variantes[i].stock[j].stock%></th>
+                     <% } %>
+                  </tr>
+                <% } %>
+              </table>
+            </td>
+            
+            <td class="w-1/4 text-center botones">
+              <a href="/admin/product/edit/<%= element.id%>" class="block h-1/3 p-2 my-2 bg-green-500"><i class="fas fa-pen-square"><p>editar</p></i></a>
+              <!--<a href="/admin/product/delete/" class="block h-1/3 p-2 my-2 bg-red-400"><i class="fas fa-trash-alt"><p>eliminar</p></i></a>-->
+              <form action="/admin/product/delete/<%= element.id %>/?_method=DELETE" method="POST">
+                <button class="w-full h-1/3 p-2 my-2 bg-red-400" type="submit"><i class="fas fa-trash-alt"><p>Eliminar</p></i></button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+          <!--termina contenido de la tabla-fila que se itera -->
+      </table>
+
+    </div>
+    <!--termina contenedor de tabla-->
+
+    
     <!--lo que se itera-->
-    <% products.forEach(product => { %>
-     
   
-    <div class=" grid grid-cols-4 gap-4 text-center mt-4 bg-gray-200 my-2 capitalize">
-      <p class="text-sm sm:text-lg"><%= product.name %></p>
-      <p class="text-sm sm:text-lg"><%= product.category %></p>
-      <p class="text-sm sm:text-lg"><%= product.subcategory %></p>
+  
+   <!--- <div class=" grid grid-cols-4 gap-4 text-center mt-4 bg-gray-200 my-2 capitalize">
+      <p class="text-sm sm:text-lg">Cat</p>
+      <p class="text-sm sm:text-lg">Sub</p>
+      <p class="text-sm sm:text-lg">Producto</p>
       <div class="text-sm sm:text-lg">
         <div class="bg-green-500 text-white my-1">
-          <a href="/admin/product/edit/<%= product.id %>" class="block">Editar</a>
+          <a href="/admin/product/edit/" class="block">Editar</a>
         </div>
-        <form action="/admin/product/delete/<%= product.id %>?_method=DELETE" method="POST" class="bg-red-500 block text-white my-1">
+        <form action="/admin/product/delete/?_method=DELETE" method="POST" class="bg-red-500 block text-white my-1">
           <button class="" type="submit">Eliminar</button>
         </form>
       </div>
-    </div>
-    <!--aca terminas-->
-    <% }) %>
+    </div>-->
+    <!--aca termina-->
+    
     
   </main>
 <!-- Footer -->
