@@ -24,6 +24,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      status:{
+        type: Sequelize.BOOLEAN,
+        allowNull:false
+      },
       subcategoryId: {
         type: Sequelize.INTEGER,
         references : {

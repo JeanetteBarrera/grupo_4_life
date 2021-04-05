@@ -13,6 +13,7 @@ var generalRouter = require('./routes/generalRouter');
 var usersRouter = require('./routes/usersRouter');
 var productsRouter = require('./routes/productsRouter');
 var adminRouter = require('./routes/adminRouter')
+var apiProductRouter = require('./routes/api/productRouter');
 
 /*MIDDLEWARES*/
 var localCheck = require('./middlewares/localCheck');
@@ -38,6 +39,7 @@ app.use('/', generalRouter);
 app.use('/account', usersRouter);
 app.use("/products", productsRouter);
 app.use("/admin", adminRouter);
+app.use("/api/product", apiProductRouter);
 
 
 // catch 404 and forward to error handler
