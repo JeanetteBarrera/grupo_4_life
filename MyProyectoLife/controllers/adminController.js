@@ -98,7 +98,7 @@ module.exports = {
                         console.log(error);
                     })
                 }
-                res.redirect("admin/product/list")
+                res.redirect("/")
             })
             .catch((error)=>{
                 console.log(error)
