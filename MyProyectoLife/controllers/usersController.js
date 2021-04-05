@@ -56,7 +56,8 @@ module.exports = {
                     /*password: {[Op.not]: null}*/
                 }
             })
-            .then(user => { console.log(user)                                           
+            .then(user => { 
+                console.log(user)                                           
                if(user && bcrypt.compareSync(password, user.password)){   /* Encriptar e ingreso de usuario */
                      req.session.user = {
                       id : user.id,

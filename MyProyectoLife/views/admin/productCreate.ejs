@@ -4,10 +4,10 @@
 <body>   
     <!-- Header -->
     <%- include('./partials/header') %> 
-    <main class="admin-form mx-3 mt-24">
+    <main class="admin-form mx-3 mt-24 sm:mx-12 md:mx-24">
       <form action="/admin/product/store"  method="POST" enctype="multipart/form-data" >
        
-          <h2 class="my-5 text-lg">carga de producto</h2>
+          <h2 class="my-5 text-xl sm:text-2xl">carga de producto</h2>
           <div class="grid grid-cols-1 gap-2">
               <!--<div class="">-->
                   <select name="category" id="select-primario" class="select">
@@ -41,12 +41,12 @@
                   <input type="number" name="discount" placeholder="0" value="<%= (typeof old != 'undefined' && old.discount) ? old.discount : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
               
-                  <h3 class="my-1 text-base text-center">Variantes por color</h3>
+                  <h3 class="my-1 text-base sm:text-lg md:text-xl">Variantes por color</h3>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
                 
-                  <button id="agregar" class="bg-green-300">agregar</button>
+                  <button id="agregar" class="boton-agregar w-1/4 text-lg sm:text-xl">+agregar</button>
 
-                  <label for="">Agrege imagenes</label>
+                  <label for="">Seleccione las imagenes</label>
                   <input id="file-input" type="file" name="image" multiple>
                   <!--<div id="preview"></div>-->
 

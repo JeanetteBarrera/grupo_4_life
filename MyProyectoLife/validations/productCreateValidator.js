@@ -27,7 +27,8 @@ module.exports= [
 
     check('discount').isLength({min:1}).withMessage('Debe ingresar un valor de descuento'),
 
-    /*check('color[]'),
+    /*check('color[]').exists().withMessage('')
+    check('color[]'),
 
     check('stockS'),
     check('stockM.'),

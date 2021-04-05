@@ -392,7 +392,7 @@ module.exports = {
             }).catch(errores=>{
                 console.log(errores)
             })
-            res.redirect("/admin/product/list")
+            res.redirect("admin/product/list")
         }).catch(errores => {
             console.log(errores)
         })
