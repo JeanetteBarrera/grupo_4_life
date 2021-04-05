@@ -58,6 +58,8 @@ module.exports = {
                 }
             })
             .then(user => { 
+             // verificacion de rol de ususario//
+
                 console.log(user)                                           
                if(user && bcrypt.compareSync(password, user.password)){   /* Encriptar e ingreso de usuario */
                      req.session.user = {
@@ -66,13 +68,18 @@ module.exports = {
                       surname : user.surname,
                       email : user.email,
                       avatar : user.avatar
+                      //rol:user//
                     }
+                    // verificacion de rol de ususario//
+
+
+
                   if(recordar){        /* Recordar contraseña */
                         res.cookie('user', req.session.user, {
                          maxAge : 1000 * 60
                         })
                     }
-                     return res.redirect('account/profile')
+                     return res.redirect('profile')
                 }else {
                     return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
                         error : {
