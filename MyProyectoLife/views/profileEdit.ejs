@@ -13,19 +13,33 @@
       </div>
       <div class="grid grid-cols-3 my-1">
         <label for="" class="col-span-1">Direccion</label>
-        <input type="text" name="direccion" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <input type="text" id="street"name="street" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="streetErrors"><%= (typeof errores != 'undefined' && errores.street) ? errores.street.msg : "" %></span>
+      </div>
+      <div class="grid grid-cols-3 my-1">
+        <label for="" class="col-span-1">Ciudad</label>
+        <input type="text" id="city"name="city" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="cityErrors"><%= (typeof errores != 'undefined' && errores.city) ? errores.city.msg : "" %></span>
+      </div>
+      <div class="grid grid-cols-3 my-1">
+        <label for="" class="col-span-1">Provincia</label>
+        <input type="text" id="state" name="state" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="stateErrors"><%= (typeof errores != 'undefined' && errores.state) ? errores.state.msg : "" %></span>
       </div>
       <div class="grid grid-cols-3 my-1">
         <label for="" class="col-span-1">Pais</label>
-        <input type="text" name="direccion" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <input type="text" id="country" name="country" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="countryErrors"><%= (typeof errores != 'undefined' && errores.country) ? errores.country.msg : "" %></span>
       </div>
       <div class="grid grid-cols-3 my-1">
         <label for="" class="col-span-1">Codigo postal</label>
-        <input type="text" name="direccion" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <input type="text" id="ZipCode" name="ZipCode" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="zipCodeErrors"><%= (typeof errores != 'undefined' && errores.zipCode) ? errores.zipCode.msg : "" %></span>
       </div>
       <div class="grid grid-cols-3 my-1">
         <label for="" class="col-span-1">Telefono</label>
-        <input type="text" name="direccion" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <input type="text"  id="phone" name="phone" class="leading-7 md:leading-10 rounded ring-2 ring-gray-400">
+        <span class="errores" id="phoneErrors"><%= (typeof errores != 'undefined' && errores.phone) ? errores.phone.msg : "" %></span>
       </div>
       
     </form>

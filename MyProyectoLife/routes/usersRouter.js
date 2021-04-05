@@ -25,10 +25,10 @@ router.post('/login', loginValidation , processLogin);
 router.get('/logout',logout); 
 
 /* ingresar un usuario */
-router.get('/profile', userCheck, profile);
+router.get('/profile',/*userCheck*/ profile);
 
 /* editar y eliminar usuario, todavia esta en proceso*/
-router.get('/profile/edit/:id',profileEdit);
+router.get('profile/edit/:id/',profileEdit);
 router.put('/profile/update/:id', profileUpdate);
 
 router.delete('/profile/delete/:id',profileDelete);
