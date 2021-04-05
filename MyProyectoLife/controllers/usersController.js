@@ -72,7 +72,7 @@ module.exports = {
                          maxAge : 1000 * 60
                         })
                     }
-                     return res.redirect(`/account/profile/${user.id}`)
+                     return res.redirect('account/profile')
                 }else {
                     return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
                         error : {
