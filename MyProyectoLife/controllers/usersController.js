@@ -50,10 +50,11 @@ module.exports = {
 
         if(errores.isEmpty()){
           const {email, password, recordar} = req.body;
-            db.User.findOne({
+            
+          db.User.findOne({
                 where : {
                     email: email,
-                    /*password: {[Op.not]: null}*/
+                  
                 }
             })
             .then(user => { console.log(user)                                           
@@ -63,7 +64,6 @@ module.exports = {
                       name : user.name,
                       surname : user.surname,
                       email : user.email,
-                      /*hash: bcrypt.hashSync(user.password, 12),*/
                       avatar : user.avatar
                     }
                   if(recordar){        /* Recordar contraseña */
@@ -71,7 +71,7 @@ module.exports = {
                          maxAge : 1000 * 60
                         })
                     }
-                     return res.redirect('/account/profile')
+                     return res.redirect(`/account/profile/${user.id}`)
                 }else {
                     return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
                         error : {
@@ -83,12 +83,14 @@ module.exports = {
                 } 
             }) 
            
-        }else{
+       /* }else{
             return res.render('login', {
                 errores : errores.mapped(),
                 old : req.body
             })
-        }
+        }*/
+
+    }
     
     },
 
@@ -103,23 +105,10 @@ module.exports = {
         res.redirect('/');
     },
     /* Vista de perfil de usuario */
-    /*profile : (req,res) => {
+    profile : (req,res) => {
         res.render('profile')
-    },*/
-    profile: (req, res) => {
-        db.Users.findOne({
-            where: {
-                id: req.session.user.id
-            }
-        })
-        .then(user => {
-            res.render('profile', {
-                title: 'Mi cuenta',
-                session: req.session,
-                user: user
-            })
-        })
     },
+
 
 
     profileEdit : (req, res) => {
@@ -141,7 +130,7 @@ module.exports = {
     profileUpdate : (req, res) => {
         db.Users.update({
 
-
+      //faltaterminar//
     },{
             where: {
                 id: req.session.usuario.id
