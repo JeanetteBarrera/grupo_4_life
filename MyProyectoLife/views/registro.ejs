@@ -14,28 +14,28 @@
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1 text-sm font-semibold">Nombre</label>-->
-          <input type="text" name="name" placeholder="Nombre" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
-          <span class="errores"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
+          <input type="text" id="name" name="name" placeholder="Nombre" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
+          <span class="errores" id="nameErrors"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1 text-sm font-semibold">Apellido</label>-->
-          <input type="text" name='surname' placeholder="Apellido" value="<%= (typeof old != 'undefined' && old.surname) ? old.surname : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
-          <span class="errores"><%= (typeof errores != 'undefined' && errores.surname) ? errores.surname.msg : "" %></span>
+          <input type="text" id="surname"name='surname' placeholder="Apellido" value="<%= (typeof old != 'undefined' && old.surname) ? old.surname : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
+          <span class="errores"  id="surnameErrors">  <%= (typeof errores != 'undefined' && errores.surname) ? errores.surname.msg : "" %></span>
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1 text-sm font-semibold">Email</label>-->
-          <input type="email" name="email" placeholder="E-mail" value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
-          <span class="errores"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %></span>
+          <input type="email" id="email"name="email" placeholder="E-mail" value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
+          <span class="errores" id="emailErrors"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %></span>
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1 text-sm font-semibold">Contraseña</label>-->
-          <input type="password" name="password" id="" placeholder="Contraseña" value="<%= (typeof old != 'undefined' && old.password) ? old.password : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
-          <span class="errores"><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : "" %></span>
+          <input type="password" id="password" name="password" id="" placeholder="Contraseña" value="<%= (typeof old != 'undefined' && old.password) ? old.password : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent" >
+          <span class="errores"id="passwordErrors"><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : "" %></span>
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1 text-sm font-semibold">Confirmar contraseña</label>-->
-          <input type="password" name="confirmarPassword" placeholder="Confirmar Contraseña" value="<%= (typeof old != 'undefined' && old.confirmarPassword) ? old.confirmarPassword : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
-          <span class="errores"><%= (typeof errores != 'undefined' && errores.confirmarPassword) ? errores.confirmarPassword.msg : "" %></span>
+          <input type="password" id="confirmarPassword"name="confirmarPassword" placeholder="Confirmar Contraseña" value="<%= (typeof old != 'undefined' && old.confirmarPassword) ? old.confirmarPassword : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
+          <span class="errores"id="password2Errors"><%= (typeof errores != 'undefined' && errores.confirmarPassword) ? errores.confirmarPassword.msg : "" %></span>
         </div>
         <div class="my-5 flex justify-center">
           <button type="submit" class="button w-6/12 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">Registrarme</button>
@@ -45,5 +45,7 @@
   </main>
   <!-- Footer -->
   <%- include("./partials/footer") %>
+
+  <script src="/javascripts/registro.js"></script>
 </body>
 </html>

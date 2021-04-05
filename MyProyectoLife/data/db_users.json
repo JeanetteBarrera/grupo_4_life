@@ -241,5 +241,14 @@
     "password": "$2b$12$4BfyR5PtNQbBbHee8q.k7ux11x86PdmmyPWBSC4N7bbr1CZYonFCm",
     "category": "user",
     "avatar": "default.png"
+  },
+  {
+    "id": 28,
+    "name": "Abigail",
+    "surname": "David",
+    "email": "abi@gmail.com",
+    "password": "$2b$12$2Mag1YisnV6DJNnwv9uhtO2WGvoAid26NHOUwEU/4tUtNdyZTNRsS",
+    "category": "user",
+    "avatar": "default.png"
   }
 ]
