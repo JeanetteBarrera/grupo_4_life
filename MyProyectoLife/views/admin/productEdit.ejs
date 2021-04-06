@@ -8,41 +8,57 @@
       <form action="/admin/product/update/<%= producto.id %>?_method=PUT"  method="POST" enctype="multipart/form-data">
           <h2 class="my-5 text-lg">Editar producto</h2>
           <div class="grid grid-cols-1 gap-2">
-              <!--<div class="">-->
-                  <!--<select name="category" id="select-primario" class="select">
-                    <option selected disabled>Seleccione una categoria</option>
-                    < categorias.forEach(element => { %>
-                      <option value=<=element.id %>><= element.category %> </option>
-                    < }) %>
-                  </select>
+              <select name="category" id="select-primario" class="select">
+                <option selected hidden value="0" >Elija una Categoria</option>
+                <% categorias.forEach(element => { %>
+                  <option 
+                    <%if (element.id == producto.Subcategory.categoryId) {%>
+                      selected
+                    <%}%>
+                  value=<%=element.id %><% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
+                <% }) %>
+              </select>
+              <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %></span>
 
-                  <select name="subcategory" id ="select-secundario" class="select">
-                    <option selected disabled>Seleccione una subcategoria</option>
-                    <subMujer.forEach(element => { %>
-                        <option value=<=element.id %>><= element.subcategory %> </option>
-                      < }) %>
-                </select>-->
+
+              <select name="subcategory" id ="select-secundario" class="select">
+                <option hidden selected value="0" >Elija una subcategoria</option>
+                <% categorias.forEach(categoria => { %>
+                  <% if (categoria.id == producto.Subcategory.categoryId) { %>
+                   <% categoria.subcategoria.forEach(element => { %>
+                    <option
+                    <% if (element.id == producto.Subcategory.id) { %>
+                     selected
+                    <% } %>
+                    value="<%- element.id %>"><%= element.subcategory %></option>
+                   <% }) %>
+                  <% } %>
+                 <% }) %>
+              </select>
+              <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
+
 
                   <label for="name" >producto</label>
-                  <input type="text" name="name" value="<%=producto.name%>" autocomplete="off" placeholder="Nombre del producto" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <input type="text" name="name" value="<%=producto.name%>" autocomplete="off" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
+                  
                   <label for="">descripcion</label>
-                  <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."><%=producto.description%></textarea>
+                  <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."><%= (typeof old != 'undefined' && old.description) ? old.description : ""%></textarea>
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                   
                   <label for="name">precio</label>
-                  <input type="number" name="price" value="<%=producto.price%>" placeholder="$...." class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
-                  
+                  <input type="number" name="price" value="<%= (typeof old != 'undefined' && old.price) ? old.price : ""%>" placeholder="$...." class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.price) ? errores.price.msg : "" %></span>
+
                   <label for="name">descuento</label>
-                  <input type="number" name="discount" value="<%=producto.discount%>" placeholder="10" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <input type="number" name="discount" value="<%= (typeof old != 'undefined' && old.discount) ? old.discount : ""%>" placeholder="10" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
 
-              <!--</div>-->
-
-              <!--<div>-->
                   <h3 class="my-1 text-base text-center">Variantes por color</h3>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
 
                   <label for="">Agrege imagenes</label>
                   <input id="file-input" type="file" name="image"  value="<%= producto.image %> " multiple>
-                  <!--<div id="preview"></div>-->
 
                 <% producto.variantes.forEach(element => { %>
                    
@@ -71,96 +87,31 @@
 
 
   <script>
-      /*document.addEventListener("DOMContentLoaded", function(){
-          const div = document.querySelector("#variantes-producto")
-          const fragment = document.createDocumentFragment();
-          const template = document.querySelector("#template-variante").content;
-          const agregar = document.querySelector("#agregar");
-          //const contenido = document.querySelector("#contenedor");
-
-          agregar.addEventListener("click",e => {
-              e.preventDefault();
-              const clone = template.cloneNode(true);
-              fragment.appendChild(clone);
-
-              div.appendChild(fragment);
-          })*/
-          
-          /*let select1 = document.querySelector("#select-primario");
-          let select2 = document.querySelector("#select-secundario");
-
-          function cargar(categoria){
-            fetch("http://localhost:8000/api/product/categoria/" + categoria)
-            .then(response => response.json())
-            .then(result => {
-                //console.log(result);
-                for( value of result.subcategoria){
-                    select2.innerHTML += `<option value="${value.id}">${value.subcategory}</option>`
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
-          }
-
-          select1.addEventListener("change",e => cargar(e.target.value));
-         /* function previewImages() {
-
-              var preview = document.querySelector('#preview');
-
-              if (this.files) {
-              [].forEach.call(this.files, readAndPreview);
-              }
-
-              function readAndPreview(file) {
-
-              // Make sure `file.name` matches our extensions criteria
-              if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-                  return alert(file.name + " is not an image");
-              } // else...
-              
-              var reader = new FileReader();
-              
-              reader.addEventListener("load", function() {
-                  var image = new Image();
-                  image.height = 100;
-                  image.title  = file.name;
-                  image.src    = this.result;
-                  preview.appendChild(image);
-              });
-              
-              reader.readAsDataURL(file);
-              
-              }
-
-              }
-
-              document.querySelector('#file-input').addEventListener("change", previewImages);*/
-              
-         
-      //})
-
-      /*function recoger() {
-          let form = document.forms["datos"]
-          
-          let inputColor = document.getElementsByName("color[]");
-          let inputTalleS = document.getElementsByName("talleS[]");
-          let inputTalleM = document.getElementsByName("talleM[]");
-          //let inputFile = document.getElementsByNam("image");
-
-          inputColor.forEach(element => {
-              console.log(element.value)
-          });
-          inputTalleS.forEach(element => {
-              console.log(element.value)
-          });
-          inputTalleM.forEach(element => {
-              console.log(element.value)
-          });
-          //console.log(inputFile)
-        
-      }*/
-
+      const select1 = document.querySelector("#select-primario");
+      const select2 = document.querySelector("#select-secundario");
+      
+      document.addEventListener("DOMContentLoaded", function(){
+            
+            select1.addEventListener("change", ()=>{
+                console.log(select1.value)
+                fetch(`http://localhost:8000/api/product/categoria/${select1.value}`)
+                .then(result => {
+                    if(result.ok){
+                        return result.json();
+                    }else{
+                        return 'err';
+                    }
+                })
+                .then(result => {
+                    console.log(result)
+                    select2.innerHTML = '<option hidden selected value="0" >Elija una subcategoria</option>'
+                    result.subcategoria.forEach(subcategoria => {
+                        select2.innerHTML += `<option value="${subcategoria.id}" >${subcategoria.subcategory}</option>`
+                    })
+                })
+            });
+      })
+    
   </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
             
             <!--contenedor de imagen-->
             <div class="col-span-5 row-span-3 md:col-span-3">
-                <figure class="col-span-5 row-span-3">
+                <figure id="imagen" class="col-span-5 row-span-3">
                     <img src="/images/img/<%= result.variantes[0].image %> " alt="">
                 </figure>
             </div>
@@ -31,8 +31,8 @@
                                 <%result.variantes.forEach(variante => {%>
                                     <li>
                                         <label>
-                                        <input type="radio" name="color" value="black">
-                                        <span class="swatch" style=<%="background-color:"+variante.color%>></span>
+                                            <input type="radio" name="color" value="<%=variante.color%>">
+                                            <span class="swatch" style=<%="background-color:"+variante.color%>></span>
                                         </label>
                                     </li>
                                  <% });%>
@@ -58,10 +58,31 @@
             <!--contenedor de descripcion-->
             <div class="col-span-5 md:col-start-4 row-star-2 descripcion">
                 <h3>descripcion</h3>
-                <p><%= result.description %> .</p>
+                <p><%= result.description %></p>
             </div>
         </div>
     </main>
+
+    <script>
+        const imagenVariante = document.querySelector('#imagen');
+        const colorVariante = document.getElementsByTagName('color');
+
+
+        document.addEventListener("DOMContentLoaded", function(){
+
+            /*for(let i=0; i<colorVariante.length ; i++){
+                fetch()
+            }*/
+            colorVariante.addEventListener("change", ()=>{
+                console.log(colorVariante.value)
+                /*for(let i=0; i<colorVariante.length ; i++){
+                    if(colorVariante[i])
+                }*/
+
+            })
+
+        })
+    </script>
   <!-- Footer -->
     <%- include("./partials/footer") %>
 </body>

@@ -106,7 +106,34 @@ module.exports = {
         }
         
     },
-    
+    productEdit: (req, res) => {
+        console.log(req.params.id)
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [
+                {association:"Subcategory",include:[{association:"Category"}]},
+                {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
+        })
+        .then(product =>{
+            db.Category.findAll({
+                include:[{association:'subcategoria'}]
+            })
+            .then((categorias)=>{
+                console.log(categorias)
+                res.render('admin/productEdit', {
+                    producto: product,
+                    categorias
+                })
+            })
+        })
+        .catch(errores => {
+            console.log(errores)
+        })
+        
+    },
+    /*funciona perfecto es para probar pasando otra cosa
     productEdit: (req, res) => {
         console.log(req.params.id)
         db.Product.findOne({
@@ -126,83 +153,7 @@ module.exports = {
                 console.log(errores)
             })
         })
-    },
-    /*productUpdate: (req, res) => {
-        //console.log(req.body)
-        //let idProducto = req.params.id;
-         const {subcategory,name,description,price, discount}= req.body;
-
-        db.Product.update({
-
-            subcategoryId: subcategory,
-            name: name,
-            description: description,
-            price: price,
-            discount: discount
-            },
-            {
-                where:{ id:req.params.id } 
-        })
-        .then((producto)=>{
-            //console.log(`${JSON.stringify(producto, null, 2)}`)
-            //res.json(producto)
-           db.Variant.findAll({
-                where:{
-                    productId: producto.id
-                },
-                include: [{association:"stock"}]
-            })
-            .then((variantes) => {
-                console.log(variantes)
-                for(let i=0; i<variantes.length; i++){
-
-                    db.Variant.update({
-                        productId: producto.id,
-                        color: req.body.color[i],
-                        image:(req.files[i].filename)?req.files[i].filename:req.body.image[i]
-
-                    },
-                    {
-                        where:{ id:variantes[i].id}
-                    }
-                    ).then((stock)=> {
-                        console.log(stock);
-                        let talle = ["stockS","stockM","stockL","stockXL"];
-                        for(let j=0; j<talle.length; j++){
-                            db.Stock.update({
-                                productId: producto.id,
-                                variantId: stock.id,
-                                sizeId: j+1,
-                                stock: req.body[`${talle[j]}`][i]
-                            },
-                            {
-                                where:{id:variantes[i].stock[j].id}
-                            }).then((result)=> {
-                                res.redirect("/")
-                            }).catch(errores=> {
-                                console.log(errores)
-                            })
-
-                        }
-
-                    }).catch(errores => {
-                        console.log(errores)
-                    })
-
-                };
-
-               
-            })
-            .catch(errores =>{
-                console.log(errores)
-            })
-
-        })
-        .catch(errores => {
-            console.log(errores)
-        })
-        
-    },*/
+    },/*
     
 
     /* actualizacion de una variante sola, funcionando
@@ -329,74 +280,107 @@ module.exports = {
         })
     }*/
     productUpdate: (req, res)=> {
-        const {subcategory,name,description,price, discount}= req.body;
-        db.Product.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: [
-                {association:"Subcategory",include:[{association:"Category"}]},
-                {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
-        }).then((producto)=>{
-            //console.log(producto)
-            //console.log(req.body)
-            db.Product.update({
-                subcategoryId:subcategory,
-                name: name,
-                description:description,
-                price: price,
-                discount:discount,
-                status:1
-            },
-            {
-                where:{ id: req.params.id}
-            }
-            ).then((dato)=>{
-                for(let i=0; i<producto.variantes.length; i++){
-                    //console.log( "ingreso numero: "+ i)
-                    db.Variant.update({
-                        productId: producto.id,
-                        color: req.body.color[i],
-                        image:(req.files[i])?req.files[i].filename:producto.variantes[i].image
-                        },
-                        {
-                            where:{ id:producto.variantes[i].id}
-                        
-                    }).then((dato)=> {
-                        //console.log(dato)
-                        let talle = ["stockS","stockM","stockL","stockXL"];
 
-                        for(let j=0; j<talle.length; j++){
-                            //console.log("ingreso de j: ")
-                            db.Stock.update({
-                                productId: producto.id,
-                                variantId: producto.variantes[i].id,
-                                sizeId: j+1,
-                                stock: req.body[`${talle[j]}`][i]
-
-
-                            },
-                            {
-                                where:{ id: producto.variantes[i].stock[j].id}
-                            }
-                            ).then((dato)=>{
-                                console.log(dato);
-                            }).catch(errores=>{
-                                console.log(errores)
-                            })
-                        }
-                    }).catch(errores=> {
-                        console.log(errores)
+        const errores = validationResult(req);
+        if(!errores.isEmpty()){
+            db.Product.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    {association:"Subcategory",include:[{association:"Category"}]},
+                    {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
+            }).then((producto)=>{
+                db.Category.findAll({
+                    include:[{association:'subcategoria'}]
+                })
+                .then((categorias)=>{
+                    res.render('admin/productEdit',{
+                        categorias,
+                        producto,
+                        errores: errores.mapped(),
+                        old: req.body
                     })
-                }
-            }).catch(errores=>{
+                })
+                .catch(errores=>{
+                    console.log(errores)
+                })
+            })
+            .catch(errores =>{
                 console.log(errores)
             })
-            res.redirect("admin/product/list")
-        }).catch(errores => {
-            console.log(errores)
-        })
+        }else {
+
+            const {subcategory,name,description,price, discount}= req.body;
+            db.Product.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    {association:"Subcategory",include:[{association:"Category"}]},
+                    {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
+            }).then((producto)=>{
+                //console.log(producto)
+                //console.log(req.body)
+                db.Product.update({
+                    subcategoryId:subcategory,
+                    name: name,
+                    description:description,
+                    price: price,
+                    discount:discount,
+                    status:1
+                },
+                {
+                    where:{ id: req.params.id}
+                }
+                ).then((dato)=>{
+                    for(let i=0; i<producto.variantes.length; i++){
+                        //console.log( "ingreso numero: "+ i)
+                        db.Variant.update({
+                            productId: producto.id,
+                            color: req.body.color[i],
+                            image:(req.files[i])?req.files[i].filename:producto.variantes[i].image
+                            },
+                            {
+                                where:{ id:producto.variantes[i].id}
+                            
+                        }).then((dato)=> {
+                            //console.log(dato)
+                            let talle = ["stockS","stockM","stockL","stockXL"];
+
+                            for(let j=0; j<talle.length; j++){
+                                //console.log("ingreso de j: ")
+                                db.Stock.update({
+                                    productId: producto.id,
+                                    variantId: producto.variantes[i].id,
+                                    sizeId: j+1,
+                                    stock: req.body[`${talle[j]}`][i]
+
+
+                                },
+                                {
+                                    where:{ id: producto.variantes[i].stock[j].id}
+                                }
+                                ).then((dato)=>{
+                                    console.log(dato);
+                                }).catch(errores=>{
+                                    console.log(errores)
+                                })
+                            }
+                        }).catch(errores=> {
+                            console.log(errores)
+                        })
+                    }
+                }).catch(errores=>{
+                    console.log(errores)
+                })
+                res.redirect("admin/product/list")
+            }).catch(errores => {
+                console.log(errores)
+            })
+        }
     },
+
     productDelete: (req,res)=>{
         db.Product.update({
             status:0

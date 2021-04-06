@@ -11,17 +11,15 @@
           <div class="grid grid-cols-1 gap-2">
               <!--<div class="">-->
                   <select name="category" id="select-primario" class="select">
-                    <option selected >Seleccione una categoria</option>
+                    <option selected hidden value="0" >Elija una Categoria</option>
                     <% categorias.forEach(element => { %>
-                      <option value=<%=element.id %>><%= element.category %> </option>
+                      <option value=<%=element.id %><% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
                     <% }) %>
                   </select>
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %></span>
 
                   <select name="subcategory" id ="select-secundario" class="select">
-                    <option selected disabled>Seleccione una subcategoria</option>
-                    <% subMujer.forEach(element => { %>
-                        <option value=<%=element.id %>><%= element.subcategory %> </option>
-                      <% }) %>
+                    <option hidden selected value="0" >Elija una subcategoria</option>
                  </select>
                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
 
@@ -54,6 +52,7 @@
                       <div class="contenedor">
                           <label for="color">color</label>
                           <input type="text" name="color[]" id="color" autocomplete="off" placeholder="#f0f0f0" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+
                           <!--<input type="file" name="image">-->
 
                           <div class="grid grid-cols-4 gap-2 w-5/6 text-center">
@@ -86,21 +85,41 @@
 
 
   <script>
-      document.addEventListener("DOMContentLoaded", function(){
           const div = document.querySelector("#variantes-producto")
           const fragment = document.createDocumentFragment();
           const template = document.querySelector("#template-variante").content;
           const agregar = document.querySelector("#agregar");
+          const select1 = document.querySelector("#select-primario");
+          const select2 = document.querySelector("#select-secundario");
           //const contenido = document.querySelector("#contenedor");
+          document.addEventListener("DOMContentLoaded", function(){
+            
+            select1.addEventListener("change", ()=>{
+                console.log(select1.value)
+                fetch(`http://localhost:8000/api/product/categoria/${select1.value}`)
+                .then(result => {
+                    if(result.ok){
+                        return result.json();
+                    }else{
+                        return 'err';
+                    }
+                })
+                .then(result => {
+                    console.log(result)
+                    select2.innerHTML = '<option hidden selected value="0" >Elija una subcategoria</option>'
+                    result.subcategoria.forEach(subcategoria => {
+                        select2.innerHTML += `<option value="${subcategoria.id}" >${subcategoria.subcategory}</option>`
+                    })
+                })
+            });
+            agregar.addEventListener("click",e => {
+                e.preventDefault();
+                const clone = template.cloneNode(true);
+                fragment.appendChild(clone);
 
-          agregar.addEventListener("click",e => {
-              e.preventDefault();
-              const clone = template.cloneNode(true);
-              fragment.appendChild(clone);
-
-              div.appendChild(fragment);
-          })
-          
+                div.appendChild(fragment);
+            })
+        })
           /*let select1 = document.querySelector("#select-primario");
           let select2 = document.querySelector("#select-secundario");
 
@@ -153,7 +172,7 @@
               document.querySelector('#file-input').addEventListener("change", previewImages);*/
               
          
-      })
+      
 
       /*function recoger() {
           let form = document.forms["datos"]

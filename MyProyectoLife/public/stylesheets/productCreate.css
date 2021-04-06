@@ -1,11 +1,11 @@
 .admin-header{
-    background-color: #4a5053;
+    background-color: var(--colorCeleste);
     padding: 15px 10px;
 
 }
 .create.nav {
     top: 0;
-    background-color: #5B91A9 ;
+    background-color: black;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;

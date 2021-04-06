@@ -1,29 +1,28 @@
 <!-- Header -->
-<header class="fixed z-50 top-0 w-full admin-header">
+<header class="sticky top-0 w-full admin-header">
     <div class="relative">
       <nav class="flex w-full nav">
         <div class="block lg:hidden">
-            <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <button id='boton-menu-admin' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
               <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
             </button>
-          </div>
+        </div>
           
         <!--<div class="block lg:order-first lg:mr-5">
             <a class=" " href="#"><img src="/images/Group.svg" alt=""></a>
         </div>-->
           
-          <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
-            <div class="text-sm lg:flex-grow">
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">VENTA</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">ARTICULOS/ STOCK</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">CARGA DE PRODUCTO</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 hover:text-white">CLIENTES</a>
-            
-            </div>
+        <div id='menu-extendido-admin' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido-admin">
+          <div class="text-sm lg:flex-grow">
+              <a href="#" class="block lg:inline-block lg:mt-0 "><i class="fas fa-user"></i>PERFIL</a>
+              <a href="#" class="block lg:inline-block lg:mt-0 ">PRODUCTOS/STOCK</a>
+              <a href="#" class="block lg:inline-block lg:mt-0 ">CARGA DE PRODUCTO</a>
+              <a href="#" class="block lg:inline-block lg:mt-0 ">USUARIOS</a>
           </div>
+        </div>
         
-        <div class="relative text-center md:text-left md:ml-12">
-         <h3 class="text-2xl md:text-3xl lg:text-3xl">ADMINISTRADOR</h3>
+        <div class="text-center md:text-left md:ml-12">
+         <h3 class="text-xl md:text-2xl lg:text-3xl">ADMINISTRADOR</h3>
         </div>
       </nav>
     </div>
