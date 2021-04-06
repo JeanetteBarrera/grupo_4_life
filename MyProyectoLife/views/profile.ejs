@@ -3,12 +3,90 @@
 <%- include("./partials/head") %> 
 <body>
   <!-- Header -->
-  <%- include("./partials/header") %>
+  <header class="fixed z-50 top-0 w-full header">
+    <div class="relative">
+      <nav class="flex w-full nav">
+  
+        <div class="block lg:hidden">
+          <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
+        </div>
+  
+        <div class="block lg:order-first lg:mr-5">
+          <a class=" " href="/"><img src="/images/Group.svg" alt=""></a>
+        </div>
+  
+        <div class="block lg:flex lg:items-center lg:order-2 nav-icons">
+          <div class="text-sm lg:flex-grow">
+            <span id="search"><i class="fas fa-search md:text-2xl"></i></span>
+            <span id="user"><i class="far fa-user md:text-2xl"></i></span>
+            <span id="cart" ><i class="fas fa-shopping-cart md:text-2xl"></i></span>
+          </div>
+        </div>
+        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
+          <div class="text-sm lg:flex-grow">
+            <a href="#" class="block lg:inline-block lg:mt-0">lo nuevo</a>
+            <a href="/products/product" class="block lg:inline-block lg:mt-0">mujer</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">hombre</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">sale</a>
+            <a href="#" class="block lg:inline-block lg:mt-0">sobre life</a>
+          </div>
+        </div>
+      </nav>
+  
+      <div id='search-extendido' class="absolute w-full hidden">
+        <form action="">
+            <input class="input-search" type="text" placeholder="Buscar">
+        </form>
+      </div>
+  
+      <div id="user-extendido" class="w-32 md:w-44 nav-usuarios hidden">
+        <div class="flex flex-col">
+          <p> <%= user.name %> <%= user.surname %></p>
+          <a class="text-xs md:text-lg" class="cerrar" href="logout">cerrar sesion</a>
+        </div>
+      </div>
+  
+      <div id="cart-extendido">
+      </div>
+    </div>
+    <script>
+      /* evento click para menu version movil*/
+function menuMobile (){
+    document.getElementById("menu-extendido").classList.toggle("hidden");
+}
+document.getElementById("boton").onclick = function() {
+    menuMobile();
+}
+
+function menuSearch (){
+    document.getElementById("search-extendido").classList.toggle("hidden");
+}
+document.getElementById("search").onclick = function() {
+    menuSearch();
+}
+
+function menuUser (){
+    document.getElementById("user-extendido").classList.toggle("hidden");
+}
+document.getElementById("user").onclick = function() {
+    menuUser();
+}
+
+function menuCart (){
+    document.getElementById("cart-extendido").classList.toggle("hidden");
+}
+document.getElementById("cart").onclick = function() {
+    menuCart();
+}
+    </script>
+  </header>
 
   <!-- Main -->
   <main class="mt-24 grid grid-cols-2 perfil mx-4 sm:mx-1 md:mx-7 lg:mx-36 xl:mx-44">
     <div class="col-span-2 text-center my-4">
-      <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">Bienvenidx <%= user.name %></h2>
+      <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">¡HOLA! <%= user.name %></h2>
     </div>
     <div class="col-span-2 sm:col-span-1 w-3/4 mx-auto my-3">
       <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full">
@@ -38,8 +116,98 @@
     <div class="col-span-2 text-center my-5">
       <h3 class="font-bold py-4 sm:pt-10 text-xl text-center ">Informacion adicional</h3>
       <div class="grid grid-cols-1 text-center">
-        <div class="grid grid-cols-2 dato">
-          <p>Direccion : </p> <span>""</span>
+        <div class="grid grid-cols-1 dato">
+         
+         <!-- component -->
+          <!--<div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24  mb-24"> -->
+          <form>
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+              <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-full px-3 mb-6 md:mb-0">
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Ej:Los Andes">
+                    Calle*
+                  </label>
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="street" type="text" placeholder="Ej:Los Andes">
+                </div>
+                <div class="md:w-1/2 px-3">
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="title">
+                    Numero*
+                  </label>
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                </div>
+              </div>
+              <div class="-mx-3 md:flex mb-2">
+                <div class="-mx-3 md:flex mb-6 md:mb-0">
+                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
+                      Dpto
+                    </label>
+                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                  </div>
+                  <div class="md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+                      Piso
+                    </label>
+                     <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                    <div class="relative">
+                    </div>
+                  </div>
+                  <div class="md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                      C.P
+                    </label>
+                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                  </div>
+                </div>
+             </div>
+              <div class="-mx-3 md:flex mb-2">
+                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-3" for="location">
+                    Pais*
+                  </label>
+                  <div>
+                    <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="country">
+                      <option>Abuja</option>
+                      <option>Enugu</option>
+                      <option>Lagos</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 px-3">
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="job-type">
+                    Provincia/Estado*
+                  </label>
+                  <div>
+                    <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="state">
+                      <option>Full-Time</option>
+                      <option>Part-Time</option>
+                      <option>Internship</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 px-3">
+                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="department">
+                    Ciudad*
+                    <div>
+                      <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="department">
+                        <option>Engineering</option>
+                        <option>Design</option>
+                        <option>Customer Support</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="-mx-3 md:flex mt-2">
+                  <div class="md:w-full px-3">
+                    <button class="md:w-1/4 bg-purple-400 text-white font-bold py-0,5 px-1 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
+                      Guardar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        <!-- <p>Direccion : </p> <span>"<"</span>
         </div>
         <div class="grid grid-cols-2 dato">
           <p>Pais : </p><span>""</span>
@@ -55,9 +223,9 @@
         </div> 
       </div>
       <div class="grid grid-cols-1" >
-        <a href="profile/edit/:id" class="boton-adicional">Editar informacion adicional</a>
+        <a href="profile/Edit" class="boton-adicional">Editar informacion adicional</a>
       </div>
-    </div>
+    </div>-->
 
   </main>
 

@@ -136,7 +136,7 @@ module.exports = {
       
     
     profileUpdate : (req, res) => {
-        db.Users.update({
+        db.Addresses.update({
 
       //faltaterminar//
     },{
