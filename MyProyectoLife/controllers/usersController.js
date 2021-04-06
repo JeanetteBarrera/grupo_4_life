@@ -168,5 +168,8 @@ module.exports = {
                 res.redirect('/')
             })
     },
+    profileAdmin: (req,res)=>{
+        res.render('admin/profileAdmin')
+    }
     
 }

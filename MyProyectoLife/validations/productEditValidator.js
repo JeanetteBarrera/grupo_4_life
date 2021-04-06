@@ -30,13 +30,13 @@ module.exports= [
     body('color[]').exists()
     .notEmpty().withMessage("no puede se vacio")
     .isArray()
-    .custom((value)=>{
+    /*.custom((value)=>{
          if(value.every.isHexColor()){
             return true
         }else {
             return false
         }
-    }).withMessage("se debe ingresar un color en hexadecimal"),
+    }).withMessage("se debe ingresar un color en hexadecimal"),*/
     
 
     /*check('stockS'),

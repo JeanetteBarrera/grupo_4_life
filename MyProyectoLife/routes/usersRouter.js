@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { login, create, processCreate, processLogin, logout, profile , profileEdit, profileUpdate, profileDelete } = require("../controllers/usersController")
+const { login, create, processCreate, processLogin, logout, profile , profileEdit, profileUpdate, profileDelete, profileAdmin } = require("../controllers/usersController")
 
 /* middlewares */
 const registerValidator = require('../validations/registerValidator');
@@ -32,6 +32,9 @@ router.get('profile/edit/:id/',profileEdit);
 router.put('/profile/update/:id', profileUpdate);
 
 router.delete('/profile/delete/:id',profileDelete);
+
+/*usuario administrador*/
+router.get('/admin/profile',profileAdmin);
 
 module.exports = router;
  
