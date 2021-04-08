@@ -1,29 +1,34 @@
 <!-- Header -->
-<header class="sticky top-0 w-full admin-header">
-    <div class="relative">
-      <nav class="flex w-full nav">
-        <div class="block lg:hidden">
-            <button id='boton-menu-admin' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-              <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
-        </div>
-          
-        <!--<div class="block lg:order-first lg:mr-5">
-            <a class=" " href="#"><img src="/images/Group.svg" alt=""></a>
-        </div>-->
-          
-        <div id='menu-extendido-admin' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido-admin">
-          <div class="text-sm lg:flex-grow">
-              <a href="#" class="block lg:inline-block lg:mt-0 "><i class="fas fa-user"></i>PERFIL</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 ">PRODUCTOS/STOCK</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 ">CARGA DE PRODUCTO</a>
-              <a href="#" class="block lg:inline-block lg:mt-0 ">USUARIOS</a>
-          </div>
-        </div>
-        
-        <div class="text-center md:text-left md:ml-12">
-         <h3 class="text-xl md:text-2xl lg:text-3xl">ADMINISTRADOR</h3>
-        </div>
-      </nav>
-    </div>
+<header class="header-admin sticky top-0 h-14 sm:h-16">
+  <!--menu unicamente para mobile-->
+  <div class="hamburger block sm:hidden">
+      <div class="_layer -top"></div>
+      <div class="_layer -mid"></div>
+      <div class="_layer -bottom"></div>
+  </div>
+  <nav class="menu-mobile">
+      <figure class="avatar">
+          <img src="/images/avatars/default.png" alt="">
+      </figure>
+      <ul class="text-lg mt-44">
+        <li><a href="/account/admin/profile">Super Admin <span class="name-mobile"> manuela</span></a></li>
+        <!--<li><a href="#"><i class="fas fa-file"></i> Resumen</a></li>-->
+        <li><a href="/admin/product/database/list"><i class="fas fa-database"></i> Base de datos</a></li>
+        <li><a href="/admin/product/create"><i class="fas fa-plus"></i> Nuevo producto</a></li>
+        <li><a href="/admin/product/list"><i class="fas fa-edit"></i> Edit/Delete</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> Accounts</a></li>
+        <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</a></li>
+      </ul>
+  </nav>
+  <!--aca termina menu- mobile-->
+  <nav class="menu-sm hidden sm:flex justify-between text-lg sm:text-xl">
+      
+      <a href="/account/admin/profile"><i class="fas fa-align-left"></i>  panel de control</a>
+     <div class="flex">
+          <figure class="avatar">
+              <img src="/images/avatars/default.png" alt="">
+          </figure>
+          <h2 class="user-admin text-sm">super admin <span class="name-admin">manuela</span></h2>
+      </div>
+  </nav> 
 </header>
