@@ -25,7 +25,10 @@ module.exports = {
                 surname:surname.trim(),
                 email,
                 password : bcrypt.hashSync(password,12),
-                rol : "user"
+                rol : "user",
+                avatar : "default.png",
+                status:1
+
             })
             .then(()=>res.redirect('/account/login'))
             .catch(error => res.send(error))
@@ -67,7 +70,8 @@ module.exports = {
                       name : user.name,
                       surname : user.surname,
                       email : user.email,
-                      avatar : user.avatar
+                      avatar : user.avatar,
+                      status:1
                       //rol:user//
                     }
                     // verificacion de rol de ususario//
@@ -91,16 +95,16 @@ module.exports = {
                 } 
             }) 
            
-       /* }else{
+        }else{
             return res.render('login', {
                 errores : errores.mapped(),
                 old : req.body
             })
-        }*/
+        }
 
-    }
-    
     },
+    
+
 
     /* Cerrar session */
     logout : (req,res) => {
@@ -117,10 +121,12 @@ module.exports = {
         res.render('profile')
     },
 
+    profileEdit : (req,res) => {
+        res.render('profileEdit')
+    },
 
-
-    profileEdit : (req, res) => {
-        db.Users.findOne({
+   /* profileEdit : (req, res) => {
+        db.Addresses.findOne({
             where: {
                 id: req.session.usuario.id
             }
@@ -132,7 +138,7 @@ module.exports = {
                 user: user
             })
         })
-    },
+    },*/
       
     
     profileUpdate : (req, res) => {

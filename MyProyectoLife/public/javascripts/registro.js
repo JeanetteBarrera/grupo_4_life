@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
     $emaillog = qs('#emailLog'),
     $emailErrorsLog = qs('#emailErrorsLog'),
     $passwordLog = qs('#password'),
-    $passwordErrorsLog = qs('#passwordErrors'),
+    $passwordErrorsLog = qs('#passwordErrorsLog'),
     
     $terms = qs('#flexCheckDefault'),
     $termsErrors = qs('#termsErrors'),
@@ -27,8 +27,47 @@ window.addEventListener('load', () => {
     regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
     regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
- //VALIDACION DE REGISTRO//
+    //VALIDACION LOGIN//
 
+   $email.addEventListener('blur', function() {
+    switch (true) {
+        case !$email.value.trim():
+            $emailErrors.innerHTML = 'El campo email es obligatorio';
+            $email.classList.add('is-invalid')
+            break;
+        case !regExEmail.test($email.value):
+            $emailErrors.innerHTML = 'Debe ingresar un email válido';
+            $email.classList.add('is-invalid')
+            break
+        default:
+            $email.classList.remove('is-invalid');
+            $email.classList.add('is-valid');
+            $emailErrors.innerHTML = ''
+            break;
+     }
+    })
+
+
+  $password.addEventListener('blur', function() {
+    switch (true) {
+        case !$password.value.trim():
+            $passwordErrors.innerHTML = 'El campo contraseña es obligatorio';
+            $passwordLog.classList.add('is-invalid')
+            break;
+        case $password.value != $password.value:
+                passw$password2Errors.innerHTML = 'contraseña incorrecta';
+                $password2.classList.add('is-invalid')
+                break;
+        
+        default:
+            $passwordwordLog.classList.remove('is-invalid');
+            $passwordwordLog.classList.add('is-valid');
+            $passwordErrorsLog.innerHTML = ''
+            break;
+        }
+    })
+
+    //VALIDACION DE REGISTRO//
     $inputName.addEventListener('blur', function(){
         console.log($inputName.value.trim())
         switch (true) {
@@ -122,8 +161,6 @@ window.addEventListener('load', () => {
         }
     })
 
-   //VALIDACION LOGIN//
-   
 
 
 

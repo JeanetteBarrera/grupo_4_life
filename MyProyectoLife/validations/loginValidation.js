@@ -12,6 +12,22 @@ module.exports = [
       .notEmpty() // Chequeo que no hayan campos vacios*/
       /*.isLength({min:1})*/
       .withMessage('La constraseña es requerida'),
-
-    
+     
+      body('custom')
+      .custom((value, {req})=> {
+          return db.Users.findOne({
+              where:{
+                  email: req.body.email
+              }
+          })
+          .then(user => {
+              if(!bcrypt.compareSync(req.body.password, user.dataValues.password)){
+                  return Promise.reject()
+              }
+          })
+          .catch((err) => {
+              return Promise.reject("Email o contraseña incorrectos")
+          })
+      })
 ]
+    
