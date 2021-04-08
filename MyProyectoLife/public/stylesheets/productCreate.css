@@ -30,8 +30,7 @@
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
-    color:var(--colorCeleste);
-    
+    color:#636FA4;
 }
 .admin-form label {
     text-align: left;
@@ -60,6 +59,10 @@
     margin: 5px;
     padding: 5px;
 }
+.admin-form hr {
+    height: 2px;
+    background-color: gray;
+}
 .admin-form .boton-enviar {
     width: 100%;
     border: solid 2px var(--colorGrisOscuro);
@@ -71,7 +74,7 @@
     margin-bottom: 40px;
 }
 .admin-form .boton-agregar {
-    background-color: var(--colorCeleste);
+    background-color: #636FA4;
     padding:3px;
     border: solid 1px gray;
     border-radius: 5px;

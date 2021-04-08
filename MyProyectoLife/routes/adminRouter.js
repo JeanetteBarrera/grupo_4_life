@@ -24,4 +24,6 @@ router.put("/product/update/:id",upload.any(), productEditValidator,adminControl
 
 router.delete("/product/delete/:id", adminController.productDelete);
 
+router.get("/product/database/list", adminController.data);
+
 module.exports = router;

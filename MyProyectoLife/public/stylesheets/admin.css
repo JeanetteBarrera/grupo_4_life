@@ -1,0 +1,251 @@
+.header-admin {
+    background-color: var(--colorGrisOscuro);
+}
+.header-admin li {
+    color: white;
+}
+/* UNICAMENTE para version mobile, se utilizo el !IMPORTANT con el unico objetivo de lograr un efecto de transicion mas lindo para el usuario*/
+.header-admin .hamburger{
+	position:fixed;
+    background-color:transparent;
+	left:0;
+	top:0;
+	height:30px;
+	width:30px;
+	padding:20px 20px;
+	-webkit-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-transition:-webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	transition:transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	z-index:1002;
+	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.header-admin .hamburger.is-active{
+  background-color:var(--colorGrisOscuro);
+}
+.header-admin ._layer{
+	background:#f1f1f1;
+	margin-bottom:4px;
+	border-radius:2px;
+	width:28px;
+	height:4px;
+	opacity:1;
+	-webkit-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+.header-admin .hamburger:hover .-top{
+	-webkit-transform:translateY(-100%);
+	-ms-transform:translateY(-100%);
+	transform:translateY(-100%);
+}
+.header-admin .hamburger:hover .-bottom{
+	-webkit-transform:translateY(100%);
+	-ms-transform:translateY(100%);
+	transform:translateY(100%);
+	}
+.header-admin .hamburger.is-active .-top{
+	-webkit-transform:translateY(200%) rotate(45deg) !important;
+	-ms-transform:translateY(200%) rotate(45deg) !important;
+	transform:translateY(200%) rotate(45deg) !important;
+}
+.header-admin .hamburger.is-active .-mid{
+	opacity:0;
+}
+.header-admin .hamburger.is-active .-bottom{
+	-webkit-transform:translateY(-200%) rotate(135deg) !important;
+	-ms-transform:translateY(-200%) rotate(135deg) !important;
+	transform:translateY(-200%) rotate(135deg) !important;
+}
+/*se encarga de la posicion del contenido del menu*/
+.header-admin .menu-mobile.is_active{
+  transform: translate3d(0px, 0px, 0px);
+}
+.header-admin .menu-mobile{
+   background-color: var(--colorGrisOscuro);
+   opacity: 0.9;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+  /*se encarga de la tarancision/mostrado de menu*/
+    transform: translate3d(-100%, 0%, 0px);
+  /*efecto de llegada*/
+    transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+    width: 100%;
+    z-index: 1001;
+}
+.header-admin .menu-mobile figure.avatar {
+    /*position: absolute;*/
+    display: flex;
+    justify-content: center;
+    /*left:calc(50% - 100px);*/
+    margin-top:12%;
+    margin-bottom: 5%;
+    position: absolute;
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    background-color: var(--colorGrisOscuro);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.header-admin .menu-mobile figure.avatar img {
+    max-width: 100%;
+    height: auto;
+}
+.header-admin .menu-mobile ul li { 
+	text-align:center;
+    margin-bottom: 20px;
+    color:#f1f1f1;
+	text-transform:none;
+	font-weight:bold;
+}
+.header-admin .menu-mobile ul li a:hover{
+  text-decoration:none;
+  font-weight: 700;
+  color:#636FA4;
+}
+.header-admin .menu-mobile .name-mobile {
+    color:#9E98B1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+/*Inicia menu para tables y computadoras*/
+/*.header-admin .menu-sm ul{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}*/
+.header-admin .menu-sm a{
+    display: inline-block;
+    text-transform: uppercase;
+    line-height: 4rem;
+    margin-left: 20px;
+    color:white;
+    font-weight: 700;
+}
+.header-admin .menu-sm figure.avatar {
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin-top: 10px;
+    margin-right: 15px;
+    background-color: var(--colorGrisOscuro);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.header-admin .menu-sm .user-admin {
+    display: inline-block;
+    width: 8rem;
+    text-align: center;
+    padding-right:10px;
+    color: white;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.header-admin .menu-sm .user-admin .name-admin {
+    color:#9E98B1;
+}
+/*.header-admin .menu-sm figure.avatar img {
+
+}*/
+/*Finaliza menu para tables y computadoras*/
+
+/*css de perfil admin*/
+.perfil-admin h2{
+    text-transform: uppercase;
+    color: var(--colorGrisOscuro);
+    font-weight: 700;
+}
+.perfil-admin h3 {
+    color: var(--colorGrisOscuro);
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.perfil-admin .tablero {
+    color:white;
+    font-weight: 700;
+    text-align: center;
+    border:solid 1px var(--colorGrisOscuro);
+    border-radius: 5px;
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+.perfil-admin h4 {
+    display: inline-block;
+    padding-left: 5px;
+}
+/*ata aqui*/
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-database h2 {
+    background-color: gray;
+}
+.table thead {
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.table thead tr th{
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    color: #ffffff;
+    opacity: 1;
+    padding: 12px;
+    vertical-align: top;
+    border:1px solid gray;
+
+}
+.table tbody tr td{
+    letter-spacing: 0.35;
+    font-weight: normal;
+    color: #3c3f44;
+    /*color:#f1f1f1;
+    background-color: #3c3f44;*/
+    border: solid 1px gray;
+    text-align: center;
+    margin:8px;
+}
+.table .data-variante p{
+    border-bottom: solid 1px gray;
+}
+/*cambiar boton de link*/
+.table .data-link a {
+    color:#ffffff;
+    line-height: 35px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    opacity:1;
+    background-color: var(--colorGrisOscuro);
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+/*unico css utilizado en la tabla edit/delete*/
+.table .boton-editar {
+    margin-left: 5.5%;
+}
+.table .boton-editar, .table .boton-inhabilitar, .table .boton-delete {
+    color:white;
+    background-color: gray;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 5px;
+    border: solid 1px transparent;
+    border-radius: 5px;
+}

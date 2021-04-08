@@ -4,14 +4,14 @@
 <body>   
     <!-- Header -->
     <%- include('./partials/header') %> 
-    <main class="admin-form mx-3 mt-24 sm:mx-12 md:mx-24">
+    <main class="admin-form mx-3 mt-8 sm:mx-12 md:mx-24 lg:mx-32">
       <form action="/admin/product/store"  method="POST" enctype="multipart/form-data" >
        
-          <h2 class="my-5 text-xl sm:text-2xl">carga de producto</h2>
+          <h2 class="my-5 text-2xl sm:text-3xl">carga de producto</h2>
           <div class="grid grid-cols-1 gap-2">
               <!--<div class="">-->
                   <select name="category" id="select-primario" class="select">
-                    <option selected hidden value="0" >Elija una Categoria</option>
+                    <option selected value="0" >Elija una Categoria</option>
                     <% categorias.forEach(element => { %>
                       <option value=<%=element.id %><% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
                     <% }) %>
@@ -40,9 +40,11 @@
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
               
                   <h3 class="my-1 text-base sm:text-lg md:text-xl">Variantes por color</h3>
+                  <hr>
+                  <hr>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
                 
-                  <button id="agregar" class="boton-agregar w-1/4 text-lg sm:text-xl">+agregar</button>
+                  <button id="agregar" class="boton-agregar w-1/3 text-lg sm:text-xl">+agregar</button>
 
                   <label for="">Seleccione las imagenes</label>
                   <input id="file-input" type="file" name="image" multiple>
@@ -81,11 +83,13 @@
           <button type="submit" class="boton-enviar py-1 my-2">enviar</button>
       </form>
     </main>
+    <script src="/javascripts/headerAdmin.js"></script>
+    <script src="/javascripts/productCreate.js"></script>
+   
 
 
-
-  <script>
-          const div = document.querySelector("#variantes-producto")
+  
+         <!-- const div = document.querySelector("#variantes-producto")
           const fragment = document.createDocumentFragment();
           const template = document.querySelector("#template-variante").content;
           const agregar = document.querySelector("#agregar");
@@ -119,7 +123,7 @@
 
                 div.appendChild(fragment);
             })
-        })
+        })-------
           /*let select1 = document.querySelector("#select-primario");
           let select2 = document.querySelector("#select-secundario");
 
@@ -195,6 +199,6 @@
         
       }*/
 
-  </script>
+  </script>-->
 </body>
 </html>

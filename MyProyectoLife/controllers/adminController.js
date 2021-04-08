@@ -25,10 +25,11 @@ module.exports = {
                 })
     },
     productStore: (req, res, next) => {
-
+        console.log(req.body)
         const errores= validationResult(req);
 
         if(!errores.isEmpty()){
+            console.log("aca entro 1")
             let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
             let subHombre = db.Subcategory.findAll({where:{categoryId:2}});
             let categorias = db.Category.findAll()
@@ -45,7 +46,7 @@ module.exports = {
             });
 
         }else{
-
+            console.log("ACA ENTRO ")
             const {subcategory,name,description,price, discount}= req.body;
        
             db.Product.create({
@@ -401,11 +402,23 @@ module.exports = {
                 {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
         
         }).then(result=>{
-            res.render("admin/ProductList",{
+            res.render("admin/productList",{
                 producto:result
             })
         })
-    }
+    },
+    data: (req, res)=>{
+        db.Product.findAll({
+            include: [
+                {association:"Subcategory",include:[{association:"Category"}]},
+                {association:"variantes", include:[{association:"stock", include:[{association:"Size"}]}]}]
+        
+        }).then(result=>{
+            res.render("admin/productData",{
+                producto:result
+            })
+        })
+    },
 }
 
 

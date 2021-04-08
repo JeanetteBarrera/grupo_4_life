@@ -4,9 +4,53 @@
 <body>   
     <!-- Header -->
     <%- include('./partials/header') %>
-    <main class="mx-5">
-        <h2 class="text-lg text-center py-4 mb-4">Hello, Manuelito, Welcome!</h2>
-        <h3 class="text-sm">Panel de control</h3>
+    <main class="mx-5 sm:mx-12 perfil-admin mb-24">
+
+        <h2 class="text-xl text-center py-4 mb-2 sm:text-2xl">Hello Belu, Welcome!</h2>
+        
+        <div class="grid grid-cols-1 mb-8">
+            <h3 class="text-base sm:text-xl mb-6">Datos</h3>
+            <h3>Email: <span>manuela@890gmail.com</span></h3>
+            <h3 >Usuario: <span>Administrador</span></h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a href="#">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-file"></i><h4>Resumen</h4>
+                </div class="tablero bg-green-400">
+            </a>
+
+            <a href="/admin/product/database/list">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-database"></i><h4>database</h4>
+                </div>
+            </a>
+
+            <a href="/admin/product/create">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-plus"></i><h4>new product</h4>
+                </div>
+            </a>
+
+            <a href="/admin/product/list">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-edit"></i><h4>Edit/delete </h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-users"></i><h4>Accounts</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="tablero bg-green-400 py-4 text-lg">
+                    <i class="fas fa-cogs"></i><h4>cofigurations</h4>
+                </div>
+            </a>
+        </div>
     </main>
+    <script src="/javascripts/headerAdmin.js"></script>
 </body>
 </html>
