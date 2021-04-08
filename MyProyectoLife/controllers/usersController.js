@@ -71,12 +71,10 @@ module.exports = {
                       surname : user.surname,
                       email : user.email,
                       avatar : user.avatar,
-                      status:1
-                      //rol:user//
+                      status:1,
+                      rol:user
                     }
                     // verificacion de rol de ususario//
-
-
 
                   if(recordar){        /* Recordar contraseña */
                         res.cookie('user', req.session.user, {
@@ -85,7 +83,19 @@ module.exports = {
                     }
                      return res.redirect('profile')
                 }else {
-                    return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
+                    (user && bcrypt.compareSync(password, user.password))  /* Encriptar e ingreso de usuario */
+                        req.session.user = {
+                         id : user.id,
+                         name : user.name,
+                         surname : user.surname,
+                         email : user.email,
+                         avatar : user.avatar,
+                         status:1,
+                         rol:user
+                       }
+                       
+
+                    return res.render('/admin/profile', {  /* En el caso de error se renderisa a vista de login y muestra error */
                         error : {
                             invalid:{
                                 msg: "Credenciales Invalidas"
