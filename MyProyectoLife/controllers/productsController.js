@@ -14,8 +14,29 @@ module.exports = {
         });
     },
     /*controlador encargado de la logica y renderizar toda lo relacionado con los productos*/
+    /*CARRITO DE COMPRAS*/
+    
     cart : (req, res) => {
-        res.render("carrito");
+        let userId = req.session.usuario.id;
+        db.Carts.findAll({
+            where: {
+                usuarioId: userId
+            },
+            include: [{association: 'producto',
+            include:[{association:'imagenes'}]}]
+        })
+        .then(productos => {
+            db.Users.findByPk(userId)
+            .then(usuario => {
+                res.render('/carrito', {
+                    title: "Carrito de compras",
+                    session: req.session,
+                    subcategories: req.subcategorias,
+                    productos: productos,
+                    usuario: usuario
+                })
+            })
+        })
     },
     
     lista: (req, res) => {
