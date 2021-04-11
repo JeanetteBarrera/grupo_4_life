@@ -5,24 +5,41 @@
   <!-- Header -->
   <%- include("./partials/header") %>
   <!-- Main -->
- <main class="listarProducts mx-4 md:mx-10 mt-24">
-    <div class="grid grid-cols-4 gap-4">
-        <h1 class="col-span-4 text-center font-bold text-lg sm:text-2xl mb-4">OFERTAS</h1>
+ <main id="listarProducts" class="listarProducts mx-6 md:mx-10 mt-16">
+    <h1 class="text-center font-bold text-lg sm:text-2xl my-5"><%=subcategoria.subcategory%></h1>
+    <div class="grid grid-cols-8 gap-4">
 
-         <% product.forEach(element => { %>
+         <% producto.forEach(element => { %>
           
         <!--esto es lo que se debe iterar, lo demas es solo de prueba-->
-        <div class="col-span-2 md:col-span-1">
+        <div name="<%=element.id%>" class="col-span-8 sm:col-span-4 lg:col-span-2 my-3">
             <a href="/products/product/<%= element.id %>">
-                <figure>
-                    <img src="/images/img/<%=element.variante1.img %>  " alt="">
+                <figure class="contenedor-img">
+                    <img id="image-variante" src="/images/img/<%=element.variantes[0].image%>" alt="" >
                 </figure>
-                <div class="text-center uppercase font-bold ">
-                    <h1 class="text-xs sm:text-lg md:text-sm text-gray-400 py-1"><%=element.name%> </h1>
-                    <span class="text-sm sm:text-lg text-gray-600">$<%= element.price %> </span>
+                
+                <div class="info text-center uppercase font-bold">
+                    <h1 class="text-sm sm:text-lg md:text-sm text-gray-400 py-1"><%=element.name%> </h1>
+                    <div class="flex justify-evenly lg:flex-col lg:justify-center">
+                    <%if (element.variantes.length >1 ) {%>
+                            <a class="inline-block lg:hidden w-1/2 border text-sm" href="">+ colores</a>
+                        <% } %>
+                        
+                            <ul class="colors hidden lg:block">
+                                <%element.variantes.forEach(variante => {%>
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="color" value="<%=variante.color%>">
+                                            <span class="swatch " style=<%="background-color:"+variante.color%>></span>
+                                        </label>
+                                    </li>
+                                 <% });%>
+                            </ul> 
+                    <span class="text-sm sm:text-lg text-gray-600 inline-block w-1/2 lg:w-full text-center">$<%= element.price %> </span>
+                    </div>
                 </div>
             </a>
-            <a class="block text-center bg-black text-white text-sm py-1" href="/products/product/<%= element.id %>">VER MAS</a>
+            <!--<a class="block text-center bg-black text-white text-sm py-1 my-2" href="/products/product/<%= element.id %>">VER MAS</a>-->
             <!--<form action="">
                 <button class="w-full bg-black text-white text-sm py-1">AGREGAR <i class="fas fa-shopping-cart"></i></button>
             </form>-->
@@ -30,7 +47,20 @@
         <!--termina aca-->
         <% }) %>
     </main>
+    <script>
+            const producto = document.querySelectorAll('.producto');
+            producto.addEventListener("mouseover", function(e){
+                e.preventDefault();
+                const id = producto.getAttribute("name");
+                console.log(id)
+            })
+        
+        //})
+        
+
+    </script>
 <!-- Footer -->
+
 <%- include("./partials/footer") %>
 </body>
 </html>

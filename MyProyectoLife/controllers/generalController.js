@@ -1,8 +1,24 @@
+const path = require("path");
+const fs = require("fs");
+const db = require('../database/models');
+
 module.exports = {
 
     /*renderiza vista del home*/
     index : (req, res) => {
-        res.render("index");
+        let mujerSub = db.Subcategory.findAll({where:{categoryId:1 }});
+        let hombreSub = db.Subcategory.findAll({where:{categoryId:2}});
+        
+        Promise.all([mujerSub, hombreSub])
+        .then(([mujerSub,hombreSub]) => {
+            res.render('index',{
+                hombreSub,
+                mujerSub,
+            });
+        })
+        .catch(errores =>{
+            console.log(errores)
+        })
     }
 
 }

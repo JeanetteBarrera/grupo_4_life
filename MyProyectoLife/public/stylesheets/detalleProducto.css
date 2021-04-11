@@ -30,7 +30,7 @@
     text-align: center;
 }
 .producto .colors li{
-    margin: 0 20px 0 0; 
+    /*margin: 0 20px 0 0; */
     display: inline-block;
 }
 .producto .colors label{
@@ -47,7 +47,7 @@
   vertical-align: middle;
   height: 30px;
   width:30px;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   margin: 0 5px 0 0 ;
   border: 1px solid #d4d4d4;
 }

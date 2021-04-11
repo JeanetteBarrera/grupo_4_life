@@ -10,8 +10,13 @@ router.get("/cart",userCheck, productsController.cart);
 
 /* rutas para productos*/
 
-router.get("/product",productsController.lista);
+router.get("/list",productsController.lista);
 router.get("/product/:id", productsController.detalle);
 
+/*PRODUCTOS POR CATEGORIA*/
+router.get('/category/:id');
+
+/*PRODUCTOS POR SUBCATEGORIA*/
+router.get('/subcategory/all/:id', productsController.filtrarSub);
 
 module.exports = router;

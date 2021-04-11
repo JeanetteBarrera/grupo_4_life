@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-const { login, create, processCreate, processLogin, logout, profile , profileEdit, profileUpdate, profileDelete } = require("../controllers/usersController")
+const { login, create, processCreate, processLogin, logout, profile , profileEdit, profileUpdate, profileDelete, profileAdmin } = require("../controllers/usersController")
 
 /* middlewares */
 const registerValidator = require('../validations/registerValidator');
 const uploadAvatars = require('../middlewares/multerAvatars');
-const userCheck = require('../middlewares/userCheck')
-
+const userCheck = require('../middlewares/userCheck');
+const adminCheck = require('../middlewares/adminCheck');
 /* validaciones */
 const loginValidation = require('../validations/loginValidation');
 
@@ -25,13 +25,16 @@ router.post('/login', loginValidation , processLogin);
 router.get('/logout',logout); 
 
 /* ingresar un usuario */
-router.get('/profile', userCheck, profile);
+router.get('/profile',userCheck, profile);
 
 /* editar y eliminar usuario, todavia esta en proceso*/
-router.get('/profile/edit/:id',profileEdit);
+router.get('/profile/edit/:id/',profileEdit);
 router.put('/profile/update/:id', profileUpdate);
 
 router.delete('/profile/delete/:id',profileDelete);
+
+/*usuario administrador*/
+router.get('/admin/profile',adminCheck,profileAdmin);
 
 module.exports = router;
  

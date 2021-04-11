@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %> 
+<body>
+  <!-- Header -->
+  <%- include("../partials/header") %> 
+  
+ 
+  <!-- Main -->
+  <main class="my-8 mx-3 sm:mx-4 md:mx-14 mt-24 table-database">
+    <h1 class="uppercase text-xl sm:text-2xl md:text-3xl text-center font-bold">informacion y stock</h1>
+    <div class="border my-4">
+      <h2 class="uppercase text-white font-bold">IMPORTANTE!</h2>
+      <h3 class="normal-case text-sm">Productos inhabilitados: en color gris, para habilitarlos debe ir a editar/eleminar del panel de control</h2>
+    </div>
+
+    <div class="my-3 hidden">
+    <label for="search">Buscar</label>
+    <input type="text" name="search" autocomplete="off" class="border py-1 px-1 w-full sm:w-1/3">
+    </div>
+
+    <!--contenedor de tabla-->
+    <div class="table-container overflow-x-auto">
+      <table class="table">
+        <thead class="text-sm">
+            <tr>
+                <th>cat</th>
+                <th>sub</th>
+                <th>status</th>
+                <th>cod</th>
+                <th>product</th>
+                <th>color</th>
+                <th>imagen</th>
+                <th>T/s</th>
+                <th>T/m</th>
+                <th>T/l</th>
+                <th>T/xl</th>
+                <th>link</th>
+            </tr>
+        </thead>
+        <tbody class="text-sm">
+            <%producto.forEach(data => {%>
+            <%if (data.status== false) {%>
+                <tr class="inactive bg-gray-200">
+            <%}else{%>   
+                <tr>
+             <% }%>       
+                <td class="data"><%=data.Subcategory.Category.category%></td>
+                <td class="data"><%=data.Subcategory.subcategory%></td>
+                <td class="data">
+                    <%if (data.status == true) {%>
+                        <%="active"%>
+                    <%}else{%>
+                        <%="inactive"%>
+                    <%}%>    
+                </td>
+                <td class="data"><%=data.id%></td>
+                <td class="data"><%=data.name%></td>
+                <td class="data-variante">
+                    <%data.variantes.forEach(colores => {%>
+                        <p><%=colores.color%></p>
+                    <%});%>
+                </td>
+                <td class="data-variante">
+                    <%data.variantes.forEach(imagenes => {%>
+                        <p><%=imagenes.image%></p>
+                    <%});%>
+                </td>
+                
+                <td class="data-variante">
+                    <% for( let i=0; i<data.variantes.length; i++ ) { %>
+                        <p><%= data.variantes[i].stock[0].stock %> </p>
+                    <% } %>
+                </td>
+                <!--van a tener funcionalidad con todos los datos cargados en db,por ahora tienen datos escritos de prueba-->
+                <td class="data-variante">
+                    <% for( let i=0; i<data.variantes.length; i++ ) { %>
+                        <p><%= data.variantes[i].stock[1].stock %> </p>
+                    <% } %>
+                </td>
+                <td class="data-variante">
+                    <% for( let i=0; i<data.variantes.length; i++ ) { %>
+                        <p><%= data.variantes[i].stock[2].stock %> </p>
+                    <% } %>
+                </td>
+                <td class="data-variante">
+                    <% for( let i=0; i<data.variantes.length; i++ ) { %>
+                        <p><%= data.variantes[i].stock[3].stock %> </p>
+                    <% } %>
+                </td>
+                <!--hasta aca-->
+
+                <td class="data-link"><a class="w-1/2 h-1/4 my-1" href="/products/product/<%= data.id%> ">ver</a></td>
+            </tr>
+            <%});%>
+        </tbody>
+      </table>
+    </div>
+    <!--termina contenedor de tabla-->
+  </main>
+<script src="/javascripts/header.js"></script>
+</body>
+</html>

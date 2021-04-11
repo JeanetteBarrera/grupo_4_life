@@ -3,87 +3,202 @@
 <%- include('./partials/head')  %> 
 <body>   
     <!-- Header -->
-    <%- include('./partials/header') %> 
-      <div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mb-24">
-          <div class="row justify-content-center mt-5">
-              <h2 class="text-center my-5">FORMULARIO DE CARGA DE PRODUCTO</h2>
+    <%- include('../partials/header') %> 
+    <main class="admin-form mx-3 mt-8 sm:mx-12 md:mx-24 mt-24 lg:mx-32">
+      <form action="/admin/product/store"  method="POST" enctype="multipart/form-data" >
+       
+          <h2 class="my-5 text-2xl sm:text-3xl">carga de producto</h2>
+          <div class="grid grid-cols-1 gap-2">
+              <!--<div class="">-->
+                  <select name="category" id="select-primario" class="select">
+                    <option selected value="0" >Elija una Categoria</option>
+                    <% categorias.forEach(element => { %>
+                      <option value="<%=element.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
+                    <% }) %>
+                  </select>
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %></span>
 
-              <form action="/admin/product/store"  method="POST" enctype="multipart/form-data">
-                <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-                  <div class="-mx-3 md:flex mb-6">
-                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Categoria">
-                        Categoria
-                      </label>
-                      <select name="category" id="" class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"  >
-                        <option selected disabled>Seleccione una categoria</option>
-                        <option value="hombre">Hombres</option>
-                        <option value="mujer">Mujeres</option>
-                      </select>
-                    </div>
-                    <div class="md:w-1/2 px-3">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="subcategoria">
-                        Subcategoria
-                      </label>
-                      <select name="subcategory" class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="">
-                        <option selected disabled>Seleccione una subcategoria</option>
-                        <% categories[0].subcategories.forEach( subcategory => { %>
-                          <option><%= subcategory %></option>
-                        <% }) %>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="-mx-3 md:flex mb-6">
-                    <div class="md:w-full px-3">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Producto">
-                        Producto
-                      </label>
-                      <input type="text" name="name" class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
-                    </div>
-                  </div>
-                  <div class="-mx-3 md:flex mb-6">
-                    <div class="md:w-1/2 px-3">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Descripcion">
-                        Descripcion
-                      </label>
-                      <textarea name="description" id="" class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"></textarea>
-                    </div>
-                  </div>
-                  <div class="-mx-3 md:flex mb-6">
-                      <div class="md:w-1/2 px-3">
-                        <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Archivo">Seleccione la foto: </label>
-                        <input type="file" name="img">
-                      </div>
-                  </div>
+                  <select name="subcategory" id ="select-secundario" class="select">
+                    <option hidden selected value="0" >Elija una subcategoria</option>
+                 </select>
+                 <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
+
+                  <label for="name" >producto</label>
+                  <input type="text" name="name" autocomplete="off" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
+
+                  <label for="">descripcion</label>
+                  <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."><%= (typeof old != 'undefined' && old.description) ? old.description : ""%></textarea>
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
+
+                  <label for="name">precio</label>
+                  <input type="number" name="price" placeholder="$...." value="<%= (typeof old != 'undefined' && old.price) ? old.price : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.price) ? errores.price.msg : "" %></span>
+
+                  <label for="name">descuento</label>
+                  <input type="number" name="discount" placeholder="0" value="<%= (typeof old != 'undefined' && old.discount) ? old.discount : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                  <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
+              
+                  <h3 class="my-1 text-base sm:text-lg md:text-xl">Variantes por color</h3>
+                  <hr>
+                  <hr>
+                  <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
                 
-                  <div class="-mx-3 md:flex mb-2">
-                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Descuento">
-                        Descuento
-                      </label>
-                      <input type="number" name="discount" class="w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"> 
-                    </div>
-                  </div>
+                  <button id="agregar" class="boton-agregar w-1/3 text-lg sm:text-xl">+agregar</button>
+
+                  <label for="">Seleccione las imagenes</label>
+                  <input id="file-input" type="file" name="image" multiple>
+                  <!--<div id="preview"></div>-->
+
+                  <template id="template-variante">
+                      <div class="contenedor">
+                          <label for="color">color</label>
+                          <input type="text" name="color[]" id="color" autocomplete="off" placeholder="#f0f0f0" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+
+                          <!--<input type="file" name="image">-->
+
+                          <div class="grid grid-cols-4 gap-2 w-5/6 text-center">
+                              
+                              <label class="col-span-4 text-left my-1">Talles - Stock/Cantidad</label>
+
+                              <b>S : </b>
+                              <input type="number" name="stockS[]" value="0" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+
+                              <b>M : </b>
+                              <input type="number" name="stockM[]" value="0" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+
+                              <b>L : </b>
+                              <input type="number" name="stockL[]" value="0" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+
+                              <b>XL : </b>
+                              <input type="number" name="stockXL[]" value="0" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
+                          </div>
+                          <!--<span class="eliminar">eliminar</span>-->
+                          <!--<input type="file" name="image">-->
+                      </div>
+                  </template>
                   
-                  <!--<div class="md:w-1/2 px-3">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="color">
-                        Colores
-                      </label>
-                      <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
-                      <input type="color" name="" id="">
-                    </div>-->
-                  <div class="md:w-1/2">
-                      <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="precio">Precio</label>
-                      <input type="number" name="price" class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" >
-                  </div>
-                </div>  
-                <div class="-mx-3 md:flex mt-2">
-                    <div class="md:w-full px-3">
-                      <button type="submit" class="md:w-full bg-gray-900 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">Guardar</button>
-                    </div>
-                </div>
-              </form>
+              <!--</div>-->
           </div>
-      </div>
+          <button type="submit" class="boton-enviar py-1 my-2">enviar</button>
+      </form>
+    </main>
+    <script src="/javascripts/header.js"></script>
+    <script src="/javascripts/productCreate.js"></script>
+   
+
+
+  
+         <!-- const div = document.querySelector("#variantes-producto")
+          const fragment = document.createDocumentFragment();
+          const template = document.querySelector("#template-variante").content;
+          const agregar = document.querySelector("#agregar");
+          const select1 = document.querySelector("#select-primario");
+          const select2 = document.querySelector("#select-secundario");
+          //const contenido = document.querySelector("#contenedor");
+          document.addEventListener("DOMContentLoaded", function(){
+            
+            select1.addEventListener("change", ()=>{
+                console.log(select1.value)
+                fetch(`http://localhost:8000/api/product/categoria/${select1.value}`)
+                .then(result => {
+                    if(result.ok){
+                        return result.json();
+                    }else{
+                        return 'err';
+                    }
+                })
+                .then(result => {
+                    console.log(result)
+                    select2.innerHTML = '<option hidden selected value="0" >Elija una subcategoria</option>'
+                    result.subcategoria.forEach(subcategoria => {
+                        select2.innerHTML += `<option value="${subcategoria.id}" >${subcategoria.subcategory}</option>`
+                    })
+                })
+            });
+            agregar.addEventListener("click",e => {
+                e.preventDefault();
+                const clone = template.cloneNode(true);
+                fragment.appendChild(clone);
+
+                div.appendChild(fragment);
+            })
+        })-------
+          /*let select1 = document.querySelector("#select-primario");
+          let select2 = document.querySelector("#select-secundario");
+
+          function cargar(categoria){
+            fetch("http://localhost:8000/api/product/categoria/" + categoria)
+            .then(response => response.json())
+            .then(result => {
+                //console.log(result);
+                for( value of result.subcategoria){
+                    select2.innerHTML += `<option value="${value.id}">${value.subcategory}</option>`
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+          }
+
+          select1.addEventListener("change",e => cargar(e.target.value));
+         /* function previewImages() {
+
+              var preview = document.querySelector('#preview');
+
+              if (this.files) {
+              [].forEach.call(this.files, readAndPreview);
+              }
+
+              function readAndPreview(file) {
+
+              // Make sure `file.name` matches our extensions criteria
+              if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                  return alert(file.name + " is not an image");
+              } // else...
+              
+              var reader = new FileReader();
+              
+              reader.addEventListener("load", function() {
+                  var image = new Image();
+                  image.height = 100;
+                  image.title  = file.name;
+                  image.src    = this.result;
+                  preview.appendChild(image);
+              });
+              
+              reader.readAsDataURL(file);
+              
+              }
+
+              }
+
+              document.querySelector('#file-input').addEventListener("change", previewImages);*/
+              
+         
+      
+
+      /*function recoger() {
+          let form = document.forms["datos"]
+          
+          let inputColor = document.getElementsByName("color[]");
+          let inputTalleS = document.getElementsByName("talleS[]");
+          let inputTalleM = document.getElementsByName("talleM[]");
+          //let inputFile = document.getElementsByNam("image");
+
+          inputColor.forEach(element => {
+              console.log(element.value)
+          });
+          inputTalleS.forEach(element => {
+              console.log(element.value)
+          });
+          inputTalleM.forEach(element => {
+              console.log(element.value)
+          });
+          //console.log(inputFile)
+        
+      }*/
+
+  </script>-->
 </body>
 </html>
