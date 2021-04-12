@@ -3,96 +3,15 @@
 <%- include("./partials/head") %> 
 <body>
   <!-- Header -->
-  <header class="fixed z-50 top-0 w-full header">
-    <div class="relative">
-      <nav class="flex w-full nav">
-  
-        <div class="block lg:hidden">
-          <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-          </button>
-        </div>
-  
-        <div class="block lg:order-first lg:mr-5">
-          <a class=" " href="/"><img src="/images/Group.svg" alt=""></a>
-        </div>
-  
-        <div class="block lg:flex lg:items-center lg:order-2 nav-icons">
-          <div class="text-sm lg:flex-grow">
-            <span id="search"><i class="fas fa-search md:text-2xl"></i></span>
-            <span id="user"><i class="far fa-user md:text-2xl"></i></span>
-            <span id="cart" ><i class="fas fa-shopping-cart md:text-2xl"></i></span>
-          </div>
-        </div>
-        <div id='menu-extendido' class="w-full block flex-grow lg:order-1 lg:flex lg:items-center lg:w-auto hidden menu-extendido">
-          <div class="text-sm lg:flex-grow">
-            <a href="#" class="block lg:inline-block lg:mt-0">lo nuevo</a>
-            <a href="/products/product" class="block lg:inline-block lg:mt-0">mujer</a>
-            <a href="#" class="block lg:inline-block lg:mt-0">hombre</a>
-            <a href="#" class="block lg:inline-block lg:mt-0">sale</a>
-            <a href="#" class="block lg:inline-block lg:mt-0">sobre life</a>
-          </div>
-        </div>
-      </nav>
-  
-      <div id='search-extendido' class="absolute w-full hidden">
-        <form action="">
-            <input class="input-search" type="text" placeholder="Buscar">
-        </form>
-      </div>
-  
-      <div id="user-extendido" class="w-32 md:w-44 nav-usuarios hidden">
-        <div class="flex flex-col bg-purple-200">
-          <p  class=" text-center text-xs md:text-lg" > <%= user.name %> <%= user.surname %> </p>
-          <a class="text-xs md:text-lg" class="cerrar" href="logout">cerrar sesion</a>
-        </div>
-      </div>
-  
-      <div id="cart-extendido">
-      </div>
-    </div>
-    <script>
-      /* evento click para menu version movil*/
-function menuMobile (){
-    document.getElementById("menu-extendido").classList.toggle("hidden");
-}
-document.getElementById("boton").onclick = function() {
-    menuMobile();
-}
-
-function menuSearch (){
-    document.getElementById("search-extendido").classList.toggle("hidden");
-}
-document.getElementById("search").onclick = function() {
-    menuSearch();
-}
-
-function menuUser (){
-    document.getElementById("user-extendido").classList.toggle("hidden");
-}
-document.getElementById("user").onclick = function() {
-    menuUser();
-}
-
-function menuCart (){
-    document.getElementById("cart-extendido").classList.toggle("hidden");
-}
-document.getElementById("cart").onclick = function() {
-    menuCart();
-}
-    </script>
-  </header>
-
+  <%- include("./partials/header") %>
   <!-- Main -->
   <main class="mt-24 grid grid-cols-2 perfil mx-4 sm:mx-1 md:mx-7 lg:mx-36 xl:mx-44">
     <div class="col-span-2 text-center my-4">
       <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">¡HOLA! <%= user.name %></h2>
     </div>
-    <div class="col-span-2 sm:col-span-1 w-3/4 mx-auto my-3">
-      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full rounded-full mx-auto border border-purple-500">
-      <button type="button" class="button-avatar">
-        <i class="far fa-image"></i>
-      </button>
+    <div class="col-span-2 sm:col-span-1 w-3/5 mt-10 mx-auto ">
+      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-3/4 rounded-full mx-auto border border-purple-500 ">
+  
     </div> 
 
     <div class="col-span-2 sm:col-span-1">
@@ -110,10 +29,9 @@ document.getElementById("cart").onclick = function() {
         <div class="grid grid-cols-3 dato">  
           <p class="col-span-1">Telefono: </p> <span><%= user.phone %></span>
         </div> 
-        <div class="grid grid-cols-2 mt-3">
-           
+        <div class="grid grid-cols-3 mt-3">
           <form action="/profile/delete/:id">
-            <button type="submit" class="boton ml-3">Eliminar cuenta</button>
+            <button type="submit" class="boton ml-3 ">Eliminar cuenta</button>
           </form>
         </div>
       </div>
@@ -208,14 +126,14 @@ document.getElementById("cart").onclick = function() {
                     </div>
                   </div>
                 </div>
-                <div class="-mx-3 md:flex mt-2">
-                  <div class="md:w-full px-3">
-                    <a href="profile/edit/:id"class="md:w-1/4 bg-black text-white font-bold py-0,5 px-1 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
-                      Editar</button> </a>   
-                  </div>
-                </div>
               </div>
             </form>
+          </div>
+          <div class="-mx-3 md:flex mt-2">
+            <div class="md:w-full px-3">
+              <a href="profile/edit/:id"class="md:w-1/4 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-lg">
+                Editar Perfil </button> </a>   
+            </div>
           </div>
         <!-- <p>Direccion : </p> <span>"<"</span>
         </div>

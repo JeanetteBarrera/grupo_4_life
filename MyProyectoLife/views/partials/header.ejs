@@ -39,9 +39,17 @@
   
       <div id="user-extendido" class="w-32 md:w-44 nav-usuarios hidden">
         <div class="flex flex-col">
-          
-          <a class="text-xs md:text-lg" href="/account/login">INGRESAR</a>
-          <a class="text-xs md:text-lg" href="/account/create">REGISTRATE</a>
+          <% if (typeof user !="undefined" ) { %>
+            <div class="flex flex-col bg-purple-200">
+              <a  class=" text-center text-xs md:text-lg" href="/account/profile"><%= user.name %> <%= user.surname %> </a>
+              <a class="text-xs md:text-lg" class="cerrar" href="logout">cerrar sesion</a>
+            </div>
+  
+            <% } else { %>
+                <a class="text-xs md:text-lg" href="/account/login">INGRESAR</a>
+                <a class="text-xs md:text-lg" href="/account/create">REGISTRATE</a>
+  
+              <% } %>
         </div>
       </div>
   

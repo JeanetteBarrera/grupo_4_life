@@ -88,26 +88,49 @@ document.getElementById("cart").onclick = function() {
     <div class="col-span-2 text-center my-4">
       <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">Editar Informacion</h2>
     </div>
-    <div class="col-span-2 sm:col-span-1 w-3/4 mx-auto my-3">
-      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full rounded-full mx-auto">
-    </div>
+    <div class="col-span-2 sm:col-span-1 w-3/5 mt-10 mx-auto ">
+        <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-3/4 rounded-full mx-auto border border-purple-500" >
+            <div class= "grid grid-cols-3">
+              <p class=""></p>
+              <p class= "col-2 mx-auto mt-2">
+             <label 
+								for="fileInput"
+								type="button"
+								class=" cursor-pointer inine-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-lg shadow-sm text-left text-gray-600 bg-white hover:bg-purple-200 font-medium"
+						   	>
+								<svg xmlns="http://www.w3.org/2000/svg" class="inline-flex flex-shrink-0 w-6 h-6 -mt-1 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+									<path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+									<circle cx="12" cy="13" r="3" />
+								</svg>						
+							</label>
+            </p>
+            </div>
+              <div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Click para agregar foto de perfil</div>
+
+							<input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" @change="let file = document.getElementById('fileInput').files[0]; 
+								var reader = new FileReader();
+								reader.onload = (e) => image = e.target.result;
+								reader.readAsDataURL(file);">
+						
+      </div> 
 
     <div class="col-span-2 sm:col-span-1">
       <h3 class="font-bold py-1 md:pt-5 lg:pt-8 text-xl text-center ">Mis datos</h3>
       <div class="grid grid-cols-1 text-center">
-        <div class="grid grid-cols-3 dato">
-          <p class="col-span-1">Nombre : </p> <span><%= user.name %></span>
+        <div class="grid grid-cols-1 dato">
+          <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="name" type="text" placeholder= <%=user.name %>>
         </div>
-        <div class="grid grid-cols-3 dato">
-          <p class="col-span-1">Apellido : </p> <span><%= user.surname %></span>
+        <div class="grid grid-cols-1 dato">
+          <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="surname" type="text" placeholder=<%=user.surname %>>
         </div>
-        <div class="grid grid-cols-3 dato">  
-          <p class="col-span-1">E-mail : </p> <span><%= user.email %></span>
-        </div> 
-        <div class="grid grid-cols-3 dato">  
-            <p class="col-span-1">Telefono: </p> <span><%= user.phone %></span>
+        <div class="grid grid-cols-1 dato">  
+          <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="email" type="text"  placeholder= <%=user.email %>>
+        </div>  
+        <div class="grid grid-cols-1 mb-1 dato">  
+          <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="phone" type="text"  placeholder= Telefono:  type="text" placeholder= <%=user.phone %>>
           </div> 
-        <div class="grid grid-cols-2 mt-3">
+        <div class="grid grid-cols-2 mt-3 ">
           <a href="profile/update/:id" class="boton">Guardar</a>
           <form action="">
             <button type="submit" class="boton ml-3">Eliminar cuenta</button>
@@ -200,9 +223,9 @@ document.getElementById("cart").onclick = function() {
                     </div>
                   </div>
                 </div>
-                <div class="-mx-3 md:flex mt-3">
+                <div class="-mx-3 md:flex mt-2">
                   <div class="md:w-full px-3">
-                    <a href="/profile"class="md:w-1/4 bg-black text-white font-bold py-0,5 px-1 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
+                    <a href="account/profile"class="md:w-1/3 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
                       <button type="submit" >Guardar</button> </a>   
                   </div>
                 </div>
