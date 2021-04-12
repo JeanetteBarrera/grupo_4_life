@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %> 
+<body>
+  <!-- Header -->
+  <%- include("./partials/header") %>
+  <!-- Main -->
+  <main class="my-8 mx-3 sm:mx-4 md:mx-14 table-database">
+    <h1 class="uppercase text-xl sm:text-2xl md:text-3xl text-center font-bold">editar / inhabilitar / usuarios</h1>
+    <div class="border my-4">
+      <h2 class="uppercase text-white font-bold ">IMPORTANTE!</h2>
+      <h3 class="normal-case text-sm text-gray-600">Se recomienda, para mas informacion del producto, ver seccion la <span class="font-bold">DATABASE</span> que se encuentra en el <span class="font-bold">PANEL DE CONTROL</span></h3>
+    </div>
+    <!--contenedor de tabla-->
+    <div class="table-container overflow-x-auto">
+      <table class="table">
+        <thead class="text-sm">
+            <tr>
+                <th>cod</th>
+                <th>status</th>
+                <th>email</th>
+                <th>usuario</th>
+                <th>rol</th>
+                <th>link</th>
+            </tr>
+        </thead>
+        <tbody class="text-sm">
+            
+        </tbody>
+      </table>
+    </div>
+    <!--termina contenedor de tabla-->
+  </main>
+<script src="/javascripts/headerAdmin.js"></script>
+</body>
+</html>

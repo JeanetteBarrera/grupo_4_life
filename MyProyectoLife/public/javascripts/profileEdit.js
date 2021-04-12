@@ -65,55 +65,6 @@ let qs = function(elemento){
                 $cityErrors.innerHTML = ''
                 break;
         }
-    }) 
-    
-    (function provinciasApi(){
-        fetch('https://apis.datos.gob.ar/georef/api/provincias')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(result){
-            result.provincias.sort(function(prev,next){
-                return prev.nombre > next.nombre
-            })
-
-            let options = '';
-
-            result.provincias.forEach(provincia => {
-                options += `<option value = "${provincia.nombre}">${provincia.nombre}</option>`
-            })
-
-            provinciaSelect.innerHTML += options;
-        })
-    })()
-
-
-    fetch('https://restcountries.eu/rest/v2/all')
-    .then(response => response.json())
-
-    .then(result.forEach(pais => {
-        var nombre = <li> ${pais.name}</li>
-        lista.innerHTML += nombre
-    })
-
-
-    const paises = async() => {
-        let response = await
-         fetch('https://restcountries.eu/rest/v2/all')
-        let result = await response.json()
-        result.forEach(pais => {
-            var nombre = <li>${pais.name}</li>
-            lista.innerHTML += nombre
-        });
-
-
-
-
-
-
-
-
-
 
 
         $inputCity.addEventListener('blur', function(){
@@ -134,10 +85,6 @@ let qs = function(elemento){
                     break;
             }
         })
-
-
-
-
 
 
     $file.addEventListener('change', 

@@ -42,8 +42,8 @@
       </div>
   
       <div id="user-extendido" class="w-32 md:w-44 nav-usuarios hidden">
-        <div class="flex flex-col">
-          <p> <%= user.name %> <%= user.surname %></p>
+        <div class="flex flex-col bg-purple-200">
+          <p  class=" text-center text-xs md:text-lg" > <%= user.name %> <%= user.surname %> </p>
           <a class="text-xs md:text-lg" class="cerrar" href="logout">cerrar sesion</a>
         </div>
       </div>
@@ -89,8 +89,11 @@ document.getElementById("cart").onclick = function() {
       <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">¡HOLA! <%= user.name %></h2>
     </div>
     <div class="col-span-2 sm:col-span-1 w-3/4 mx-auto my-3">
-      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full">
-    </div>
+      <img src="/images/avatars/<%= user.avatar %>" alt="" class="w-full rounded-full mx-auto border border-purple-500">
+      <button type="button" class="button-avatar">
+        <i class="far fa-image"></i>
+      </button>
+    </div> 
 
     <div class="col-span-2 sm:col-span-1">
       <h3 class="font-bold py-1 md:pt-5 lg:pt-8 text-xl text-center ">Mis datos</h3>
@@ -104,9 +107,12 @@ document.getElementById("cart").onclick = function() {
         <div class="grid grid-cols-3 dato">  
           <p class="col-span-1">E-mail : </p> <span><%= user.email %></span>
         </div> 
+        <div class="grid grid-cols-3 dato">  
+          <p class="col-span-1">Telefono: </p> <span><%= user.phone %></span>
+        </div> 
         <div class="grid grid-cols-2 mt-3">
-          <a href="#" class="boton">Editar</a>
-          <form action="">
+           
+          <form action="/profile/delete/:id">
             <button type="submit" class="boton ml-3">Eliminar cuenta</button>
           </form>
         </div>
@@ -121,19 +127,21 @@ document.getElementById("cart").onclick = function() {
          <!-- component -->
           <!--<div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24  mb-24"> -->
           <form>
-            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+            <div class="bg-white  rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
               <div class="-mx-3 md:flex mb-6">
                 <div class="md:w-full px-3 mb-6 md:mb-0">
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Ej:Los Andes">
                     Calle*
                   </label>
-                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="street" type="text" placeholder="Ej:Los Andes">
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="street" type="text" placeholder="Ej:Los Andes" value="<%= (typeof old != 'undefined' && old.street) ? old.street : ""%>">
+                  <span class="errores"  id="streetErrors">  <%= (typeof errores != 'undefined' && errores.street) ? errores.street.msg : "" %></span>
                 </div>
                 <div class="md:w-1/2 px-3">
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="title">
                     Numero*
                   </label>
-                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123" value="<%= (typeof old != 'undefined' && old.number) ? old.number : ""%>">
+                  <span class="errores"  id="numberErrors">  <%= (typeof errores != 'undefined' && errores.number) ? errores.number.msg : "" %></span>
                 </div>
               </div>
               <div class="-mx-3 md:flex mb-2">
@@ -142,13 +150,15 @@ document.getElementById("cart").onclick = function() {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
                       Dpto
                     </label>
-                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="depto" type="text" placeholder="Ej:123" value="<%= (typeof old != 'undefined' && old.depto) ? old.depto : ""%>">
+                    <span class="errores"  id="deptoErrors">  <%= (typeof errores != 'undefined' && errores.depto) ? errores.depto.msg : "" %></span>
                   </div>
                   <div class="md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
                       Piso
                     </label>
-                     <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                     <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="piso" type="text" placeholder="Ej:123"value="<%= (typeof old != 'undefined' && old.piso) ? old.piso : ""%>">
+                     <span class="errores"  id="pisoErrors">  <%= (typeof errores != 'undefined' && errores.piso) ? errores.piso.msg : "" %></span>
                     <div class="relative">
                     </div>
                   </div>
@@ -156,7 +166,8 @@ document.getElementById("cart").onclick = function() {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
                       C.P
                     </label>
-                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="ZipCode" type="text" placeholder="Ej:123"value="<%= (typeof old != 'undefined' && old.zipCode) ? old.zipCode : ""%>">
+                    <span class="errores"  id="zipCodeErrors">  <%= (typeof errores != 'undefined' && errores.zipCode) ? errores.zipCode.msg : "" %></span>
                   </div>
                 </div>
              </div>
@@ -167,9 +178,9 @@ document.getElementById("cart").onclick = function() {
                   </label>
                   <div>
                     <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="country">
-                      <option>Abuja</option>
-                      <option>Enugu</option>
-                      <option>Lagos</option>
+                      <option>Argentina</option>
+                      <option>Armenia</option>
+                      <option>Angola</option>
                     </select>
                   </div>
                 </div>
@@ -179,9 +190,9 @@ document.getElementById("cart").onclick = function() {
                   </label>
                   <div>
                     <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="state">
-                      <option>Full-Time</option>
-                      <option>Part-Time</option>
-                      <option>Internship</option>
+                      <option>Buenos Aires</option>
+                      <option>Cordoba</option>
+                      <option>Salta</option>
                     </select>
                   </div>
                 </div>
@@ -190,18 +201,17 @@ document.getElementById("cart").onclick = function() {
                     Ciudad*
                     <div>
                       <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="department">
-                        <option>Engineering</option>
-                        <option>Design</option>
-                        <option>Customer Support</option>
+                        <option>Capital Federal</option>
+                        <option>Cordoba</option>
+                        <option>Salta Capital</option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <div class="-mx-3 md:flex mt-2">
                   <div class="md:w-full px-3">
-                    <button class="md:w-1/4 bg-purple-400 text-white font-bold py-0,5 px-1 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
-                      Guardar
-                    </button>
+                    <a href="profile/edit/:id"class="md:w-1/4 bg-black text-white font-bold py-0,5 px-1 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
+                      Editar</button> </a>   
                   </div>
                 </div>
               </div>

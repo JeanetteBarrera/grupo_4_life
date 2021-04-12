@@ -11,13 +11,13 @@
           <img src="/images/avatars/default.png" alt="">
       </figure>
       <ul class="text-lg mt-44">
-        <li><a href="/account/admin/profile">Super Admin <span class="name-mobile"> manuela</span></a></li>
+        <li><a href="/account/admin/profile">Super Admin <span class="name-mobile"> <%= user.name %></span></a></li>
         <!--<li><a href="#"><i class="fas fa-file"></i> Resumen</a></li>-->
         <li><a href="/admin/product/database/list"><i class="fas fa-database"></i> Base de datos</a></li>
         <li><a href="/admin/product/create"><i class="fas fa-plus"></i> Nuevo producto</a></li>
         <li><a href="/admin/product/list"><i class="fas fa-edit"></i> Edit/Delete</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Accounts</a></li>
-        <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</a></li>
+        <li><a href="/admin/users/list"><i class="fas fa-users"></i> Accounts</a></li>
+        <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</a></li>
       </ul>
   </nav>
   <!--aca termina menu- mobile-->
@@ -28,7 +28,8 @@
           <figure class="avatar">
               <img src="/images/avatars/default.png" alt="">
           </figure>
-          <h2 class="user-admin text-sm">super admin <span class="name-admin">manuela</span></h2>
+          <h2 class="user-admin text-sm">super admin <span class="name-admin"><%= user.name %></span></h2>
+          
       </div>
   </nav> 
 </header>

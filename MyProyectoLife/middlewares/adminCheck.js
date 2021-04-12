@@ -1,19 +1,18 @@
 const db = require('../database/models');
 
-/*module.exports = (req, res, next) => {
+module.exports = (req, res, next) => {
     db.Users.findByPk(req.session.usuario.id)
         .then(user => {
-            let admin = false
-            if(user.status== 0){
-                admin = true
-            }
-            if(admin){
+            if(user.rol == "admin"){
+            
+               if(admin){
                 next();
+               }else{
+                res.redirect('/');
+               }
+            
             }else{
-                res.redirect('/')
+                res.redirect('/login');
             }
         })
-        .catch(err => {
-            res.redirect('/')
-        })
-}*/
+}

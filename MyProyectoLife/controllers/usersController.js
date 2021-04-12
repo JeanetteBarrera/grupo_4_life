@@ -131,47 +131,101 @@ module.exports = {
     },
 
    /* profileEdit : (req, res) => {
-        db.Addresses.findOne({
+        db.Users.findOne({
             where: {
-                id: req.session.usuario.id
-            }
+                id: req.params.id
+            },
+            include:[{association:"domicilio"}],
         })
         .then(user => {
-            res.render('profile', {
-                title: 'Editar mis datos',
-                session: req.session,
-                user: user
+            db.Addresses.findAll({
+                include:[{association:"domicilio"}],
             })
+            .then(()=>{
+                console.log()
+                 res.render('profile', {
+                session: user
+                
+                })
+           }) 
         })
-    },*/
+        .catch(errores => {
+            console.log(errores)
+        })
+    },
+    */
       
     
     profileUpdate : (req, res) => {
-        db.Addresses.update({
+      db.Users.findOne({
+        where:{ id:req.params.id
+        },  //buscar id de ususario//
+         include:[{association:"domicilio"}]
 
-      //faltaterminar//
+        })
+        .then((usuario)=>{
+            db.update({
+                name :req.body.name!= ''?req.body.name.trim():null,
+                surname : req.body.surname!= ''?req.body.surname.trim():null,
+
+            })
+            .then(()=>{
+                db.Addresses.update({
+                    phone: req.body.phone != ''?req.body.telefono.trim():null,
+                    street: req.body.street != ''?req.body.street.trim():null,
+                    number: req.body.number != ''?req.body.number:null,
+                    depto: req.body.dpto != ''?req.body.depto.trim():null,
+                    piso: req.body.piso != ''?req.body.piso.trim():null,
+                    zioCode: req.body.zipCode != ''?req.body.zipCode.trim():null,
+                    country: req.body.country != ''?req.body.country.trim():null,
+                    state: req.body.provincia != '' && req.body.state != 0 ?req.body.state.trim():null,
+                    city: req.body.city != '' && req.body.city != 0 ?req.body.city.trim():null,
+            
+                    where: {
+                        id:usuario.domicilio .id
+
+
+                    }
+                })
+            })
+            .catch(errores=>{
+              console.log(errores)
+            })
+
+        })
+      
+        db.Addresses.update({
+            phone: req.body.phone != ''?req.body.telefono.trim():null,
+            street: req.body.street != ''?req.body.street.trim():null,
+            number: req.body.number != ''?req.body.number:null,
+            depto: req.body.dpto != ''?req.body.depto.trim():null,
+            piso: req.body.piso != ''?req.body.piso.trim():null,
+            zioCode: req.body.zipCode != ''?req.body.zipCode.trim():null,
+            country: req.body.country != ''?req.body.country.trim():null,
+            state: req.body.provincia != '' && req.body.state != 0 ?req.body.state.trim():null,
+            city: req.body.city != '' && req.body.city != 0 ?req.body.city.trim():null
     },{
             where: {
-                id: req.session.usuario.id
+                id: usuario.domicilio [i].id
             }
         })
         .then(() => {
-            res.redirect('/profile/update/:id')
+            res.redirect('/account/profile')
         })
     },
 
     profileDelete : (req, res) => {
-         db.Users.destroy({
-                where: {
-                    id: req.session.usuario.id
-                }
+         db.Users.update({
+             status:0
+         },
+            {
+                where: {id: req.params.id}
             })
             .then(() => {
-                req.session.destroy();
                 if(req.cookies.user){
                     res.cookie('user','',{maxAge:-1})
                 }
-                
+
                 res.redirect('/')
             })
     },
