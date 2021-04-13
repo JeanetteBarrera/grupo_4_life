@@ -425,6 +425,11 @@ module.exports = {
     
     },
 
+    life: (req, res)=>{
+        res.render("admin/life")
+
+},
+
 
 
 }

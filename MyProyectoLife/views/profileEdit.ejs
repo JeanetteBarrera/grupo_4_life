@@ -84,7 +84,8 @@ document.getElementById("cart").onclick = function() {
   </header>
 
   <!-- Main -->
-  <main class="mt-24 grid grid-cols-2 perfil mx-4 sm:mx-1 md:mx-7 lg:mx-36 xl:mx-44">
+<main class="mt-24 grid grid-cols-2 perfil mx-4 sm:mx-1 md:mx-7 lg:mx-36 xl:mx-44">
+  <form action="/account/profile/update/<%= user.id %>?_method=PUT"  method="POST" ></form>
     <div class="col-span-2 text-center my-4">
       <h2 class="py-4 text-2xl sm:text-3xl md:text-3xl underline">Editar Informacion</h2>
     </div>
@@ -107,37 +108,38 @@ document.getElementById("cart").onclick = function() {
             </p>
             </div>
               <div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Click para agregar foto de perfil</div>
-
-							<input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" @change="let file = document.getElementById('fileInput').files[0]; 
+                <input name="avatar" id="fileInput" name="image" accept="image/*" class="hidden" type="file"  multiple @change="let file = document.getElementById('fileInput').files[0]; 
 								var reader = new FileReader();
 								reader.onload = (e) => image = e.target.result;
 								reader.readAsDataURL(file);">
-						
-      </div> 
-
+		</div> 
+ 
     <div class="col-span-2 sm:col-span-1">
       <h3 class="font-bold py-1 md:pt-5 lg:pt-8 text-xl text-center ">Mis datos</h3>
       <div class="grid grid-cols-1 text-center">
         <div class="grid grid-cols-1 dato">
           <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="name" type="text" placeholder= <%=user.name %>>
+          <span class="errores"  id="nameErrors">  <%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
         </div>
         <div class="grid grid-cols-1 dato">
           <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="surname" type="text" placeholder=<%=user.surname %>>
+          <span class="errores"  id="usernameErrors">  <%= (typeof errores != 'undefined' && errores.username) ? errores.username.msg : "" %></span>
         </div>
         <div class="grid grid-cols-1 dato">  
           <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="email" type="text"  placeholder= <%=user.email %>>
+          <span class="errores"  id="emailErrors">  <%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %></span>
         </div>  
         <div class="grid grid-cols-1 mb-1 dato">  
           <input class="w-full bg-purple-200 text-black border border-gray-200 rounded  px-2 " id="phone" type="text"  placeholder= Telefono:  type="text" placeholder= <%=user.phone %>>
+          <span class="errores"  id="phoneErrors">  <%= (typeof errores != 'undefined' && errores.phone) ? errores.phone.msg : "" %></span>
           </div> 
         <div class="grid grid-cols-2 mt-3 ">
-          <a href="profile/update/:id" class="boton">Guardar</a>
-          <form action="">
+          <button type="submit" class="boton">Guardar</button>
             <button type="submit" class="boton ml-3">Eliminar cuenta</button>
-          </form>
         </div>
       </div>
     </div>
+  </form>
 
     <div class="col-span-2 text-center my-5">
       <h3 class="font-bold py-4 sm:pt-10 text-xl text-center ">Informacion adicional</h3>
@@ -146,58 +148,64 @@ document.getElementById("cart").onclick = function() {
          
          <!-- component -->
           <!--<div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24  mb-24"> -->
-          <form action="/account/profile/edit/id:?_method=PUT" method="POST"></form>
-            <div class="bg-white  rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-              <div class="-mx-3 md:flex mb-6">
-                <div class="md:w-full px-3 mb-6 md:mb-0">
-                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Ej:Los Andes">
-                    Calle*
+          <form action="/account/profile/update/<%= user.id %>?_method=PUT" method="POST"></form>
+          <div class="bg-white  rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+            <div class="-mx-3 md:flex mb-6">
+              <div class="md:w-full px-3 mb-6 md:mb-0">
+                <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="Ej:Los Andes">
+                  Calle*
+                </label>
+                <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="street" type="text" placeholder="Ej:Los Andes" value="<%= (typeof old != 'undefined' && old.street) ? old.street : ""%>">
+                <span class="errores"  id="streetErrors">  <%= (typeof errores != 'undefined' && errores.street) ? errores.street.msg : "" %></span>
+              </div>
+              <div class="md:w-1/2 px-3">
+                <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="title">
+                  Numero*
+                </label>
+                <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="number" placeholder="Ej:123" value="<%= (typeof old != 'undefined' && old.number) ? old.number : ""%>">
+                <span class="errores"  id="numberErrors">  <%= (typeof errores != 'undefined' && errores.number) ? errores.number.msg : "" %></span>
+              </div>
+            </div>
+            <div class="-mx-3 md:flex mb-2">
+              <div class="-mx-3 md:flex mb-6 md:mb-0">
+                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
+                    Dpto
                   </label>
-                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="street" type="text" placeholder="Ej:Los Andes">
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="depto" type="text" placeholder="Ej:123" value="<%= (typeof old != 'undefined' && old.depto) ? old.depto : ""%>">
+                  <span class="errores"  id="deptoErrors">  <%= (typeof errores != 'undefined' && errores.depto) ? errores.depto.msg : "" %></span>
                 </div>
                 <div class="md:w-1/2 px-3">
-                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="title">
-                    Numero*
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+                    Piso
                   </label>
-                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="number" type="text" placeholder="Ej:123">
+                   <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="piso" type="text" placeholder="Ej:123"value="<%= (typeof old != 'undefined' && old.piso) ? old.piso : ""%>">
+                   <span class="errores"  id="pisoErrors">  <%= (typeof errores != 'undefined' && errores.piso) ? errores.piso.msg : "" %></span>
+                  <div class="relative">
+                  </div>
+                </div>
+                <div class="md:w-1/2 px-3">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                    C.P
+                  </label>
+                  <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="ZipCode" type="text" placeholder="Ej:123"value="<%= (typeof old != 'undefined' && old.zipCode) ? old.zipCode : ""%>">
+                  <span class="errores"  id="zipCodeErrors">  <%= (typeof errores != 'undefined' && errores.zipCode) ? errores.zipCode.msg : "" %></span>
                 </div>
               </div>
-              <div class="-mx-3 md:flex mb-2">
-                <div class="-mx-3 md:flex mb-6 md:mb-0">
-                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
-                      Dpto
-                    </label>
-                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="depto" type="text" placeholder="Ej:123">
-                  </div>
-                  <div class="md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
-                      Piso
-                    </label>
-                     <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="piso" type="text" placeholder="Ej:123">
-                    <div class="relative">
-                    </div>
-                  </div>
-                  <div class="md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
-                      C.P
-                    </label>
-                    <input class="w-full bg-purple-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="zipCode" type="text" placeholder="Ej:123">
-                  </div>
+           </div>
+            <div class="-mx-3 md:flex mb-2">
+              <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="uppercase tracking-wide text-black text-xs font-bold mb-3" for="location">
+                  Pais*
+                </label>
+                <div>
+                  <select name = "country" id="country" value="<%= (typeof old != 'undefined' && old.piso) ? old.piso : ""%>"class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" >
+                    <option>Argentina</option>
+                    <option>Armenia</option>
+                    <option>Angola</option>
+                  </select>
+                  <span class="errores"  id="countryErrors">  <%= (typeof errores != 'undefined' && errores.country) ? errores.country.msg : "" %></span>
                 </div>
-             </div>
-              <div class="-mx-3 md:flex mb-2">
-                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label class="uppercase tracking-wide text-black text-xs font-bold mb-3" for="location">
-                    Pais*
-                  </label>
-                  <div>
-                    <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="country">
-                      <option>Argentina</option>
-                      <option>Armenia</option>
-                      <option>Angola</option>
-                    </select>
-                  </div>
                 </div>
                 <div class="md:w-1/2 px-3">
                   <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="job-type">
@@ -225,7 +233,7 @@ document.getElementById("cart").onclick = function() {
                 </div>
                 <div class="-mx-3 md:flex mt-2">
                   <div class="md:w-full px-3">
-                    <a href="account/profile"class="md:w-1/3 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
+                    <a href="profile"class="md:w-1/3 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
                       <button type="submit" >Guardar</button> </a>   
                   </div>
                 </div>

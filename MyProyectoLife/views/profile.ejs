@@ -29,9 +29,9 @@
         <div class="grid grid-cols-3 dato">  
           <p class="col-span-1">Telefono: </p> <span><%= user.phone %></span>
         </div> 
-        <div class="grid grid-cols-3 mt-3">
+        <div class="grid grid-cols-2mt-3">
           <form action="/profile/delete/:id">
-            <button type="submit" class="boton ml-3 ">Eliminar cuenta</button>
+            <button type="submit" class="boton  ">Eliminar cuenta</button>
           </form>
         </div>
       </div>
@@ -95,11 +95,12 @@
                     Pais*
                   </label>
                   <div>
-                    <select class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="country">
+                    <select name = "country" id="country" value="<%= (typeof old != 'undefined' && old.piso) ? old.piso : ""%>"class="w-full bg-purple-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" >
                       <option>Argentina</option>
                       <option>Armenia</option>
                       <option>Angola</option>
                     </select>
+                    <span class="errores"  id="countryErrors">  <%= (typeof errores != 'undefined' && errores.country) ? errores.country.msg : "" %></span>
                   </div>
                 </div>
                 <div class="md:w-1/2 px-3">
@@ -131,7 +132,7 @@
           </div>
           <div class="-mx-3 md:flex mt-2">
             <div class="md:w-full px-3">
-              <a href="profile/edit/:id"class="md:w-1/4 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-lg">
+              <a href="profile/edit/id:"class="md:w-1/4 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-lg">
                 Editar Perfil </button> </a>   
             </div>
           </div>

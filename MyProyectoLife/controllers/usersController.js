@@ -130,7 +130,8 @@ module.exports = {
         res.render('profileEdit')
     },
 
-   /* profileEdit : (req, res) => {
+   /*profileEdit : (req, res) => {
+    console.log(req.params.id)
         db.Users.findOne({
             where: {
                 id: req.params.id
@@ -143,7 +144,7 @@ module.exports = {
             })
             .then(()=>{
                 console.log()
-                 res.render('profile', {
+                 res.render('profileEdit', {
                 session: user
                 
                 })
@@ -152,8 +153,8 @@ module.exports = {
         .catch(errores => {
             console.log(errores)
         })
-    },
-    */
+    },*/
+
       
     
     profileUpdate : (req, res) => {
