@@ -17,6 +17,6 @@ router.get("/product/:id", productsController.detalle);
 router.get('/category/:id');
 
 /*PRODUCTOS POR SUBCATEGORIA*/
-router.get('/subcategory/id');
+router.get('/subcategory/all/:id', productsController.filtrarSub);
 
 module.exports = router;

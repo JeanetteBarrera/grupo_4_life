@@ -13,7 +13,7 @@
                   <select name="category" id="select-primario" class="select">
                     <option selected value="0" >Elija una Categoria</option>
                     <% categorias.forEach(element => { %>
-                      <option value=<%=element.id %><% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
+                      <option value="<%=element.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.category){%> selected <% } %>><%= element.category %> </option>
                     <% }) %>
                   </select>
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %></span>
@@ -73,7 +73,7 @@
                               <b>XL : </b>
                               <input type="number" name="stockXL[]" value="0" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                           </div>
-                          <span class="eliminar">eliminar</span>
+                          <!--<span class="eliminar">eliminar</span>-->
                           <!--<input type="file" name="image">-->
                       </div>
                   </template>

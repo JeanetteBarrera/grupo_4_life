@@ -27,9 +27,9 @@ module.exports= [
 
     check('discount').isLength({min:1}).withMessage('Debe ingresar un valor de descuento'),
 
-    body('color[]').exists()
+   /* body('color[]').exists()
     .notEmpty().withMessage("no puede se vacio")
-    .isArray()
+    .isArray()*/
     /*.custom((value)=>{
          if(value.every.isHexColor()){
             return true

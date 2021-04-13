@@ -1,0 +1,30 @@
+/*.listarProducts .contenedor-img {
+    width: 80%;
+    height: auto;
+}
+.listarProducts .contenedor-img img {
+    object-fit: contain;
+}*/
+
+.listarProducts .colors li{
+    /*margin: 0 20px 0 0; */
+    display: inline-block;
+}
+.listarProducts .colors label{
+    cursor: pointer;
+}
+.listarProducts .colors input{
+    display:none;
+}
+.listarProducts .colors input[type="radio"]:checked + .swatch{
+    box-shadow: inset 0 0 0 2px white;
+}
+.listarProducts .info .swatch{
+  display:inline-block;
+  vertical-align: middle;
+  height: 30px;
+  width:30px;
+  /*border-radius: 50%;*/
+  /*margin: 0 5px 0 0 ;*/
+  border: 1px solid #d4d4d4;
+}

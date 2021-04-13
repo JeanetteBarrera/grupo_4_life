@@ -21,9 +21,18 @@ module.exports = {
     },
     
     lista: (req, res) => {
-        res.render("listaProducts",{
-            product:products
-        });
+        db.Product.findAll({
+            include: [
+                {association:"Subcategory",include:[{association:"Category"}]},
+                {association:"variantes", include:[{association:"stock",  include:[{association:"Size"}]}]}],
+            where:{status: true}
+        }).then(result=>{
+            res.render("listaProducts",{
+                producto:result
+            });
+        }).catch(errores=>{
+            console.log(errores)
+        })
     },
 
 
@@ -48,7 +57,33 @@ module.exports = {
         res.render("detalleProducto",{
             product:datos
         });*/
-    }
+    },
+    filtrarSub: (req, res)=> {
+        db.Product.findAll({
+            include: [
+                {association:"Subcategory",include:[{association:"Category"}]},
+                {association:"variantes", include:[{association:"stock",  include:[{association:"Size"}]}]}],
+            where:{
+                status: true,
+                subcategoryId: req.params.id
+            }
+        }).then((result)=>{
+            db.Subcategory.findOne({
+                where:{id : req.params.id}
+            })
+            .then(subcategoria =>{
+                res.render("listaProducts",{
+                    producto:result,
+                    subcategoria,
+                    title : "LIFE -"+ subcategoria.subcategory
+                })
     
+            }).catch(errores => {
+                console.log(errores)
+            })
+        }).catch(errores=>{
+            console.log(errores)
+        })
+    }
 }
     

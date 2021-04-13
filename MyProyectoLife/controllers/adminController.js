@@ -7,8 +7,18 @@ module.exports = {
 
 
     productCreate: (req, res) => {
-
-        let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
+        
+        db.Category.findAll()
+        .then((categorias)=>{
+            //console.log(categorias)
+            res.render('admin/productCreate',{
+                categorias
+            })
+            .catch(errores=>{
+                console.log(errores)
+            })
+        })
+        /*let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
         let subHombre = db.Subcategory.findAll({where:{categoryId:2}});
         let categorias = db.Category.findAll()
     
@@ -22,13 +32,14 @@ module.exports = {
                 })
                 .catch(errores => {
                     console.log(errores)
-                })
+                })*/
     },
     productStore: (req, res, next) => {
-        console.log(req.body)
+        //console.log(req.body)
         const errores= validationResult(req);
 
         if(!errores.isEmpty()){
+            //console.log(errores)
             console.log("aca entro 1")
             let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
             let subHombre = db.Subcategory.findAll({where:{categoryId:2}});
@@ -99,7 +110,7 @@ module.exports = {
                         console.log(error);
                     })
                 }
-                res.redirect("/")
+                res.redirect("/account/admin/profile")
             })
             .catch((error)=>{
                 console.log(error)
@@ -375,7 +386,7 @@ module.exports = {
                 }).catch(errores=>{
                     console.log(errores)
                 })
-                res.redirect("admin/product/list")
+                res.redirect("/admin/product/list")
             }).catch(errores => {
                 console.log(errores)
             })
