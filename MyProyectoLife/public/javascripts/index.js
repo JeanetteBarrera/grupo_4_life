@@ -16,7 +16,7 @@ const seccionesPagina = new fullpage("#fullpage", {
     navigationTooltips : ['Home','Ofertas',"Categorias",'Contactanos'], //Tooltips que mostrara por cada boton
     showActiveTooltip : false, //Mostrar tooltip activa*/
     controlArrows: false,
-    slidesNavigation: true,
+    slidesNavigation: false,
     verticalCentered: true
 })
 

@@ -63,59 +63,97 @@
     object-fit: cover;
 }
 /*=== Section3 ==*/
-.home .s3 {
-    background-image: url("../images/fondo-categorias-hombres.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+/*Slide1 mujer*/
+.home .s3 .mujer {
+  background: rgba(22, 191, 253,.9); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, rgba(22, 191, 253,.9), rgba(203, 48, 102,.7)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(22, 191, 253,.9), rgba(203, 48, 102,.7)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */}
+.home .s3 .mujer a {
+    background-color: black;
+    position: relative;
+    color: white;
 }
-.home .s3 .titulo-categorias {
+.home .s3 .mujer a:hover{
+    transform: translateY(-6px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11);
+}
+.home .s3 .mujer a img {
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    opacity: 0.7;
+}
+.home .s3 .mujer a p {
+    text-transform: uppercase;
+    font-weight: 600;
     position: absolute;
     z-index: 100;
-    top:15%;
-    left: 10%;
-    text-align: center;
-    width: 250px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 75%;
+    height: 30%;
+    margin: auto;
 }
-.home .s3 .titulo-categorias h2 {
+.home .s3 .mujer a:nth-child(5){
+    background-color: #f1f1f1;
+    border:solid 4px black;
+    color: black;
+}
+.home .s3 .mujer h2 {
     text-transform: uppercase;
-    color: transparent;
-    margin-bottom: 10px;
-    -webkit-text-stroke: 3px white;
-        -moz-text-stroke: 3px white;
-}
-.home .s3 .titulo-categorias a {
-    padding: 2px 6px;
-    color:black;
     font-weight: 700;
-    text-transform: uppercase;
-    background-color: white;
-    border: solid 1px black;
-    
+    color: black;
 }
-.home .s3 .categoria{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 120px;
+/*Slide2 hombre*/
+.home .s3 .hombre {
+  background: rgba(22, 191, 253,.9); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, rgba(22, 191, 253,.9), rgba(203, 48, 102,.7)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(22, 191, 253,.9), rgba(203, 48, 102,.7)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.home .s3 .categoria a{
-    display: block;
-    height: 45px;
-    width: 250px;
-    text-align: center;
-    line-height: 40px;
-    color: white;
-    font-weight: 700;
+.home .s3 .hombre a {
     background-color: black;
-    border: solid 1px white;
-    text-transform: uppercase;
-    margin-top: 10px;
+    position: relative;
+    color: white;
 }
-.home .s3 .mujer{
-    background-image: url("../images/fondo-categorias-mujer.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+.home .s3 .hombre a:hover{
+    transform: translateY(-6px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11);
+}
+.home .s3 .hombre a img {
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    opacity: 0.7;
+}
+.home .s3 .hombre a p {
+    text-transform: uppercase;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 75%;
+    height: 30%;
+    margin: auto;
+}
+.home .s3 .hombre a:nth-child(5){
+    background-color: white;
+    border:solid 3px black;
+    color: black;
+}
+.home .s3 .hombre h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: black;
 }
 /*=== Section4 ===*/
 .home .s4 {

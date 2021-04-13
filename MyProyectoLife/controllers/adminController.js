@@ -110,7 +110,7 @@ module.exports = {
                         console.log(error);
                     })
                 }
-                res.redirect("/")
+                res.redirect("/account/admin/profile")
             })
             .catch((error)=>{
                 console.log(error)
