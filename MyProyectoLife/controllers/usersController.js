@@ -126,13 +126,11 @@ module.exports = {
         res.render('profile')
     },
 
-    profileEdit : (req,res) => {
-        res.render('profileEdit')
-    },
+    
 
-   /*profileEdit : (req, res) => {
+   profileEdit : (req, res) => {
     console.log(req.params.id)
-        db.Users.findOne({
+        db.User.findOne({
             where: {
                 id: req.params.id
             },
@@ -153,12 +151,12 @@ module.exports = {
         .catch(errores => {
             console.log(errores)
         })
-    },*/
+    },
 
       
     
     profileUpdate : (req, res) => {
-      db.Users.findOne({
+      db.User.findOne({
         where:{ id:req.params.id
         },  //buscar id de ususario//
          include:[{association:"domicilio"}]
@@ -171,7 +169,7 @@ module.exports = {
 
             })
             .then(()=>{
-                db.Addresses.update({
+                db.Address.update({
                     phone: req.body.phone != ''?req.body.telefono.trim():null,
                     street: req.body.street != ''?req.body.street.trim():null,
                     number: req.body.number != ''?req.body.number:null,
@@ -195,7 +193,7 @@ module.exports = {
 
         })
       
-        db.Addresses.update({
+        db.Address.update({
             phone: req.body.phone != ''?req.body.telefono.trim():null,
             street: req.body.street != ''?req.body.street.trim():null,
             number: req.body.number != ''?req.body.number:null,
@@ -216,7 +214,7 @@ module.exports = {
     },
 
     profileDelete : (req, res) => {
-         db.Users.update({
+         db.User.update({
              status:0
          },
             {

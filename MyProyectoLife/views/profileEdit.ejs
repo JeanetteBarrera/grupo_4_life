@@ -148,7 +148,7 @@ document.getElementById("cart").onclick = function() {
          
          <!-- component -->
           <!--<div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24  mb-24"> -->
-          <form action="/account/profile/update/<%= user.id %>?_method=PUT" method="POST"></form>
+          <form action="/account/profile/update/<%= user.id %>?_method=PUT" method="POST">
           <div class="bg-white  rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
             <div class="-mx-3 md:flex mb-6">
               <div class="md:w-full px-3 mb-6 md:mb-0">
@@ -233,10 +233,10 @@ document.getElementById("cart").onclick = function() {
                 </div>
                 <div class="-mx-3 md:flex mt-2">
                   <div class="md:w-full px-3">
-                    <a href="profile"class="md:w-1/3 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
-                      <button type="submit" >Guardar</button> </a>   
+                    <button type="submit" class="md:w-1/3 bg-black text-white font-bold py-1 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
+                       >Guardar</button>   
                   </div>
-                </div>
+                </div> 
               </div>
             </form>
           </div>
