@@ -3,7 +3,7 @@
 <%- include('./partials/head')  %> 
 <body>   
     <!-- Header -->
-    <%- include('./partials/header') %> 
+    <%- include('../partials/header') %> 
     <main class="admin-form mx-3 mt-24">
       <form action="/admin/product/update/<%= producto.id %>?_method=PUT"  method="POST" enctype="multipart/form-data">
           <h2 class="my-5 text-lg">Editar producto</h2>
@@ -83,7 +83,7 @@
           <button type="submit" class="boton-enviar py-1 my-2">enviar</button>
       </form>
     </main>
-    <script src="/javascripts/headerAdmin.js"></script>
+    <script src="/javascripts/header.js"></script>
     <script src="/javascripts/productEdit.js"></script>
 </body>
 </html>

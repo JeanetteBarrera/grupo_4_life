@@ -72,6 +72,7 @@ module.exports = {
                       surname : user.surname,
                       email : user.email,
                       avatar :"default.png",
+                      rol: user.rol,
                       status:1,
                     }
                     // verificacion de rol de ususario//
@@ -82,9 +83,12 @@ module.exports = {
                         })
                     }
                      console.log(user.rol)
+
                     if (user.rol=="admin") {
+
                     return res.redirect('admin/profile')
-                    } else {
+                    } 
+                    else {
                         return res.redirect('profile')
                     }
                 }else {

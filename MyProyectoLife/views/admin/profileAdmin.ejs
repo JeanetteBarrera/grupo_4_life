@@ -3,15 +3,15 @@
 <%- include('./partials/head')  %> 
 <body>   
     <!-- Header -->
-    <%- include('./partials/header') %>
-    <main class="mx-5 sm:mx-12 perfil-admin mb-24">
+    <%- include('../partials/header') %>
+    <main class="mx-5 sm:mx-12 perfil-admin mb-24 mt-16">
 
-        <h2 class="text-xl text-center py-4 mb-2 sm:text-2xl">Hello Belu, Welcome!</h2>
+        <h2 class="text-xl text-center py-4 mb-2 sm:text-2xl">Hello <%= user.name %>, Welcome!</h2>
         
         <div class="grid grid-cols-1 mb-8">
             <h3 class="text-base sm:text-xl mb-6">Datos</h3>
-            <h3>Email: <span>manuela@890gmail.com</span></h3>
-            <h3 >Usuario: <span>Administrador</span></h3>
+            <h3>Email: <span><%= user.email %> </span></h3>
+            <h3>Usuario: <span>Administrador</span></h3>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -51,6 +51,6 @@
             </a>
         </div>
     </main>
-    <script src="/javascripts/headerAdmin.js"></script>
+    <script src="/javascripts/header.js"></script>
 </body>
 </html>
