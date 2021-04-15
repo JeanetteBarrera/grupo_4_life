@@ -58,7 +58,7 @@ module.exports = {
           db.User.findOne({
                 where : {
                     email: email,
-                  
+                    status: 1
                 }
             })
             .then(user => { 
@@ -77,23 +77,19 @@ module.exports = {
                     }
                     // verificacion de rol de ususario//
 
-                  if(recordar){        /* Recordar contraseña */
+                  if(recordar){ /* Recordar contraseña */
                         res.cookie('user', req.session.user, {
                          maxAge : 1000 * 60
                         })
                     }
-                     console.log(user.rol)
-
                     if (user.rol=="admin") {
-
-                    return res.redirect('admin/profile')
+                        return res.redirect('admin/profile')
                     } 
                     else {
-                        return res.redirect('profile')
+                        return res.redirect('/')
                     }
                 }else {
 
-                    
                     return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
                         error : {
                             invalid:{
@@ -103,18 +99,13 @@ module.exports = {
                     })
                 } 
             }) 
-           
         }else{
             return res.render('login', {
                 errores : errores.mapped(),
                 old : req.body
             })
         }
-
     },
-    
-
-
     /* Cerrar session */
     logout : (req,res) => {
         req.session.destroy();
@@ -127,57 +118,85 @@ module.exports = {
     },
     /* Vista de perfil de usuario */
     profile : (req,res) => {
-        res.render('profile')
+       if(req.session.user) {
+           db.User.findOne({
+               where: { 
+                   id: req.session.user.id
+                },
+                include: [
+                    {association:'domicilio'}]
+
+           }).then(user => {
+               res.render('profile',{
+                   user
+               })
+           })
+       }
+
     },
 
     profileEdit : (req,res) => {
-        res.render('profileEdit')
-    },
+        db.User.findOne({
+            where: { 
+                id: req.params.id
+             },
+             include: [
+                 {association:'domicilio'}]
 
-   /* profileEdit : (req, res) => {
-        db.Addresses.findOne({
-            where: {
-                id: req.session.usuario.id
-            }
-        })
-        .then(user => {
-            res.render('profile', {
-                title: 'Editar mis datos',
-                session: req.session,
-                user: user
+        }).then(user => {
+            res.render('profileEdit',{
+                user
             })
         })
-    },*/
-      
     
+    },
+
+   
     profileUpdate : (req, res) => {
-        db.Addresses.update({
+        console.log(req.body)
+        /*db.User.findOne({
+            where:{id: req.params.id}
+        })
+        .then((user) => {*/
+            db.User.update(
+                {
+                    name: req.body.name,
+                    surname: req.body.surname,
+                    email: req.body.email,
+                    avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar
+                },
+                {
+                    where: {id: req.params.id}
+                }
+            )
+            .then((user)=> {
+                res.redirect('/')
+            })
+            .catch((errores=>{
+                console.log(errores)
+            }))
+       // db.Addresses.update({
 
       //faltaterminar//
-    },{
-            where: {
-                id: req.session.usuario.id
-            }
-        })
-        .then(() => {
-            res.redirect('/profile/update/:id')
-        })
     },
 
     profileDelete : (req, res) => {
-         db.Users.destroy({
-                where: {
-                    id: req.session.usuario.id
-                }
-            })
-            .then(() => {
-                req.session.destroy();
-                if(req.cookies.user){
-                    res.cookie('user','',{maxAge:-1})
-                }
-                
-                res.redirect('/')
-            })
+
+        req.session.destroy();
+        if(req.cookies.user){
+            res.cookie('user','',{maxAge:-1});
+        }
+        db.User.update({
+            status:0
+        },
+        {
+            where:{id: req.params.id}
+        }).then((dato)=> {
+            console.log(dato)
+            res.redirect('/')
+        }).catch(errores=>{
+            console.log(errores)
+        } )
     },
     profileAdmin: (req,res)=>{
         res.render('admin/profileAdmin')
