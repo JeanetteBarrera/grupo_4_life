@@ -6,8 +6,8 @@ const { login, create, processCreate, processLogin, logout, profile , profileEdi
 /* middlewares */
 const registerValidator = require('../validations/registerValidator');
 const uploadAvatars = require('../middlewares/multerAvatars');
-const userCheck = require('../middlewares/userCheck')
-
+const userCheck = require('../middlewares/userCheck');
+const adminCheck = require('../middlewares/adminCheck');
 /* validaciones */
 const loginValidation = require('../validations/loginValidation');
 
@@ -34,7 +34,7 @@ router.put('/profile/update/:id', profileUpdate);
 router.delete('/profile/delete/:id',profileDelete);
 
 /*usuario administrador*/
-router.get('/admin/profile',profileAdmin);
+router.get('/admin/profile',adminCheck,profileAdmin);
 
 module.exports = router;
  
