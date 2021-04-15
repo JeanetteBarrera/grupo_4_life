@@ -19,6 +19,16 @@ module.exports = {
         .catch(errores =>{
             console.log(errores)
         })
-    }
+    },
+    
 
+        equipo : (req, res) =>{
+        res.render('equipo')
+     },
+
+     life : (req, res) =>{
+        res.render('life')
+     }, 
 }
+    
+

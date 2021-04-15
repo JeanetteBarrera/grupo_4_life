@@ -147,6 +147,16 @@ module.exports = {
             res.render('profileEdit',{
                 user
             })
+            .then(()=>{
+                console.log()
+                 res.render('profileEdit', {
+                session: user
+                
+                })
+           }) 
+        })
+        .catch(errores => {
+            console.log(errores)
         })
     
     },
