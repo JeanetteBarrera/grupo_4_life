@@ -31,16 +31,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
+        type: Sequelize.BOOLEAN
+      },
+      phone: {
+        type: Sequelize.INTEGER
+      },
+      address: {
         type: Sequelize.STRING
       },
-      addressId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Addresses'
-          },
-          key : 'id'
-        }
+      state: {
+        type: Sequelize.STRING
+      },
+      country: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

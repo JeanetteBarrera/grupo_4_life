@@ -13,7 +13,7 @@ const seccionesPagina = new fullpage("#fullpage", {
     navigation: true, //Muestra la barra de navegacion
     /*menu: "#menu", // Menu de navegacion*/
     anchors: ['section1', 'section2','section3',"section4"], //Anclas, los usamos para identificar cada seccion y poder acceder a ella
-    navigationTooltips : ['Home','Ofertas',"Categorias",'Contactanos'], //Tooltips que mostrara por cada boton
+    navigationTooltips : ['Home','Women',"Men",'About Life'], //Tooltips que mostrara por cada boton
     showActiveTooltip : false, //Mostrar tooltip activa*/
     controlArrows: false,
     slidesNavigation: false,

@@ -18,21 +18,6 @@ module.exports = {
                 console.log(errores)
             })
         })
-        /*let subMujer = db.Subcategory.findAll({where:{categoryId:1 }});
-        let subHombre = db.Subcategory.findAll({where:{categoryId:2}});
-        let categorias = db.Category.findAll()
-    
-        Promise.all([subMujer, subHombre, categorias])
-            .then(([subMujer,subHombre, categorias]) => {
-                res.render('admin/productCreate', {
-                    subHombre,
-                    categorias,
-                    subMujer
-                    })
-                })
-                .catch(errores => {
-                    console.log(errores)
-                })*/
     },
     productStore: (req, res, next) => {
         //console.log(req.body)
@@ -90,9 +75,7 @@ module.exports = {
                                 sizeId: j+1,
                                 stock: req.body[`${talle[j]}`][i]
                             }
-                            
-                            /*console.log(stockObject)
-                            console.log( req.body[`${talle[j]}`][i])*/
+                           
                             stock.push(stockObject);
                         }
                         //console.log(stock);
@@ -200,6 +183,7 @@ module.exports = {
             console.log(errores)
         })
     }*/
+
     /* actualizacion de varias variantes en simultaneo
     productUpdate: (req, res)=> {
         const {subcategory,name,description,price, discount}= req.body;
@@ -235,6 +219,7 @@ module.exports = {
             console.log(errores)
         })
     }*/
+    
     /* actualizacion de variantes con stock  en simultane
     productUpdate: (req, res)=> {
         const {subcategory,name,description,price, discount}= req.body;

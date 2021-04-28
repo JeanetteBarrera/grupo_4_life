@@ -138,6 +138,7 @@
     padding:20px 10px;
     
     
+    
 }
 .header .logo img {
     position: fixed;
@@ -180,6 +181,14 @@
 }
 header .second-menu a{
     padding: 5px 0 5px 0;
+}
+.header .marca {
+   position: fixed;
+   z-index: 100;
+   /*left: 15%;*/
+   
+   top:15px;
+   width: 150px;
 }
 /*.header .nav {
     top: 0;

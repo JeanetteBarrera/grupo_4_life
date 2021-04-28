@@ -123,9 +123,6 @@ module.exports = {
                where: { 
                    id: req.session.user.id
                 },
-                include: [
-                    {association:'domicilio'}]
-
            }).then(user => {
                res.render('profile',{
                    user
@@ -140,8 +137,6 @@ module.exports = {
             where: { 
                 id: req.params.id
              },
-             include: [
-                 {association:'domicilio'}]
 
         }).then(user => {
             res.render('profileEdit',{
