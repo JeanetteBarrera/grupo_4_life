@@ -17,10 +17,10 @@ module.exports = {
       {subcategory:'Pantalones',categoryId:2,createdAt:new Date,updatedAt: new Date },
       {subcategory:'Jeans',categoryId:2,createdAt:new Date,updatedAt: new Date }
     ]
-      await queryInterface.bulkInsert('subcategories', subcategories , {});
+      await queryInterface.bulkInsert('Subcategories', subcategories , {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('subcategories', null, {});
+    await queryInterface.bulkDelete('Subcategories', null, {});
   }
 };

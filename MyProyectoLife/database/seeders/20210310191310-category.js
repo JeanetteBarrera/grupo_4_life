@@ -10,13 +10,13 @@ module.exports = {
       {category: 'Hombre',createdAt:new Date, updatedAt: new Date}
     ]
     //creamos los datos que luego pasamos como segundo parametro para cargarlo
-    await queryInterface.bulkInsert('categories', categories, {});
+    await queryInterface.bulkInsert('Categories', categories, {});
   },
 
   //se ejecuta cuando deshacemos la carga/siembra
   down: async (queryInterface, Sequelize) => {
     
-    await queryInterface.bulkDelete('categories', null, {});
+    await queryInterface.bulkDelete('Categories', null, {});
     
   }
 };

@@ -12,12 +12,12 @@ var app = express();
 var generalRouter = require('./routes/generalRouter');
 var usersRouter = require('./routes/usersRouter');
 var productsRouter = require('./routes/productsRouter');
-var adminRouter = require('./routes/adminRouter')
+var adminRouter = require('./routes/adminRouter');
 var apiProductRouter = require('./routes/api/productRouter');
 
 /*MIDDLEWARES*/
 var localCheck = require('./middlewares/localCheck');
-var cookieCheck = require('./middlewares/cookieCheck')
+var cookieCheck = require('./middlewares/cookieCheck');
 
 
 /* CONFIGURACIONES*/
