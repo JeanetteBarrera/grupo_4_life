@@ -1,4 +1,4 @@
-.admin-header{
+/*.admin-header{
     background-color: var(--colorCeleste);
     padding: 15px 10px;
 
@@ -25,12 +25,12 @@
     text-transform: uppercase;
     margin: 0 1.5rem 0 1.5rem;
     font-weight: 600;
-}
+}*/
+
 .admin-form h2 {
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
-    color:#636FA4;
 }
 .admin-form label {
     text-align: left;
@@ -74,11 +74,15 @@
     margin-bottom: 40px;
 }
 .admin-form .boton-agregar {
-    background-color: #636FA4;
+    /*background-color: #636FA4;*/
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding:3px;
     border: solid 1px gray;
     border-radius: 5px;
     color: white;
+    font-weight: 700;
     text-transform: uppercase;
    
 }

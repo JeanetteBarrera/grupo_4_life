@@ -5,7 +5,7 @@
   <!-- Header -->
   <%- include("./partials/header") %>
   <!-- Main -->
- <main id="listarProducts" class="listarProducts mx-6 md:mx-10 mt-16">
+ <main id="listarProducts" class="listarProducts mx-6 md:mx-10 lg:mx-20 mt-16">
     <h1 class="text-center font-bold text-lg sm:text-2xl my-5"><%=subcategoria.subcategory%></h1>
     <div class="grid grid-cols-8 gap-4">
 
@@ -47,20 +47,9 @@
         <!--termina aca-->
         <% }) %>
     </main>
-    <script>
-            const producto = document.querySelectorAll('.producto');
-            producto.addEventListener("mouseover", function(e){
-                e.preventDefault();
-                const id = producto.getAttribute("name");
-                console.log(id)
-            })
-        
-        //})
-        
-
-    </script>
+    
 <!-- Footer -->
-
+<script src="/javascripts/header.js"></script>
 <%- include("./partials/footer") %>
 </body>
 </html>

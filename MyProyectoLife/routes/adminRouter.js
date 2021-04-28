@@ -10,7 +10,8 @@ const productCreateValidator = require('../validations/productCreateValidator');
 const productEditValidator = require('../validations/productEditValidator');
 
 /*ENTIDAD ADMINISTRADORES*/
-
+router.get("/users/list", adminController.usersList);
+router.get("/admin/life", adminController.life);
 
 /*ENTIDAD PRODUCTOS*/
 

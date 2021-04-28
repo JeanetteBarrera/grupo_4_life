@@ -29,7 +29,6 @@
 	background: #E8CBC0;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 	margin-bottom:4px;
 	border-radius:2px;
 	/*width:28px;*/
@@ -136,6 +135,9 @@
     top:20px;
     right: 25px;
     /*color:#BEAEB7;*/
+    background: -webkit-linear-gradient(#636FA4,#BEAEB7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     
 }
 .header .logo {
@@ -143,9 +145,6 @@
     z-index: 1000;
     top:20px;
     left: 45%;
-    color:white;
-   
-    
 }
 .header .menu-sm a{
     display: inline-block;

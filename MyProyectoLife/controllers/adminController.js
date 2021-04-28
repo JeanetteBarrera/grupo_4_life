@@ -430,6 +430,19 @@ module.exports = {
             })
         })
     },
+   
+    usersList: (req, res)=>{
+            res.render("admin/usersList")
+    
+    },
+
+    life: (req, res)=>{
+        res.render("admin/life")
+
+},
+
+
+
 }
 
 

@@ -131,10 +131,10 @@ window.addEventListener('load', () => {
                 $passwordErrors.innerHTML = 'El campo contraseña es obligatorio';
                 $password.classList.add('is-invalid')
                 break;
-            case !regExPass.test($password.value):
+           /* case !regExPass.test($password.value):
                 $passwordErrors.innerHTML = 'La contraseña debe tener: entre 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número';
                 $password.classList.add('is-invalid')
-                break
+                break*/
             default:
                 $passwordword.classList.remove('is-invalid');
                 $passwordword.classList.add('is-valid');
