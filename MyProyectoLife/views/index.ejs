@@ -4,33 +4,87 @@
 <body>
   <!-- Header -->
   <%- include("./partials/header") %>
-  
-  <!-- Main -->
+
   <main class="home">
+
     <div id="fullpage">
-    <!------ Seccion 1 ------->
+      <section class="section s1"></section>
+          
+      <section class="section s2">
+
+        <!-- Slide1 -->
+        <article class="mt-12 w-3/4 mx-auto h-3/4 my-auto mt-20">
+            <h2 class="text-center text-2xl">Categories</h2>
+            <div class="mujer grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-5">
+              <div class="flex flex-col text-xl w-full categorias">
+                  <% mujerSub.forEach(element =>{ %>
+                    <a href="" class=""><%=element.subcategory%></a>
+                  <% } )%>
+              </div>
+              <a href="" class="imagen hidden sm:inline-block">
+                  <img src="images/top_030289857portada_.jpg" alt="" class="w-full">
+              </a>
+              <a href="" class="imagen hidden lg:inline-block">
+                  <img src="images/301205882_0202102504_portada.jpg" alt="" class="w-full">
+              </a>
+
+            </div>
+            
+
+        </article>
+        
+        
+      </section>
+      <section class="section s3">
+
+        <!-- Slide1 -->
+        <article class="mt-12 w-3/4 mx-auto h-3/4 my-auto mt-20">
+            <h2 class="text-center text-2xl">Categories</h2>
+            <div class="mujer grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-5">
+              <div class="flex flex-col text-xl w-full categorias">
+                  <% mujerSub.forEach(element =>{ %>
+                    <a href="" class=""><%=element.subcategory%></a>
+                  <% } )%>
+              </div>
+              <a href="" class="imagen hidden sm:inline-block">
+                  <img src="images/top_030289857portada_.jpg" alt="" class="w-full">
+              </a>
+              <a href="" class="imagen hidden lg:inline-block">
+                  <img src="images/301205882_0202102504_portada.jpg" alt="" class="w-full">
+              </a>
+
+            </div>
+            
+
+        </article>
+        
+        
+      </section>
+      
+
+    <!------ Seccion 1 -------
       <section class="section s1">
         <div class="relative text-center md:text-left md:ml-12">
           <h2 class="text-5xl md:text-7xl lg:text-7xl">new arrivals</h2>
-          <!--<a href="#">mira</a>-->
+          
         </div>
       </section>
 
-    <!------ Seccion 2 ------->
+    <!------ Seccion 2 -------
       <section class="section s2">
         <div class="link-sale">
           <h2 class="text-4xl md:text-5xl">sentite libre</h2>
-          <!--<a href="">mira todas nuestras ofertas</a>-->
+          <!--<a href="">mira todas nuestras ofertas</a>--
         </div>
         <video loop muted data-autoplay class="bg-video">
           <source src="images/production ID_4734797.mp4" type="video/mp4">
         </video>
       </section>
 
-    <!------ Seccion 3 ------->
+    <!------ Seccion 3 -------
       <section class="section s3">
 
-    <!-- Slide1 -->
+    <!-- Slide1 --
         <article id="categorias-mujer" class="slide mujer">
           <h2 class="text-center text-xl mt-7">nuestras categorias</h2>
          <div class="grid grid-cols-10 grid-rows-5  w-10/12 mx-auto h-3/4 mt-5 gap-2 text-center text-xs">
@@ -38,7 +92,7 @@
             <a href="/products/subcategory/all/<%= mujerSub[6].id%>" class="col-span-3 row-span-3 w-full ">
               <p class="text-center "><%=mujerSub[6].subcategory%></p>
                 <img class="hidden sm:inline-block" src="images/panta_slouchy_all_brown98791.jpg" alt="">
-                <!--<img class="hidden sm:inline-block" src="images/remera_copia_6065121117.jpg" alt="">-->
+                <!--<img class="hidden sm:inline-block" src="images/remera_copia_6065121117.jpg" alt="">--
             </a>
 
             <a href="/products/subcategory/all/<%= mujerSub[3].id%>" class="col-span-3 row-span-2">
@@ -79,7 +133,7 @@
          </div>
         </article>
 
-      <!-- Slide2 -->
+      <!-- Slide2 --
         <article id="categorias-hombre" class="slide hombre">
           <h2 class="text-center text-xl mt-7">nuestras categorias</h2>
          <div class="grid grid-cols-6 grid-rows-5  w-10/12 mx-auto h-3/4 mt-5 gap-2 text-center text-xs">
@@ -117,7 +171,7 @@
       </section>
 
     <!------ Seccion 4 ------->
-     <!-- Slide1 -->
+     <!-- Slide1 --
      <article id="contacto" class="contacto redes">
     <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="">
       <section class="section text-center s4">
@@ -138,7 +192,7 @@
     
        <!-- Slide2 -->
 
-        <!-- Slide2 -->
+        <!-- Slide2 --
      <article id="equipo" class="equipo tecnico"></article>
        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
        <section class="text-gray-600 body-font ">
@@ -280,12 +334,13 @@
             </div>
           </div>
         </div>
-       </section>
+       </section>-->
+
     </div>
   </main>
             
 <!-- Agregamos -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.js"></script>
 <!-- Agregamos -->
 <script src="javascripts/index.js"></script>
 <script src="javascripts/header.js"></script>

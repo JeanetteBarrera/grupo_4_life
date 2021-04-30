@@ -1,6 +1,7 @@
 @import "header.css";
 @import "footer.css";
-@import "home.css";
+/*@import "home.css";*/
+@import "home1.css";
 @import "general.css";
 @import "detalleProducto.css";
 @import "carrito.css";

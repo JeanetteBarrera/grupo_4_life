@@ -8,11 +8,11 @@ module.exports = {
       {size:'L',createdAt:new Date,updatedAt: new Date},
       {size:'XL',createdAt:new Date,updatedAt: new Date}
     ]
-    await queryInterface.bulkInsert('sizes',sizes,{});
+    await queryInterface.bulkInsert('Sizes',sizes,{});
   },
 
   down: async (queryInterface, Sequelize) => {
-     await queryInterface.bulkDelete('sizes', null, {});
+     await queryInterface.bulkDelete('Sizes', null, {});
   }
 };
 
