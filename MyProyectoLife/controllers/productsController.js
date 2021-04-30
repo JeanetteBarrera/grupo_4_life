@@ -2,10 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const db = require('../database/models');
 
-/*const products =require('../data/products');
-const path= require("path");
-const {getProducts, setProducts} = require(path.join('..','data','products'));
-const products = getProducts();*/
 
 module.exports = {
 

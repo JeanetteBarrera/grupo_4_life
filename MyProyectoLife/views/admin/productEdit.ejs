@@ -4,12 +4,12 @@
 <body>   
     <!-- Header -->
     <%- include('../partials/header') %> 
-    <main class="admin-form mx-3 mt-24">
+    <main class="admin-form mx-3 mt-32">
       <form action="/admin/product/update/<%= producto.id %>?_method=PUT"  method="POST" enctype="multipart/form-data">
-          <h2 class="my-5 text-lg">Editar producto</h2>
+          <h2 class="my-5 text-lg">Edit product</h2>
           <div class="grid grid-cols-1 gap-2">
               <select name="category" id="select-primario" class="select">
-                <option selected hidden value="0" >Elija una Categoria</option>
+                <option selected hidden value="0" >Choose a Category</option>
                 <% categorias.forEach(element => { %>
                   <option 
                     <%if (element.id == producto.Subcategory.categoryId) {%>
@@ -22,7 +22,7 @@
 
 
               <select name="subcategory" id ="select-secundario" class="select">
-                <option hidden selected value="0" >Elija una subcategoria</option>
+                <option hidden selected value="0" >Choose a Subcategory</option>
                 <% categorias.forEach(categoria => { %>
                   <% if (categoria.id == producto.Subcategory.categoryId) { %>
                    <% categoria.subcategoria.forEach(element => { %>
@@ -38,23 +38,23 @@
               <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
 
 
-                  <label for="name" >producto</label>
+                  <label for="name" >product</label>
                   <input type="text" name="name" value="<%=producto.name%>" autocomplete="off" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
                   
-                  <label for="">descripcion</label>
+                  <label for="">description</label>
                   <textarea id="about" name="description" rows="3" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent" placeholder="Descripcion....."><%=producto.description %></textarea>
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                   
-                  <label for="name">precio</label>
+                  <label for="name">price</label>
                   <input type="number" name="price" value="<%=producto.price%>" placeholder="$...." class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.price) ? errores.price.msg : "" %></span>
 
-                  <label for="name">descuento</label>
+                  <label for="name">discount</label>
                   <input type="number" name="discount" value="<%= producto.discount%>" placeholder="10" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                   <span class="text-red-500 text-sm lowercase"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
 
-                  <h3 class="my-1 text-base text-center">Variantes por color</h3>
+                  <h3 class="my-1 text-base text-center">Variants by Color</h3>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
 
                   <label for="">Agrege imagenes</label>
@@ -68,7 +68,7 @@
                           
                       <div class="grid grid-cols-4 gap-2 w-5/6 text-center">
                               
-                        <label class="col-span-4 text-left my-1">Talles - Stock/Cantidad</label>
+                        <label class="col-span-4 text-left my-1">Sizes - Stock/Quantity</label>
                             <% element.stock.forEach(talle => { %>
                              
                             <b><%= talle.Size.size%> : </b>

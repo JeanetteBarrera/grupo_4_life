@@ -9,37 +9,54 @@
 #fp-nav ul li a span { /* cambio color de los tooltips*/
     background-color: white;   
 }
-/*.home .mujer a {
-    border: solid 1px gray;
-    overflow: hidden;
-}
-.home .mujer a img{ 
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}*/
 .home .mujer a{
     /*width: 25%;*/
     height: auto;
-
 }
 .home .mujer .imagen{
     max-width: 425px;
 }
-
 .home .mujer a img{
     object-fit: cover;
-    opacity: 0.8;
 }
 .home .mujer .categorias a{
     width:  100%;
     border-bottom: solid 1px gray;
-    background: #283048;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #859398, #283048);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     padding:3% 0 3% 5%;
     margin-bottom: 3%;
     box-shadow: 5px 2px 2px black;
-    
+}
+.home .s4 {
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+.home .s4 .contacto a:hover{
+    transform: translateY(-6px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11);
+}
+.home .s4 .iconosF{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.home .s4 .pie{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: gray;
+}
+.home .s4 .equipo {
+    background-color:#262626;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
 }

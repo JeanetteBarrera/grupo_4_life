@@ -6,8 +6,8 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     
     const categories = [
-      {category:'Mujer',createdAt:new Date, updatedAt: new Date },
-      {category: 'Hombre',createdAt:new Date, updatedAt: new Date}
+      {category:'Woman',createdAt:new Date, updatedAt: new Date },
+      {category: 'Man',createdAt:new Date, updatedAt: new Date}
     ]
     //creamos los datos que luego pasamos como segundo parametro para cargarlo
     await queryInterface.bulkInsert('Categories', categories, {});
