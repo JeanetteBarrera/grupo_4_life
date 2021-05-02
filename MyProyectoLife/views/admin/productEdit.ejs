@@ -57,15 +57,16 @@
                   <h3 class="my-1 text-base text-center">Variants by Color</h3>
                   <div id="variantes-producto" class="grid grid-cols-1 md:grid-cols-2"></div>
 
-                  <label for="">Agrege imagenes</label>
+                  <label for="">Select the images</label>
                   <input id="file-input" type="file" name="image"  value="<%= producto.image %> " multiple>
 
                 <% producto.variantes.forEach(element => { %>
                    
                   <div class="contenedor">
                       <label for="color">color</label>
-                      <input type="text" name="color[]" id="color" value="<%= element.color %> "   autocomplete="off" placeholder="#f0f0f0" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
-                          
+                      <!--<input type="text" name="color[]" id="color" value=""   autocomplete="off" placeholder="#f0f0f0" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">-->
+                      <input type="color" name="color[]" id="color" value="<%=element.color%>" class="h-10">
+
                       <div class="grid grid-cols-4 gap-2 w-5/6 text-center">
                               
                         <label class="col-span-4 text-left my-1">Sizes - Stock/Quantity</label>
@@ -75,12 +76,12 @@
                             <input type="number" name="<%=`stock${talle.Size.size}[]`%>"  value="<%=talle.stock %>" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                           <% }) %>
                       </div>
-                          <span class="eliminar">eliminar</span>
+                          <span class="eliminar">Delete</span>
                   </div> 
                 <% }) %>
                 
           </div>
-          <button type="submit" class="boton-enviar py-1 my-2">enviar</button>
+          <button type="submit" class="boton-enviar py-1 my-2">Save</button>
       </form>
     </main>
     <script src="/javascripts/header.js"></script>
