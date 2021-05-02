@@ -1,9 +1,76 @@
-.perfil h2 {
+.perfil {
+    max-width: 1100px;
+}
+.perfil h2, h3 {
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--colorVioleta)
+    color: var(--colorGrisOscuro);
+    text-align: center;
 }
-.perfil .dato {
+.perfil form .avatar-2 {
+    max-width: 300px;
+    max-height: 300px;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+
+}
+.perfil form .avatar-2 input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+}
+.perfil form .avatar-2 input::before {
+    content: 'Upload photo';
+    display: inline-block;
+    background: #E8CBC0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    /*-webkit-user-select: none;*/
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10pt;
+    width: 100%;
+  }
+.perfil form .span{
+    display: inline-block;
+    font-weight: 700;
+    padding-right: 5px;
+}
+.perfil form .input {
+    width: 75%;
+    border: solid 1px var(--colorGrisOscuro);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: gray;
+}
+.perfil form .input-2 {
+    width: 100%;
+    border: solid 1px var(--colorGrisOscuro);
+    padding: 10px;
+    border-radius: 5px;
+    color: gray;
+    /*background-color: gray;*/
+}
+.perfil .boton {
+    background: var(--colorGrisOscuro);
+    width: 100%;
+    border-radius: 5px;
+    border: solid 1px gray;
+    color: white;
+    line-height: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+/*.perfil .dato {
     line-height: 40px;
     text-transform: capitalize;
     font-weight: 600;
@@ -28,4 +95,4 @@
     width: 100%;
     margin: 10px 0;
     line-height: 45px;
-}
+}*/
