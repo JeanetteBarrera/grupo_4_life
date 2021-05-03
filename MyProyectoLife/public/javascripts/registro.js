@@ -32,11 +32,11 @@ window.addEventListener('load', () => {
    $email.addEventListener('blur', function() {
     switch (true) {
         case !$email.value.trim():
-            $emailErrors.innerHTML = 'El campo email es obligatorio';
+            $emailErrors.innerHTML = 'The email field is required';
             $email.classList.add('is-invalid')
             break;
         case !regExEmail.test($email.value):
-            $emailErrors.innerHTML = 'Debe ingresar un email válido';
+            $emailErrors.innerHTML = 'Invalid email';
             $email.classList.add('is-invalid')
             break
         default:
@@ -51,11 +51,11 @@ window.addEventListener('load', () => {
   $password.addEventListener('blur', function() {
     switch (true) {
         case !$password.value.trim():
-            $passwordErrors.innerHTML = 'El campo contraseña es obligatorio';
+            $passwordErrors.innerHTML = 'The password field is required';
             $passwordLog.classList.add('is-invalid')
             break;
         case $password.value != $password.value:
-                passw$password2Errors.innerHTML = 'contraseña incorrecta';
+                passw$password2Errors.innerHTML = 'Invalid password';
                 $password2.classList.add('is-invalid')
                 break;
         
@@ -72,11 +72,11 @@ window.addEventListener('load', () => {
         console.log($inputName.value.trim())
         switch (true) {
             case !$inputName.value.trim():
-                $nameErrors.innerHTML = 'El campo nombre es obligatorio'
+                $nameErrors.innerHTML = 'The name field is required'
                 $inputName.classList.add('is-invalid')
                 break;
             case !regExAlpha.test($inputName.value):
-                $nameErrors.innerHTML = 'Debes ingresar un nombre válido'
+                $nameErrors.innerHTML = 'The name valid is required'
                 $inputName.classList.add('is-invalid')  
                 break; 
             default:
@@ -91,11 +91,11 @@ window.addEventListener('load', () => {
         console.log($inputSurname.value.trim())
         switch (true) {
             case !$inputSurname.value.trim():
-                $surnameErrors.innerHTML = 'El campo apellido es obligatorio'
+                $surnameErrors.innerHTML = 'The Last Name field is required'
                 $inputSurname.classList.add('is-invalid')
                 break;
             case !regExAlpha.test($inputSurname.value):
-                $surnameErrors.innerHTML = 'Debes ingresar un apellido válido'
+                $surnameErrors.innerHTML = 'The Last Name valid is required'
                 $inputSurname.classList.add('is-invalid')  
                 break; 
             default:
@@ -110,11 +110,11 @@ window.addEventListener('load', () => {
     $email.addEventListener('blur', function() {
         switch (true) {
             case !$email.value.trim():
-                $emailErrors.innerHTML = 'El campo email es obligatorio';
+                $emailErrors.innerHTML = 'The email field is required';
                 $email.classList.add('is-invalid')
                 break;
             case !regExEmail.test($email.value):
-                $emailErrors.innerHTML = 'Debe ingresar un email válido';
+                $emailErrors.innerHTML = 'The email valid is required';
                 $email.classList.add('is-invalid')
                 break
             default:
@@ -128,7 +128,7 @@ window.addEventListener('load', () => {
     $password.addEventListener('blur', function() {
         switch (true) {
             case !$password.value.trim():
-                $passwordErrors.innerHTML = 'El campo contraseña es obligatorio';
+                $passwordErrors.innerHTML = 'The password field is required';
                 $password.classList.add('is-invalid')
                 break;
            /* case !regExPass.test($password.value):
@@ -146,11 +146,11 @@ window.addEventListener('load', () => {
     $password2.addEventListener('blur', function(){
         switch (true) {
             case !$password2.value.trim():
-                $password2Errors.innerHTML = 'Debes reingresar la contraseña';
+                $password2Errors.innerHTML = 'The Confirm Password field is required';
                 $password2.classList.add('is-invalid')
                 break;
             case $password2.value != $password2.value:
-                passw$password2Errors.innerHTML = 'Las contraseñas no coinciden';
+                passw$password2Errors.innerHTML = 'The Confirm Password field you entered does not match';
                 $password2.classList.add('is-invalid')
                 break;
             default:
