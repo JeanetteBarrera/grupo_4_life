@@ -40,7 +40,7 @@ CREATE TABLE `carts` (
   CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
   CONSTRAINT `carts_ibfk_3` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
   CONSTRAINT `carts_ibfk_4` FOREIGN KEY (`variantId`) REFERENCES `variants` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +309,7 @@ CREATE TABLE `variants` (
   PRIMARY KEY (`id`),
   KEY `productId` (`productId`),
   CONSTRAINT `variants_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
