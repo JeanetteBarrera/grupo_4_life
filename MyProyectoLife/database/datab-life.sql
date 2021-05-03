@@ -40,7 +40,7 @@ CREATE TABLE `carts` (
   CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
   CONSTRAINT `carts_ibfk_3` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
   CONSTRAINT `carts_ibfk_4` FOREIGN KEY (`variantId`) REFERENCES `variants` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,4 +331,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-02 21:03:30
+-- Dump completed on 2021-05-02 22:03:47
