@@ -11,27 +11,28 @@ const db = require('../database/models')
 /*body, funcion que nos permite una validacion personalizada*/
 
 module.exports = [
-    check('name').isLength({min:2}).withMessage('Ingrese un nombre'),
+    check('name').isLength({min:2}).withMessage('Enter a name'),
     
-    check('surname').isLength({min:2}).withMessage('Ingrese un apellido'),
+    check('surname').isLength({min:2}).withMessage('Enter a surname'),
     
-    check("email").isEmail().withMessage('Ingrese una direccion de correo electronico'),
+    check("email").isEmail().withMessage('Enter your E-mail'),
         
         body('email').custom(value => {
             return db.User.findOne({
                 where : {
-                    email : value
+                    email : value,
+                    status: 1
                 }
             })
             .then(user => {
                 if(user){
-                    return Promise.reject('El correo electronico ingresado ya esta registrado')
+                    return Promise.reject('The email is already registered')
                 }
             })
             
         }),
 
-    check('password').isLength({min:8}).withMessage('Se debe ingresar un minimo de 8 caracteres'),
+    check('password').isLength({min:8}).withMessage('A minimum of 8 characters must be entered'),
     
     body('confirmarPassword').custom((value, {req}) => {
         if(value !== req.body.password){
@@ -39,5 +40,5 @@ module.exports = [
         }else{
             return true
         }
-    }).withMessage('Las contraseñas no coinciden')
+    }).withMessage('Passwords do not match')
 ]

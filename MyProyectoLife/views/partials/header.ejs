@@ -16,8 +16,14 @@
             </a>
             <!--</figure>-->
 
-            <div class="inline-block icons text-xl sm:text-2xl lg:text-3xl">
-                <span id="user"><i class="far fa-user"></i></span>
+            <div class="inline-block icons text-lg sm:text-2xl">
+
+                <a href="/account/profile" id="user" class="text-gray-500">
+                    <%if (locals.user) {%>
+                        <%= user.name %> 
+                    <%}%>
+                    <i class="far fa-user"></i>
+                </a>
                 <span id="cart" ><i class="fas fa-shopping-cart"></i></span>
             </div>
         

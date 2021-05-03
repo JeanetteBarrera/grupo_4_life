@@ -1,16 +1,16 @@
 const db = require('../database/models')
 const path= require("path");
 const bcrypt = require('bcrypt');
-/*const {getUsers, setUsers} = require(path.join('..','data','users'));*/
+const fs = require('fs');
 const {check,validationResult,body} = require('express-validator');
-/*const users_db = getUsers();*/
+
 const { Op } = require("sequelize");
-/*const { validationResult} = require('express-validator');*/
+
 
 module.exports = {
     create : (req, res) => { /*vista de registrarse para nuevos usuarios*/
         res.render("registro", {
-            title : "Registrate - LIFE"
+            title : "Sign In- LIFE"
         })
     },
     processCreate : (req, res) => { 
@@ -31,7 +31,22 @@ module.exports = {
 
 
             })
-            .then(()=>res.redirect('/account/login'))
+            .then((user)=>{
+                req.session.user = {
+                    id : user.id,
+                    name : user.name,
+                    surname : user.surname,
+                    email : user.email,
+                    avatar : user.avatar,
+                    rol: user.rol,
+                    status:1,
+                    address: user.address,
+                    phone: user.phone,
+                    country: user.country,
+                    state: user.state
+                  }
+                res.redirect('/')
+            })
             .catch(error => res.send(error))
         }else{
             return res.render('registro',{
@@ -45,7 +60,7 @@ module.exports = {
     /*vista de login*/
     login : (req, res) => { 
         res.render( 'login', {
-            title : "Ingresar - LIFE"
+            title : "Log In - LIFE"
         })
     },
     /* chequeo de ingreso de login */
@@ -55,7 +70,7 @@ module.exports = {
         if(errores.isEmpty()){
           const {email, password, recordar} = req.body;
             
-          db.User.findOne({
+            db.User.findOne({
                 where : {
                     email: email,
                     status: 1
@@ -63,48 +78,41 @@ module.exports = {
             })
             .then(user => { 
              // verificacion de rol de ususario//
-
-                console.log(user)                                           
                if(user && bcrypt.compareSync(password, user.password)){   /* Encriptar e ingreso de usuario */
                      req.session.user = {
                       id : user.id,
                       name : user.name,
                       surname : user.surname,
                       email : user.email,
-                      avatar :"default.png",
+                      avatar : user.avatar,
                       rol: user.rol,
                       status:1,
+                      address: user.address,
+                      phone: user.phone,
+                      country: user.country,
+                      state: user.state
                     }
                     // verificacion de rol de ususario//
-
-                  if(recordar){ /* Recordar contraseña */
+                    if(recordar){ /* Recordar contraseña */
                         res.cookie('user', req.session.user, {
-                         maxAge : 1000 * 60
-                        })
+                            maxAge : 1000 * 60
+                            })
                     }
                     if (user.rol=="admin") {
                         return res.redirect('admin/profile')
-                    } 
-                    else {
+                    }else {
                         return res.redirect('/')
                     }
-                }else {
+                }
+            })
+        }else {
 
-                    return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
-                        error : {
-                            invalid:{
-                                msg: "Credenciales Invalidas"
-                            } 
-                        } 
-                    })
-                } 
-            }) 
-        }else{
-            return res.render('login', {
+            return res.render('login', {  /* En el caso de error se renderisa a vista de login y muestra error */
                 errores : errores.mapped(),
                 old : req.body
-            })
+            })          
         }
+        
     },
     /* Cerrar session */
     logout : (req,res) => {
@@ -125,64 +133,52 @@ module.exports = {
                 },
            }).then(user => {
                res.render('profile',{
-                   user
+                   user:user
                })
            })
+       }else{
+           return(res.redirect("/"))
        }
 
     },
-
-    profileEdit : (req,res) => {
-        db.User.findOne({
-            where: { 
-                id: req.params.id
-             },
-
-        }).then(user => {
-            res.render('profileEdit',{
-                user
-            })
-            .then(()=>{
-                console.log()
-                 res.render('profileEdit', {
-                session: user
-                
-                })
-           }) 
-        })
-        .catch(errores => {
-            console.log(errores)
-        })
-    
-    },
-
    
     profileUpdate : (req, res) => {
-        console.log(req.body)
-        /*db.User.findOne({
-            where:{id: req.params.id}
-        })
-        .then((user) => {*/
+        //console.log(req.body)
             db.User.update(
                 {
                     name: req.body.name,
                     surname: req.body.surname,
                     email: req.body.email,
-                    avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar
+                    avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
+                    address: req.body.address,
+                    phone: req.body.phone,
+                    country: req.body.country,
+                    state: req.body.state
                 },
                 {
                     where: {id: req.params.id}
                 }
             )
-            .then((user)=> {
-                res.redirect('/')
+            .then(result=> {
+                db.User.findByPk(req.session.user.id)
+                .then(user => {
+                    if(req.session.user.avatar != user.avatar){
+                            
+                        if(fs.existsSync('public/images/avatars/'+req.session.user.avatar)&&req.session.user.avatar != "default.png"){
+                            fs.unlinkSync('public/images/avatars/'+req.session.user.avatar)
+                        }
+                            req.session.user.avatar = user.avatar
+                    }
+                    res.redirect('/')
+                })
+                .catch(errores=>{
+                    console.log(errores)
+                })
             })
-            .catch((errores=>{
+            .catch(errores =>{
                 console.log(errores)
-            }))
-       // db.Addresses.update({
-
-      //faltaterminar//
+            })
+ 
     },
 
     profileDelete : (req, res) => {
@@ -197,7 +193,7 @@ module.exports = {
         {
             where:{id: req.params.id}
         }).then((dato)=> {
-            console.log(dato)
+            //console.log(dato)
             res.redirect('/')
         }).catch(errores=>{
             console.log(errores)

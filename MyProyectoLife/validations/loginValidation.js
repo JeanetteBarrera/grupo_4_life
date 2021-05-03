@@ -6,12 +6,40 @@ const db = require('../database/models')
 module.exports = [
     check('email') // Chequeo email
       .isEmail() // Chequeo que sea valido
-      .withMessage('Se requiere un email valido'),
+      .withMessage('You must enter a valid email'),
 
-    check('password') // Cheque password
-      .notEmpty() // Chequeo que no hayan campos vacios*/
-      /*.isLength({min:1})*/
-      .withMessage('La constraseña es requerida'),
-     
+    body('email')
+    .custom(function(value){
+      return db.User.findOne({
+          where:{
+              email:value,
+              status:1
+          }
+      })
+      .then(user => {
+          if(!user){
+              return Promise.reject("Email not registered")
+          }
+
+      })
+    }),
+    body('password') // Cheque password
+    .custom(function(value,{req}){
+        
+      return db.User.findOne({
+          where:{
+              email:req.body.email,
+              status:1
+          }
+      })
+      .then(user => {
+          if(!bcrypt.compareSync(value, user.dataValues.password)){
+              return Promise.reject()
+          }
+      })
+      .catch(() => {
+          return Promise.reject("The password entered is incorrect")
+      })
+    })
 ]
     

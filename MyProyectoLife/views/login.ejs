@@ -10,7 +10,7 @@
     <div class="formulario w-4/5 sm:w-6/12 md:w-5/12 mx-auto shadow-md grid grid-cols-1  bg-gray-200 ">
       <form action="" method="POST" class="p-3 md:p-8">
         <div class="text-center my-3 ">
-          <h1 class="titulo text-2xl md:text-4xl">Ingresar</h1>
+          <h1 class="titulo text-2xl md:text-4xl">Log In</h1>
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1">Email</label>-->
@@ -19,22 +19,18 @@
         </div>
         <div class="my-3 md:my-6">
           <!--<label for="" class="block py-1">Contraseña</label>-->
-          <input type="password" id="password" name="password" id="" placeholder="Contraseña" value="<%= (typeof old != 'undefined' && old.password) ? old.password : ""%>"  class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
+          <input type="password" id="password" name="password" id="" placeholder="Password" class="leading-8 md:leading-10 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
           <span class="errores" id="passwordErrors" ><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : "" %></span>
         </div>
         <div>
-          <input type="checkbox" name="recordar" id="recordar" class="recordarme"><label for="recordar">recordar</label>
+          <input type="checkbox" name="recordar" id="recordar" class="recordarme"><label for="recordar">Remember</label>
         </div>
-        <a href="#" class="text-xs md:text-sm">¿Olvidaste tu contraseña?</a>
+        <p href="#" class="text-xs md:text-sm">¿Forget your password?</p>
         <div class="my-5 flex justify-center">
-          <button type="submit" class="button w-5/12 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">Ingresar</button>
+          <button type="submit" class="button w-5/12 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50">Log In</button>
         </div>
       </form>
-      <% if (typeof error != 'undefined') { %>
-        <div class="text-center text-purple-800">
-            <span class="text-lg"> <%= error.msg %> </span>
-        </div>
-    <% } %>
+      
     </div>
   </main>
   <!-- Footer -->
