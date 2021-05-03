@@ -4,9 +4,9 @@
 <body>   
     <!-- Header -->
     <%- include('../partials/header') %> 
-    <main class="admin-form mx-3 mt-32">
+    <main class="admin-form mx-3 sm:mx-12 md:mx-24 mt-32 lg:mx-32">
       <form action="/admin/product/update/<%= producto.id %>?_method=PUT"  method="POST" enctype="multipart/form-data">
-          <h2 class="my-5 text-lg">Edit product</h2>
+          <h2 class="my-5 text-2xl sm:text-3xl">Edit product</h2>
           <div class="grid grid-cols-1 gap-2">
               <select name="category" id="select-primario" class="select">
                 <option selected hidden value="0" >Choose a Category</option>
@@ -76,7 +76,7 @@
                             <input type="number" name="<%=`stock${talle.Size.size}[]`%>"  value="<%=talle.stock %>" placeholder="stock/cantidad" class="leading-5 md:leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent">
                           <% }) %>
                       </div>
-                          <span class="eliminar">Delete</span>
+                          <!--<span class="eliminar">Delete</span>-->
                   </div> 
                 <% }) %>
                 

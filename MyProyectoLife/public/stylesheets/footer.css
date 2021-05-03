@@ -4,7 +4,8 @@
     position: relative; /*sujeto a modificacion()*/
     bottom: 0;
     width: 100%;
-    height: 100px;
+    /*height: 100px;*/
+    
     color: white;
     padding: 10px 20px;
 }

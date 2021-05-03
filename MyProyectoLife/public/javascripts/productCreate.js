@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
       })
       .then(result => {
           console.log(result)
-          select2.innerHTML = '<option hidden selected value="0" >Elija una subcategoria</option>'
+          select2.innerHTML = '<option hidden selected value="0" >choose a subcategory</option>'
           result.subcategoria.forEach(subcategoria => {
               select2.innerHTML += `<option value="${subcategoria.id}" >${subcategoria.subcategory}</option>`
           })
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
   select1.addEventListener('blur', function(){
       if(this.value == 0){
           this.classList.add('is-invalid');
-          let error = 'Se requiere una categoria';
+          let error = 'You must select a category';
           errorCategory.innerHTML = error;
       }
       else{
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(){
   select2.addEventListener('blur', function(){
     if(this.value == 0){
         this.classList.add('is-invalid');
-        let error = 'Se requiere una subcategoria';
+        let error = 'You must select a subcategory';
         errorSubcategory.innerHTML = error;
     }
     else{
@@ -83,12 +83,12 @@ document.addEventListener("DOMContentLoaded", function(){
        console.log(inputName.value)
         if(this.value == '' || this.value == null) {
             this.classList.add('is-invalid');
-            let error = 'El campo es obligatorio';
+            let error = 'the field is required';
             errorName.innerHTML = error;
         }
         else if(this.value != '' && this.value.length <5 ){
             this.classList.add('is-invalid');
-            let error = 'El campo debe tener un minimo de 5 caracteres';
+            let error = 'The field must have a minimum of 5 characters';
             errorName.innerHTML = error;
         }
         else {
@@ -101,12 +101,12 @@ document.addEventListener("DOMContentLoaded", function(){
         //console.log(inputDescription.value)
         if(this.value == '' || this.value == null) {
             this.classList.add('is-invalid');
-            let error = 'El campo es obligatorio';
+            let error = 'the field is required';
             errorDescription.innerHTML = error;
         }
         else if(this.value != '' && this.value.length <20 ){
             this.classList.add('is-invalid');
-            let error = 'El campo debe tener un minimo de 20 caracteres';
+            let error = 'The field must have a minimum of 20 characters';
             errorDescription.innerHTML = error;
         }
         else {
@@ -119,12 +119,12 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(inputPrice.value)
         if(this.value == '' || this.value == 0) {
             this.classList.add('is-invalid');
-            let error = 'Debe ingresar un precio';
+            let error = 'You must enter a price';
             errorPrice.innerHTML = error;
         }
         else if(this.value != '' && this.value.length <=2 ){
             this.classList.add('is-invalid');
-            let error = 'Debe ingresar un precio valido';
+            let error = 'You must enter a valid price';
             errorPrice.innerHTML = error;
         }
         else {
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){
        // console.log(inputPrice.value)
         if(this.value == '' || this.value < 0 ) {
             this.classList.add('is-invalid');
-            let error = 'Debe ingresar un descuento, en caso de no tener ingrese un 0';
+            let error = 'You must enter a discount, in case of not having enter a 0';
             errorDiscount.innerHTML = error;
         }
         else {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(){
             //console.log(inputFile)
             if(inputFile.files[i].name != "" && !(/\.(jpg|jpeg|png|gif)$/i).test(inputFile.files[i].name)){
                 this.classList.add('is-invalid');
-                let error = `extension de archivo(${i +1}) no permitido <br>`;
+                let error = `file extension(${i +1}) not allowed <br>`;
                 errorFile.innerHTML += error; 
             }
             else {

@@ -8,7 +8,7 @@ module.exports= [
             return true
         }
     })
-    .withMessage('Debe seleccionar una categoria'),
+    .withMessage('You must select a category'),
 
     body('subcategory').custom(function(value) {
         if(value=='0'){
@@ -17,15 +17,15 @@ module.exports= [
             return true
         }
     })
-    .withMessage('Debe seleccionar una subcategoria'),
+    .withMessage('You must select a subcategory'),
 
-    check('name').isLength({min:3}).withMessage('Debe ingresar un nombre de producto'),
+    check('name').isLength({min:3}).withMessage('You must enter a product name'),
 
     check('description').isLength({min:5,max:450}).withMessage('La descripcion debe tener entre 5-450 caracteres'),
 
-    check('price').isLength({min:2}).withMessage('Debe ingresar el precio del producto'),
+    check('price').isLength({min:2}).withMessage('The description must be between 5-450 characters'),
 
-    check('discount').isLength({min:1}).withMessage('Debe ingresar un valor de descuento'),
+    check('discount').isLength({min:1}).withMessage('You must enter a discount value'),
 
     /*body('color[]').exists()
     .notEmpty().withMessage("no puede se vacio")
