@@ -27,46 +27,6 @@ window.addEventListener('load', () => {
     regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
     regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
-    //VALIDACION LOGIN//
-
-   $email.addEventListener('blur', function() {
-    switch (true) {
-        case !$email.value.trim():
-            $emailErrors.innerHTML = 'The email field is required';
-            $email.classList.add('is-invalid')
-            break;
-        case !regExEmail.test($email.value):
-            $emailErrors.innerHTML = 'Invalid email';
-            $email.classList.add('is-invalid')
-            break
-        default:
-            $email.classList.remove('is-invalid');
-            $email.classList.add('is-valid');
-            $emailErrors.innerHTML = ''
-            break;
-     }
-    })
-
-
-  $password.addEventListener('blur', function() {
-    switch (true) {
-        case !$password.value.trim():
-            $passwordErrors.innerHTML = 'The password field is required';
-            $passwordLog.classList.add('is-invalid')
-            break;
-        case $password.value != $password.value:
-                passw$password2Errors.innerHTML = 'Invalid password';
-                $password2.classList.add('is-invalid')
-                break;
-        
-        default:
-            $passwordwordLog.classList.remove('is-invalid');
-            $passwordwordLog.classList.add('is-valid');
-            $passwordErrorsLog.innerHTML = ''
-            break;
-        }
-    })
-
     //VALIDACION DE REGISTRO//
     $inputName.addEventListener('blur', function(){
         console.log($inputName.value.trim())
@@ -150,7 +110,7 @@ window.addEventListener('load', () => {
                 $password2.classList.add('is-invalid')
                 break;
             case $password2.value != $password2.value:
-                passw$password2Errors.innerHTML = 'The Confirm Password field you entered does not match';
+                $password2Errors.innerHTML = 'The Confirm Password field you entered does not match';
                 $password2.classList.add('is-invalid')
                 break;
             default:

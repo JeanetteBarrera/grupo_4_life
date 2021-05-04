@@ -6,6 +6,11 @@
     object-fit: contain;
 }*/
 
+.listarProducts {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 20%;
+}
 .listarProducts .colors li{
     /*margin: 0 20px 0 0; */
     display: inline-block;
