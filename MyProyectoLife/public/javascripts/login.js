@@ -5,7 +5,7 @@ let qs = function(elemento){
 window.addEventListener('load', () => {
     console.log('Vinculado')
 
-    let $inputName = qs('#name'),
+    //let $inputName = qs('#name'),
     $form = qs('#form'),
     $submitErrors=qs("#submitErrors"),
     $email = qs('#email'),
@@ -47,14 +47,13 @@ window.addEventListener('load', () => {
                 $passwordErrors.innerHTML = 'The password field is required';
                 $password.classList.add('is-invalid')
                 break;
-            case    !regExPass.test($password.value):
-                    $password2Errors.innerHTML = 'Invalid password';
-                    $password2.classList.add('is-invalid')
-                    break;
-            
+            case !regExPass.test($password.value):
+                $passwordErrors.innerHTML = 'Invalid password';
+                $password.classList.add('is-invalid')
+                break;
             default:
-                $passwordword.classList.remove('is-invalid');
-                $passwordword.classList.add('is-valid');
+                $password.classList.remove('is-invalid');
+                $password.classList.add('is-valid');
                 $passwordErrors.innerHTML = ''
                 break;
             }
@@ -69,7 +68,7 @@ window.addEventListener('load', () => {
             for (let index = 0; index < elementosForm.length-1; index++) {
                 if(elementosForm[index].value == ""){
                     elementosForm[index].classList.add('is-invalid');
-                    $submitErrors.innerHTML = "the indicated fields are required";
+                    $submitErrors.innerHTML = "The indicated fields are required";
                     error = true;
                 }
             }

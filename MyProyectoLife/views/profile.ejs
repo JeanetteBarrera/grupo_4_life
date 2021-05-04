@@ -13,7 +13,7 @@
       <h2 class="w-full py-6 text-2xl md:text-3xl">¡HELLO! <%= user.name %></h2>
       
       <div class="w-full sm:w-1/2 avatar-2 mx-auto">
-        <img id="imagenPrevizualizacion"src="/images/avatars/<%= user.avatar %>" alt="" class="w-full cover">
+        <img id="imagenPrevisualizacion" src="/images/avatars/<%= user.avatar %>" alt="" class="w-full cover">
         <input type="file" name="avatar" id="seleccionArchivos" value="<%= user.avatar %>" accept="image/png, image/jpg, image/jpeg, image/gif">
       </div>
       
@@ -60,19 +60,19 @@
 
   <!-- Footer -->
   <script src="/javascripts/header.js"></script>
-  <%- include("./partials/footer") %>
-  ><script >// Obtener referencia al input y a la imagen
-
+  <!--<script src="/javascripts/previewImage.js"></script>-->
+  <script>
+    // Obtener referencia al input y a la imagen
     const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
       $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
-    
+
     // Escuchar cuando cambie
     $seleccionArchivos.addEventListener("change", () => {
       // Los archivos seleccionados, pueden ser muchos o uno
       const archivos = $seleccionArchivos.files;
       // Si no hay archivos salimos de la función y quitamos la imagen
       if (!archivos || !archivos.length) {
-        $imagenPrevisualizacion.src = "/images/avatars/<%= user.avatar %>";
+        $imagenPrevisualizacion.src ="/images/avatars/<%= user.avatar %>";
         return;
       }
       // Ahora tomamos el primer archivo, el cual vamos a previsualizar
@@ -81,6 +81,9 @@
       const objectURL = URL.createObjectURL(primerArchivo);
       // Y a la fuente de la imagen le ponemos el objectURL
       $imagenPrevisualizacion.src = objectURL;
-    });</script>
+    });
+  </script>
+
+  <%- include("./partials/footer") %>
 </body>
 </html>
